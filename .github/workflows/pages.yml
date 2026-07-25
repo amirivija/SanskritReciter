@@ -39,6 +39,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable Pages (Actions source) if not yet configured on the repo
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
