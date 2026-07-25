@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>अमरकोश · ब्रह्मवर्ग</title>
+  <style>
+
+  :root {
+    --bg: #f7f3ea;
+    --card: #fffdf7;
+    --ink: #1c1917;
+    --muted: #78716c;
+    --accent: #9a3412;
+    --line: #e7e0d2;
+    --audio-bg: #f5efe3;
+    --ann-bg: #faf6ef;
+    --radius: 14px;
+    --font-sa: "Noto Serif Devanagari", "Devanagari MT", "Arial Unicode MS", serif;
+    --font-ui: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 10% -10%, #fff8e7, transparent),
+                radial-gradient(900px 500px at 100% 0%, #f0e6d4, transparent),
+                var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.55;
+  }
+  .pack-header, .pack-footer, .verse-list {
+    width: min(820px, calc(100% - 2rem));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pack-header {
+    padding: 2.2rem 0 1rem;
+  }
+  .pack-header h1 {
+    font-family: var(--font-sa);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin: 0 0 0.35rem;
+    color: var(--accent);
+  }
+  .subtitle { margin: 0.2rem 0; color: var(--muted); }
+  .description { margin: 0.6rem 0 0; max-width: 60ch; }
+  .stats { color: var(--muted); font-size: 0.92rem; margin: 0.75rem 0 1rem; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .btn {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fffaf3;
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    font: inherit;
+    cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+  }
+  .toggle { color: var(--muted); font-size: 0.92rem; display: flex; gap: 0.4rem; align-items: center; }
+  .verse-list { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 3rem; }
+  .verse {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem 1.15rem;
+    box-shadow: 0 8px 24px rgba(68, 42, 12, 0.04);
+  }
+  .verse:target, .verse.playing {
+    border-color: #d6a57a;
+    box-shadow: 0 0 0 3px rgba(154, 52, 18, 0.08);
+  }
+  .verse-error { opacity: 0.85; }
+  .verse-header {
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 0.55rem; color: var(--muted); font-size: 0.86rem;
+  }
+  .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 1.8rem; height: 1.8rem; border-radius: 999px;
+    background: #f3e7d5; color: var(--accent); font-weight: 700; font-size: 0.85rem;
+  }
+  .ref, .meter { background: #f3eee4; padding: 0.1rem 0.45rem; border-radius: 6px; }
+  .sloka-text {
+    font-family: var(--font-sa);
+    font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+    line-height: 1.85;
+    margin: 0.2rem 0 0.85rem;
+    white-space: normal;
+  }
+  .audio-block {
+    background: var(--audio-bg);
+    border-radius: 10px;
+    padding: 0.55rem 0.7rem;
+  }
+  .verse-audio { width: 100%; height: 36px; }
+  .audio-error, .audio-missing { color: #b45309; font-size: 0.9rem; margin: 0.4rem 0; }
+  .annotations {
+    margin-top: 0.9rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .annotation {
+    background: var(--ann-bg);
+    border-left: 3px solid #d6a57a;
+    border-radius: 0 10px 10px 0;
+    padding: 0.65rem 0.85rem;
+  }
+  .ann-title {
+    margin: 0 0 0.35rem;
+    font-size: 0.92rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+  .ann-body { font-size: 0.98rem; }
+  .ann-body p { margin: 0.2rem 0; }
+  .ann-body ul { margin: 0.2rem 0; padding-left: 1.2rem; }
+  table.data, table.kv {
+    width: 100%; border-collapse: collapse; font-size: 0.95rem;
+  }
+  table.data th, table.data td, table.kv th, table.kv td {
+    border-bottom: 1px solid var(--line); padding: 0.35rem 0.4rem; text-align: left;
+    vertical-align: top;
+  }
+  table.data th { color: var(--muted); font-weight: 600; }
+  table.kv th { width: 30%; color: var(--muted); font-weight: 600; }
+  .pack-footer {
+    padding: 1rem 0 2.5rem; color: var(--muted); font-size: 0.85rem;
+  }
+  .pack-footer .hint { opacity: 0.85; }
+  @media (max-width: 560px) {
+    .pack-header, .pack-footer, .verse-list { width: calc(100% - 1.2rem); }
+    .verse { padding: 0.95rem; }
+  }
+
+  </style>
+</head>
+<body>
+  <header class="pack-header">
+    <h1>अमरकोश · ब्रह्मवर्ग</h1>
+    
+    
+    <p class="stats">127 śloka(s) · 127 with audio</p>
+    <nav class="toolbar">
+      <button type="button" id="btn-play-all" class="btn">▶ Play all</button>
+      <button type="button" id="btn-stop" class="btn btn-ghost">■ Stop</button>
+      <label class="toggle"><input type="checkbox" id="auto-advance" checked /> Auto-advance</label>
+    </nav>
+  </header>
+
+  <main class="verse-list" id="verse-list">
+
+    <article class="verse" id="v-001" data-verse-id="001" data-index="1">
+      <header class="verse-header">
+        <span class="num">1</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सन्ततिर्गोत्रजननकुलान्यभिजनान्वयौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-001" class="verse-audio" controls preload="none" src="audio/001.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-002" data-verse-id="002" data-index="2">
+      <header class="verse-header">
+        <span class="num">2</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वंशोऽन्ववायः सन्तानो वर्णाः स्युर्ब्राह्मणादयः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-002" class="verse-audio" controls preload="none" src="audio/002.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-003" data-verse-id="003" data-index="3">
+      <header class="verse-header">
+        <span class="num">3</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">विप्रक्षत्रियविट्छूद्राश्चातुर्वर्ण्यमिति स्मृतम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-003" class="verse-audio" controls preload="none" src="audio/003.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-004" data-verse-id="004" data-index="4">
+      <header class="verse-header">
+        <span class="num">4</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">राजबीजी राजवंश्यो बीज्यस्तु कुलसम्भवः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-004" class="verse-audio" controls preload="none" src="audio/004.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-005" data-verse-id="005" data-index="5">
+      <header class="verse-header">
+        <span class="num">5</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">महाकुलकुलीनार्यसभ्यसज्जनसाधवः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-005" class="verse-audio" controls preload="none" src="audio/005.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-006" data-verse-id="006" data-index="6">
+      <header class="verse-header">
+        <span class="num">6</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ब्रह्मचारी गृही वानप्रस्थो भिक्षुश्चतुष्टये ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-006" class="verse-audio" controls preload="none" src="audio/006.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-007" data-verse-id="007" data-index="7">
+      <header class="verse-header">
+        <span class="num">7</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">आश्रमोऽस्त्री द्विजात्यग्रजन्मभूदेववाडवाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-007" class="verse-audio" controls preload="none" src="audio/007.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-008" data-verse-id="008" data-index="8">
+      <header class="verse-header">
+        <span class="num">8</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">विप्रश्च ब्राह्मणोऽसौ षट्कर्मा यागादिभिर्वृतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-008" class="verse-audio" controls preload="none" src="audio/008.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-009" data-verse-id="009" data-index="9">
+      <header class="verse-header">
+        <span class="num">9</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">विद्वान् विपश्चिद्दोषज्ञः सन् सुधीः कोविदो बुधः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-009" class="verse-audio" controls preload="none" src="audio/009.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-010" data-verse-id="010" data-index="10">
+      <header class="verse-header">
+        <span class="num">10</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">धीरो मनीषी ज्ञः प्राज्ञः सङ्ख्यावान् पण्डितः कविः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-010" class="verse-audio" controls preload="none" src="audio/010.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-011" data-verse-id="011" data-index="11">
+      <header class="verse-header">
+        <span class="num">11</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">धीमान् सूरिः कृती कृष्टिर्लब्धवर्णो विचक्षणः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-011" class="verse-audio" controls preload="none" src="audio/011.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-012" data-verse-id="012" data-index="12">
+      <header class="verse-header">
+        <span class="num">12</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">दूरदर्शी दीर्घदर्शी श्रोत्रियच्छान्दसौ समौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-012" class="verse-audio" controls preload="none" src="audio/012.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-013" data-verse-id="013" data-index="13">
+      <header class="verse-header">
+        <span class="num">13</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">मीमांसको जैमिनीये वेदान्ती ब्रह्मवादिनि ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-013" class="verse-audio" controls preload="none" src="audio/013.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-014" data-verse-id="014" data-index="14">
+      <header class="verse-header">
+        <span class="num">14</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वैशेषिके स्यादौलूक्यः सौगतः शून्यवादिनि ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-014" class="verse-audio" controls preload="none" src="audio/014.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-015" data-verse-id="015" data-index="15">
+      <header class="verse-header">
+        <span class="num">15</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">नैयायिकस्त्वक्षपादः स्यात् स्याद्वादिक आर्हकः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-015" class="verse-audio" controls preload="none" src="audio/015.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-016" data-verse-id="016" data-index="16">
+      <header class="verse-header">
+        <span class="num">16</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">चार्वाकलौकायतिकौ सत्कार्ये साङ्ख्यकापिलौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-016" class="verse-audio" controls preload="none" src="audio/016.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-017" data-verse-id="017" data-index="17">
+      <header class="verse-header">
+        <span class="num">17</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उपाध्यायोऽध्यापकोऽथ स्यान्निषेकादिकृद्गुरुः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-017" class="verse-audio" controls preload="none" src="audio/017.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-018" data-verse-id="018" data-index="18">
+      <header class="verse-header">
+        <span class="num">18</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">मन्त्रव्याख्याकृदाचार्य आदेष्टा त्वध्वरे व्रती ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-018" class="verse-audio" controls preload="none" src="audio/018.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-019" data-verse-id="019" data-index="19">
+      <header class="verse-header">
+        <span class="num">19</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यष्टा च यजमानश्च स सोमवति दीक्षितः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-019" class="verse-audio" controls preload="none" src="audio/019.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-020" data-verse-id="020" data-index="20">
+      <header class="verse-header">
+        <span class="num">20</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">इज्याशीलो यायजूको यज्वा तु विधिनेष्टवान् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-020" class="verse-audio" controls preload="none" src="audio/020.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-021" data-verse-id="021" data-index="21">
+      <header class="verse-header">
+        <span class="num">21</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स गीष्पतीष्ट्या स्थपतिः सोमपीथी तु सोमपाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-021" class="verse-audio" controls preload="none" src="audio/021.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-022" data-verse-id="022" data-index="22">
+      <header class="verse-header">
+        <span class="num">22</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सर्ववेदाः स येनेष्टो यागः सर्वस्वदक्षिणः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-022" class="verse-audio" controls preload="none" src="audio/022.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-023" data-verse-id="023" data-index="23">
+      <header class="verse-header">
+        <span class="num">23</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अनूचानः प्रवचने साङ्गेऽधीती गुरोस्तु यः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-023" class="verse-audio" controls preload="none" src="audio/023.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-024" data-verse-id="024" data-index="24">
+      <header class="verse-header">
+        <span class="num">24</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">लब्धानुज्ञः समावृत्तः सुत्वा त्वभिषवे कृते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-024" class="verse-audio" controls preload="none" src="audio/024.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-025" data-verse-id="025" data-index="25">
+      <header class="verse-header">
+        <span class="num">25</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">छात्रान्तेवासिनौ शिष्ये शैक्षाः प्राथमकल्पिकाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-025" class="verse-audio" controls preload="none" src="audio/025.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-026" data-verse-id="026" data-index="26">
+      <header class="verse-header">
+        <span class="num">26</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">एकब्रह्मव्रताचारा मिथः सब्रह्मचारिणः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-026" class="verse-audio" controls preload="none" src="audio/026.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-027" data-verse-id="027" data-index="27">
+      <header class="verse-header">
+        <span class="num">27</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सतीर्थ्यास्त्वेकगुरवश्चितवानग्निमग्निचित् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-027" class="verse-audio" controls preload="none" src="audio/027.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-028" data-verse-id="028" data-index="28">
+      <header class="verse-header">
+        <span class="num">28</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पारम्पर्योपदेशे स्यादैतिह्यमितिहाव्ययम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-028" class="verse-audio" controls preload="none" src="audio/028.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-029" data-verse-id="029" data-index="29">
+      <header class="verse-header">
+        <span class="num">29</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उपज्ञा ज्ञानमाद्यं स्याज्ज्ञात्वारम्भ उपक्रमः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-029" class="verse-audio" controls preload="none" src="audio/029.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-030" data-verse-id="030" data-index="30">
+      <header class="verse-header">
+        <span class="num">30</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यज्ञः सवोऽध्वरो यागः सप्ततन्तुर्मखः क्रतुः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-030" class="verse-audio" controls preload="none" src="audio/030.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-031" data-verse-id="031" data-index="31">
+      <header class="verse-header">
+        <span class="num">31</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पाठो होमश्चातिथीनां सपर्या तर्पणं बलिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-031" class="verse-audio" controls preload="none" src="audio/031.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-032" data-verse-id="032" data-index="32">
+      <header class="verse-header">
+        <span class="num">32</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">एते पञ्चमहायज्ञा ब्रह्मयज्ञादिनामकाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-032" class="verse-audio" controls preload="none" src="audio/032.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-033" data-verse-id="033" data-index="33">
+      <header class="verse-header">
+        <span class="num">33</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">समज्या परिषद्गोष्ठी सभासमितिसंसदः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-033" class="verse-audio" controls preload="none" src="audio/033.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-034" data-verse-id="034" data-index="34">
+      <header class="verse-header">
+        <span class="num">34</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">आस्थानी क्लीबमास्थानं स्त्रीनपुंसकयोः सदः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-034" class="verse-audio" controls preload="none" src="audio/034.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-035" data-verse-id="035" data-index="35">
+      <header class="verse-header">
+        <span class="num">35</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्राग्वंशः प्राग्घविर्गेहात् सदस्या विधिदर्शिनः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-035" class="verse-audio" controls preload="none" src="audio/035.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-036" data-verse-id="036" data-index="36">
+      <header class="verse-header">
+        <span class="num">36</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सभासदः सभास्ताराः सभ्याः सामाजिकाश्च ते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-036" class="verse-audio" controls preload="none" src="audio/036.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-037" data-verse-id="037" data-index="37">
+      <header class="verse-header">
+        <span class="num">37</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अध्वर्यूद्गातृहोतारो यजुःसामर्ग्विदः क्रमात् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-037" class="verse-audio" controls preload="none" src="audio/037.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-038" data-verse-id="038" data-index="38">
+      <header class="verse-header">
+        <span class="num">38</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">आग्नीध्राद्या धनैर्वार्या ऋत्विजो याजकाश्च ते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-038" class="verse-audio" controls preload="none" src="audio/038.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-039" data-verse-id="039" data-index="39">
+      <header class="verse-header">
+        <span class="num">39</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वेदिः परिष्कृता भूमिः समे स्थण्डिलचत्वरे ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-039" class="verse-audio" controls preload="none" src="audio/039.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-040" data-verse-id="040" data-index="40">
+      <header class="verse-header">
+        <span class="num">40</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">चषालो यूपकटकः कुम्बा सुगहना वृतिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-040" class="verse-audio" controls preload="none" src="audio/040.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-041" data-verse-id="041" data-index="41">
+      <header class="verse-header">
+        <span class="num">41</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यूपाग्रं तर्म निर्मन्थ्यदारुणि त्वरणिर्द्वयोः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-041" class="verse-audio" controls preload="none" src="audio/041.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-042" data-verse-id="042" data-index="42">
+      <header class="verse-header">
+        <span class="num">42</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">दक्षिणाग्निर्गार्हपत्याहवनीयौ त्रयोऽग्नयः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-042" class="verse-audio" controls preload="none" src="audio/042.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-043" data-verse-id="043" data-index="43">
+      <header class="verse-header">
+        <span class="num">43</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अग्नित्रयमिदं त्रेता प्रणीतः संस्कृतोऽनलः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-043" class="verse-audio" controls preload="none" src="audio/043.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-044" data-verse-id="044" data-index="44">
+      <header class="verse-header">
+        <span class="num">44</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">समूह्यः परिचाय्योपचाय्यावग्नौ प्रयोगिणः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-044" class="verse-audio" controls preload="none" src="audio/044.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-045" data-verse-id="045" data-index="45">
+      <header class="verse-header">
+        <span class="num">45</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यो गार्हपत्यादानीय दक्षिणाग्निः प्रणीयते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-045" class="verse-audio" controls preload="none" src="audio/045.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-046" data-verse-id="046" data-index="46">
+      <header class="verse-header">
+        <span class="num">46</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">तस्मिन्नानाय्योऽथाग्नायी स्वाहा च हुतभुक्प्रिया ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-046" class="verse-audio" controls preload="none" src="audio/046.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-047" data-verse-id="047" data-index="47">
+      <header class="verse-header">
+        <span class="num">47</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ऋक्सामिधेनी धाय्या च या स्यादग्निसमिन्धने ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-047" class="verse-audio" controls preload="none" src="audio/047.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-048" data-verse-id="048" data-index="48">
+      <header class="verse-header">
+        <span class="num">48</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">गायत्रीप्रमुखं छन्दो हव्यपाके चरुः पुमान् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-048" class="verse-audio" controls preload="none" src="audio/048.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-049" data-verse-id="049" data-index="49">
+      <header class="verse-header">
+        <span class="num">49</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">आमिक्षा सा शृतोष्णे या क्षीरे स्याद्दधियोगतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-049" class="verse-audio" controls preload="none" src="audio/049.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-050" data-verse-id="050" data-index="50">
+      <header class="verse-header">
+        <span class="num">50</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">धवित्रं व्यजनं तद्यद्रचितं मृगचर्मणा ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-050" class="verse-audio" controls preload="none" src="audio/050.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-051" data-verse-id="051" data-index="51">
+      <header class="verse-header">
+        <span class="num">51</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पृषदाज्यं सदध्याज्ये परमान्नं तु पायसम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-051" class="verse-audio" controls preload="none" src="audio/051.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-052" data-verse-id="052" data-index="52">
+      <header class="verse-header">
+        <span class="num">52</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">हव्यकव्ये दैवपित्र्ये अन्ने पात्रं स्रुवादिकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-052" class="verse-audio" controls preload="none" src="audio/052.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-053" data-verse-id="053" data-index="53">
+      <header class="verse-header">
+        <span class="num">53</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ध्रुवोपभृज्जुहूर्ना तु स्रुवो भेदाः स्रुचः स्त्रियः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-053" class="verse-audio" controls preload="none" src="audio/053.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-054" data-verse-id="054" data-index="54">
+      <header class="verse-header">
+        <span class="num">54</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उपाकृतः पशुरसौ योऽभिमन्त्र्य क्रतौ हतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-054" class="verse-audio" controls preload="none" src="audio/054.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-055" data-verse-id="055" data-index="55">
+      <header class="verse-header">
+        <span class="num">55</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">परम्पराकं शमनं प्रोक्षणं च वधार्थकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-055" class="verse-audio" controls preload="none" src="audio/055.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-056" data-verse-id="056" data-index="56">
+      <header class="verse-header">
+        <span class="num">56</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वाच्यलिङ्गाः प्रमीतोपसम्पन्नप्रोक्षिता हते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-056" class="verse-audio" controls preload="none" src="audio/056.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-057" data-verse-id="057" data-index="57">
+      <header class="verse-header">
+        <span class="num">57</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सान्नाय्यं हविरग्नौ तु हुतं त्रिषु वषट्कृतम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-057" class="verse-audio" controls preload="none" src="audio/057.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-058" data-verse-id="058" data-index="58">
+      <header class="verse-header">
+        <span class="num">58</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">दीक्षान्तोऽवभृथो यज्ञे तत्कर्मार्हं तु यज्ञियम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-058" class="verse-audio" controls preload="none" src="audio/058.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-059" data-verse-id="059" data-index="59">
+      <header class="verse-header">
+        <span class="num">59</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">त्रिष्वथ क्रतुकर्मेष्टं पूर्तं खातादिकर्म यत् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-059" class="verse-audio" controls preload="none" src="audio/059.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-060" data-verse-id="060" data-index="60">
+      <header class="verse-header">
+        <span class="num">60</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अमृतं विघसो यज्ञशेषभोजनशेषयोः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-060" class="verse-audio" controls preload="none" src="audio/060.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-061" data-verse-id="061" data-index="61">
+      <header class="verse-header">
+        <span class="num">61</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">त्यागो विहापितं दानमुत्सर्जनविसर्जने ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-061" class="verse-audio" controls preload="none" src="audio/061.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-062" data-verse-id="062" data-index="62">
+      <header class="verse-header">
+        <span class="num">62</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">विश्राणनं वितरणं स्पर्शनं प्रतिपादनम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-062" class="verse-audio" controls preload="none" src="audio/062.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-063" data-verse-id="063" data-index="63">
+      <header class="verse-header">
+        <span class="num">63</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्रादेशनं निर्वपणमपवर्जनमंहतिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-063" class="verse-audio" controls preload="none" src="audio/063.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-064" data-verse-id="064" data-index="64">
+      <header class="verse-header">
+        <span class="num">64</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">मृतार्थं तदहे दानं त्रिषु स्यात् और्ध्वदैहिकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-064" class="verse-audio" controls preload="none" src="audio/064.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-065" data-verse-id="065" data-index="65">
+      <header class="verse-header">
+        <span class="num">65</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पितृदानं निवापः स्याच्छ्राद्धं तत्कर्म शास्त्रतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-065" class="verse-audio" controls preload="none" src="audio/065.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-066" data-verse-id="066" data-index="66">
+      <header class="verse-header">
+        <span class="num">66</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अन्वाहार्यं मासिकेंऽशोऽष्टमोऽह्नः कुतपोऽस्त्रियाम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-066" class="verse-audio" controls preload="none" src="audio/066.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-067" data-verse-id="067" data-index="67">
+      <header class="verse-header">
+        <span class="num">67</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पर्येषणा परीष्टिश्चान्वेषणा च गवेषणा ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-067" class="verse-audio" controls preload="none" src="audio/067.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-068" data-verse-id="068" data-index="68">
+      <header class="verse-header">
+        <span class="num">68</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सनिस्त्वध्येषणा याच्ञाभिशस्तिर्याचनार्थना ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-068" class="verse-audio" controls preload="none" src="audio/068.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-069" data-verse-id="069" data-index="69">
+      <header class="verse-header">
+        <span class="num">69</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">षट् तु त्रिष्वर्घ्यमर्घार्थे पाद्यं पादाय वारिणि ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-069" class="verse-audio" controls preload="none" src="audio/069.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-070" data-verse-id="070" data-index="70">
+      <header class="verse-header">
+        <span class="num">70</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">क्रमादातिथ्यातिथेये अतिथ्यर्थेऽत्र साधुनि ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-070" class="verse-audio" controls preload="none" src="audio/070.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-071" data-verse-id="071" data-index="71">
+      <header class="verse-header">
+        <span class="num">71</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स्युरावेशिक आगन्तुरतिथिर्ना गृहागते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-071" class="verse-audio" controls preload="none" src="audio/071.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-072" data-verse-id="072" data-index="72">
+      <header class="verse-header">
+        <span class="num">72</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्राघूर्णिकः प्राघूणकश्चाभ्युत्थानं तु गौरवम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-072" class="verse-audio" controls preload="none" src="audio/072.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-073" data-verse-id="073" data-index="73">
+      <header class="verse-header">
+        <span class="num">73</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पूजा नमस्यापचितिः सपर्यार्चार्हणाः समाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-073" class="verse-audio" controls preload="none" src="audio/073.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-074" data-verse-id="074" data-index="74">
+      <header class="verse-header">
+        <span class="num">74</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वरिवस्या तु शुश्रूषा परिचर्याप्युपासना ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-074" class="verse-audio" controls preload="none" src="audio/074.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-075" data-verse-id="075" data-index="75">
+      <header class="verse-header">
+        <span class="num">75</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">व्रज्याटाट्या पर्यटनं चर्या त्वीर्यापथे स्थितिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-075" class="verse-audio" controls preload="none" src="audio/075.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-076" data-verse-id="076" data-index="76">
+      <header class="verse-header">
+        <span class="num">76</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उपस्पर्शस्त्वाचमनमथ मौनमभाषणम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-076" class="verse-audio" controls preload="none" src="audio/076.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-077" data-verse-id="077" data-index="77">
+      <header class="verse-header">
+        <span class="num">77</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्राचेतसश्चादिकविः स्यान्मैत्रावरुणिश्च सः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-077" class="verse-audio" controls preload="none" src="audio/077.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-078" data-verse-id="078" data-index="78">
+      <header class="verse-header">
+        <span class="num">78</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वाल्मीकिश्चाथ गाधेयो विश्वामित्रश्च कौशिकः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-078" class="verse-audio" controls preload="none" src="audio/078.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-079" data-verse-id="079" data-index="79">
+      <header class="verse-header">
+        <span class="num">79</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">व्यासो द्वैपायनः पाराशर्यः सत्यवतीसुतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-079" class="verse-audio" controls preload="none" src="audio/079.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-080" data-verse-id="080" data-index="80">
+      <header class="verse-header">
+        <span class="num">80</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">आनुपूर्वी स्त्रियां वावृत् परिपाटी अनुक्रमः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-080" class="verse-audio" controls preload="none" src="audio/080.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-081" data-verse-id="081" data-index="81">
+      <header class="verse-header">
+        <span class="num">81</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पर्यायश्चातिपातस्तु स्यात् पर्यय उपात्ययः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-081" class="verse-audio" controls preload="none" src="audio/081.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-082" data-verse-id="082" data-index="82">
+      <header class="verse-header">
+        <span class="num">82</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">नियमो व्रतमस्त्री तच्चोपवासादि पुण्यकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-082" class="verse-audio" controls preload="none" src="audio/082.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-083" data-verse-id="083" data-index="83">
+      <header class="verse-header">
+        <span class="num">83</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">औपवस्तं तूपवासो विवेकः पृथगात्मता ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-083" class="verse-audio" controls preload="none" src="audio/083.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-084" data-verse-id="084" data-index="84">
+      <header class="verse-header">
+        <span class="num">84</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स्याद्ब्रह्मवर्चसं वृत्ताध्ययनर्द्धिरथाञ्जलिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-084" class="verse-audio" controls preload="none" src="audio/084.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-085" data-verse-id="085" data-index="85">
+      <header class="verse-header">
+        <span class="num">85</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पाठे ब्रह्माञ्जलिः पाठे विप्रुषो ब्रह्मबिन्दवः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-085" class="verse-audio" controls preload="none" src="audio/085.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-086" data-verse-id="086" data-index="86">
+      <header class="verse-header">
+        <span class="num">86</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ध्यानयोगासने ब्रह्मासनं कल्पे विधिक्रमौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-086" class="verse-audio" controls preload="none" src="audio/086.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-087" data-verse-id="087" data-index="87">
+      <header class="verse-header">
+        <span class="num">87</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">मुख्यः स्यात् प्रथमः कल्पोऽनुकल्पस्तु ततोऽधमः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-087" class="verse-audio" controls preload="none" src="audio/087.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-088" data-verse-id="088" data-index="88">
+      <header class="verse-header">
+        <span class="num">88</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">वैखानसो वनस्थः स्याद्गृहमेधी गृहस्थितः ।</div>
+      
+      <div class="audio-block">
+        <audio id="audio-088" class="verse-audio" controls preload="none" src="audio/088.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-089" data-verse-id="089" data-index="89">
+      <header class="verse-header">
+        <span class="num">89</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">संस्कारपूर्वं ग्रहणं स्यादुपाकरणं श्रुतेः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-089" class="verse-audio" controls preload="none" src="audio/089.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-090" data-verse-id="090" data-index="90">
+      <header class="verse-header">
+        <span class="num">90</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">समे तु पादग्रहणमभिवादनमित्युभे ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-090" class="verse-audio" controls preload="none" src="audio/090.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-091" data-verse-id="091" data-index="91">
+      <header class="verse-header">
+        <span class="num">91</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्रणिपातो नमस्कारः प्रणामो वन्दनं नतिः ।</div>
+      
+      <div class="audio-block">
+        <audio id="audio-091" class="verse-audio" controls preload="none" src="audio/091.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-092" data-verse-id="092" data-index="92">
+      <header class="verse-header">
+        <span class="num">92</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">भिक्षुः परिव्राट् कर्मन्दी पाराशर्यपि मस्करी ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-092" class="verse-audio" controls preload="none" src="audio/092.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-093" data-verse-id="093" data-index="93">
+      <header class="verse-header">
+        <span class="num">93</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">तपस्वी तापसः पारिकाङ्क्षी वाचंयमो मुनिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-093" class="verse-audio" controls preload="none" src="audio/093.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-094" data-verse-id="094" data-index="94">
+      <header class="verse-header">
+        <span class="num">94</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">तपःक्लेशसहो दान्तो वर्णिनो ब्रह्मचारिणः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-094" class="verse-audio" controls preload="none" src="audio/094.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-095" data-verse-id="095" data-index="95">
+      <header class="verse-header">
+        <span class="num">95</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ऋषयः सत्यवचसः स्नातकस्त्वाप्लुतव्रती ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-095" class="verse-audio" controls preload="none" src="audio/095.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-096" data-verse-id="096" data-index="96">
+      <header class="verse-header">
+        <span class="num">96</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ये निर्जितेन्द्रियग्रामा यतिनो यतयश्च ते ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-096" class="verse-audio" controls preload="none" src="audio/096.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-097" data-verse-id="097" data-index="97">
+      <header class="verse-header">
+        <span class="num">97</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यः स्थण्डिले व्रतवशाच्छेते स्थण्डिलशाय्यसौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-097" class="verse-audio" controls preload="none" src="audio/097.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-098" data-verse-id="098" data-index="98">
+      <header class="verse-header">
+        <span class="num">98</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स्थाण्डिलश्चाथ विरजस्तमसः स्युर्द्वयातिगाः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-098" class="verse-audio" controls preload="none" src="audio/098.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-099" data-verse-id="099" data-index="99">
+      <header class="verse-header">
+        <span class="num">99</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पवित्रः प्रयतः पूतः पाषण्डाः सर्वलिङ्गिनः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-099" class="verse-audio" controls preload="none" src="audio/099.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-100" data-verse-id="100" data-index="100">
+      <header class="verse-header">
+        <span class="num">100</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">पालाशो दण्ड आषाढो व्रते राम्भस्तु वैणवः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-100" class="verse-audio" controls preload="none" src="audio/100.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-101" data-verse-id="101" data-index="101">
+      <header class="verse-header">
+        <span class="num">101</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अस्त्री कमण्डलुः कुण्डी व्रतिनामासनं वृषी ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-101" class="verse-audio" controls preload="none" src="audio/101.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-102" data-verse-id="102" data-index="102">
+      <header class="verse-header">
+        <span class="num">102</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अजिनं चर्म कृत्तिः स्त्री भैक्षं भिक्षाकदम्बकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-102" class="verse-audio" controls preload="none" src="audio/102.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-103" data-verse-id="103" data-index="103">
+      <header class="verse-header">
+        <span class="num">103</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स्वाध्यायः स्याज्जपः सुत्याभिषवः सवनं च सा ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-103" class="verse-audio" controls preload="none" src="audio/103.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-104" data-verse-id="104" data-index="104">
+      <header class="verse-header">
+        <span class="num">104</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सर्वैनसामपध्वंसि जप्यं त्रिष्वघमर्षणम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-104" class="verse-audio" controls preload="none" src="audio/104.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-105" data-verse-id="105" data-index="105">
+      <header class="verse-header">
+        <span class="num">105</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">दर्शश्च पौर्णमासश्च यागौ पक्षान्तयोः पृथक् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-105" class="verse-audio" controls preload="none" src="audio/105.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-106" data-verse-id="106" data-index="106">
+      <header class="verse-header">
+        <span class="num">106</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">शरीरसाधनापेक्षं नित्यं यत्कर्म तद्यमः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-106" class="verse-audio" controls preload="none" src="audio/106.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-107" data-verse-id="107" data-index="107">
+      <header class="verse-header">
+        <span class="num">107</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">नियमस्तु स यत्कर्म नित्यमागन्तुसाधनम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-107" class="verse-audio" controls preload="none" src="audio/107.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-108" data-verse-id="108" data-index="108">
+      <header class="verse-header">
+        <span class="num">108</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">क्षौरं तु भद्राकरणं मुण्डनं वपनं त्रिषु ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-108" class="verse-audio" controls preload="none" src="audio/108.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-109" data-verse-id="109" data-index="109">
+      <header class="verse-header">
+        <span class="num">109</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">कक्षापटी च कौपीनं शाटी च स्त्रीति लक्ष्यतः ।</div>
+      
+      <div class="audio-block">
+        <audio id="audio-109" class="verse-audio" controls preload="none" src="audio/109.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-110" data-verse-id="110" data-index="110">
+      <header class="verse-header">
+        <span class="num">110</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उपवीतं ब्रह्मसूत्रं प्रोद्धृते दक्षिणे करे ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-110" class="verse-audio" controls preload="none" src="audio/110.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-111" data-verse-id="111" data-index="111">
+      <header class="verse-header">
+        <span class="num">111</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">प्राचीनावीतमन्यस्मिन् निवीतं कण्ठलम्बितम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-111" class="verse-audio" controls preload="none" src="audio/111.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-112" data-verse-id="112" data-index="112">
+      <header class="verse-header">
+        <span class="num">112</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अङ्गुल्यग्रे तीर्थं दैवं स्वल्पाङ्गुल्योर्मूले कायम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-112" class="verse-audio" controls preload="none" src="audio/112.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-113" data-verse-id="113" data-index="113">
+      <header class="verse-header">
+        <span class="num">113</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">मध्येऽङ्गुष्ठाङ्गुल्योः पित्र्यं मूले त्वङ्गुष्ठस्य ब्राह्मम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-113" class="verse-audio" controls preload="none" src="audio/113.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-114" data-verse-id="114" data-index="114">
+      <header class="verse-header">
+        <span class="num">114</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">स्याद्ब्रह्मभूयं ब्रह्मत्वं ब्रह्मसायुज्यमित्यपि ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-114" class="verse-audio" controls preload="none" src="audio/114.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-115" data-verse-id="115" data-index="115">
+      <header class="verse-header">
+        <span class="num">115</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">देवभूयादिकं तद्वत् कृच्छ्रं सान्तपनादिकम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-115" class="verse-audio" controls preload="none" src="audio/115.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-116" data-verse-id="116" data-index="116">
+      <header class="verse-header">
+        <span class="num">116</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सन्न्यासवत्यनशने पुमान् प्रायोऽथ वीरहा ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-116" class="verse-audio" controls preload="none" src="audio/116.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-117" data-verse-id="117" data-index="117">
+      <header class="verse-header">
+        <span class="num">117</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">नष्टाग्निः कुहना लोभान्मिथ्येर्यापथकल्पना ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-117" class="verse-audio" controls preload="none" src="audio/117.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-118" data-verse-id="118" data-index="118">
+      <header class="verse-header">
+        <span class="num">118</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">व्रात्यः संस्कारहीनः स्यादस्वाध्यायो निराकृतिः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-118" class="verse-audio" controls preload="none" src="audio/118.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-119" data-verse-id="119" data-index="119">
+      <header class="verse-header">
+        <span class="num">119</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">धर्मध्वजी लिङ्गवृत्तिरवकीर्णी क्षतव्रतः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-119" class="verse-audio" controls preload="none" src="audio/119.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-120" data-verse-id="120" data-index="120">
+      <header class="verse-header">
+        <span class="num">120</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सुप्ते यस्मिन्नस्तमेति सुप्ते यस्मिन्नुदेति च ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-120" class="verse-audio" controls preload="none" src="audio/120.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-121" data-verse-id="121" data-index="121">
+      <header class="verse-header">
+        <span class="num">121</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अंशुमानभिनिर्मुक्ताभ्युदितौ च यथाक्रमम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-121" class="verse-audio" controls preload="none" src="audio/121.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-122" data-verse-id="122" data-index="122">
+      <header class="verse-header">
+        <span class="num">122</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">परिवेत्तानुजोऽनूढे ज्येष्ठे दारपरिग्रहात् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-122" class="verse-audio" controls preload="none" src="audio/122.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-123" data-verse-id="123" data-index="123">
+      <header class="verse-header">
+        <span class="num">123</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">परिवित्तिस्तु तज्ज्यायान् विवाहोपयमौ समौ ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-123" class="verse-audio" controls preload="none" src="audio/123.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-124" data-verse-id="124" data-index="124">
+      <header class="verse-header">
+        <span class="num">124</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">तथा परिणयोद्वाहोपयामाः पाणिपीडनम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-124" class="verse-audio" controls preload="none" src="audio/124.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-125" data-verse-id="125" data-index="125">
+      <header class="verse-header">
+        <span class="num">125</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">व्यवायो ग्राम्यधर्मो मैथुनं निधुवनं रतम् ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-125" class="verse-audio" controls preload="none" src="audio/125.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-126" data-verse-id="126" data-index="126">
+      <header class="verse-header">
+        <span class="num">126</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">त्रिवर्गो धर्मकामार्थैश्चतुर्वर्गः समोक्षकैः ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-126" class="verse-audio" controls preload="none" src="audio/126.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+
+    <article class="verse" id="v-127" data-verse-id="127" data-index="127">
+      <header class="verse-header">
+        <span class="num">127</span>
+        <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सबलैस्तैश्चतुर्भद्रं जन्याः स्निग्धा वरस्य ये ॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-127" class="verse-audio" controls preload="none" src="audio/127.wav"></audio>
+      </div>
+      <section class="annotations annotations-empty" data-placeholder="annotations" hidden></section>
+    </article>
+  </main>
+
+  <footer class="pack-footer">
+    <p>Generated by SanskritReciter · audio via Vāgdhenu · offline learning pack</p>
+    <p class="hint">Future annotations (anvaya, pratipadārtha, grammar, …) appear under each śloka when provided.</p>
+  </footer>
+
+  <script>
+
+  (function () {
+    const players = () => Array.from(document.querySelectorAll('audio.verse-audio'));
+    const autoAdv = () => document.getElementById('auto-advance')?.checked;
+
+    function clearPlaying() {
+      document.querySelectorAll('.verse.playing').forEach(el => el.classList.remove('playing'));
+    }
+
+    players().forEach((audio, idx, all) => {
+      audio.addEventListener('play', () => {
+        clearPlaying();
+        audio.closest('.verse')?.classList.add('playing');
+        all.forEach(a => { if (a !== audio) { a.pause(); } });
+      });
+      audio.addEventListener('ended', () => {
+        audio.closest('.verse')?.classList.remove('playing');
+        if (!autoAdv()) return;
+        const next = all[idx + 1];
+        if (next) {
+          next.closest('.verse')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          next.play().catch(() => {});
+        }
+      });
+      audio.addEventListener('pause', () => {
+        if (audio.ended) return;
+        // keep highlight only while actively playing
+        if (audio.currentTime > 0 && !audio.paused) return;
+      });
+    });
+
+    document.getElementById('btn-play-all')?.addEventListener('click', () => {
+      const all = players();
+      if (!all.length) return;
+      all.forEach(a => { a.pause(); a.currentTime = 0; });
+      all[0].closest('.verse')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      all[0].play().catch(() => {});
+    });
+    document.getElementById('btn-stop')?.addEventListener('click', () => {
+      players().forEach(a => { a.pause(); });
+      clearPlaying();
+    });
+  })();
+
+  </script>
+</body>
+</html>

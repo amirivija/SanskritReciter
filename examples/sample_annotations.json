@@ -1,0 +1,48 @@
+{
+  "title": "Sample Learning Pack",
+  "subtitle": "Demo annotations (anvaya · pratipada · grammar)",
+  "description": "Illustrates how literary decorations attach to each śloka. Replace with real content for your curriculum.",
+  "verses": {
+    "001": {
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "content": "वसुदेवस्य सुतं देवं कंस-चाणूर-मर्दनं देवकी-परमानन्दं जगद्गुरुं कृष्णं वन्दे।"
+        },
+        {
+          "kind": "pratipada",
+          "render": "table",
+          "content": [
+            {"pada": "वसुदेवसुतम्", "artha": "son of Vasudeva"},
+            {"pada": "देवम्", "artha": "the divine Lord"},
+            {"pada": "कंसचाणूरमर्दनम्", "artha": "slayer of Kaṃsa and Cāṇūra"},
+            {"pada": "देवकीपरमानन्दम्", "artha": "supreme joy of Devakī"},
+            {"pada": "कृष्णम्", "artha": "Kṛṣṇa"},
+            {"pada": "वन्दे", "artha": "I bow"},
+            {"pada": "जगद्गुरुम्", "artha": "teacher of the world"}
+          ]
+        },
+        {
+          "kind": "translation",
+          "content": "I bow to Kṛṣṇa, son of Vasudeva, the Lord who crushed Kaṃsa and Cāṇūra, the supreme joy of Devakī, the guru of the world."
+        },
+        {
+          "kind": "grammar",
+          "content": "वन्दे — ātmanepada, lat, uttama eka.\nकृष्णम् — dvitīyā eka (object of वन्दे)."
+        }
+      ]
+    },
+    "002": {
+      "annotations": [
+        {
+          "kind": "translation",
+          "content": "One should meditate on Viṣṇu, clad in white, moon-hued, four-armed, with a serene face — for the calming of all obstacles."
+        },
+        {
+          "kind": "literary",
+          "content": "Opening maṅgala-śloka style invocation; anuṣṭubh metre."
+        }
+      ]
+    }
+  }
+}

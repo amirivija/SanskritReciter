@@ -1,0 +1,110 @@
+{
+  "title": "Sample Learning Pack",
+  "subtitle": "Demo annotations (anvaya · pratipada · grammar)",
+  "description": "Illustrates how literary decorations attach to each śloka. Replace with real content for your curriculum.",
+  "language": "sa",
+  "meta": {
+    "source_file": "learn_demo.txt",
+    "verse_count": 2,
+    "audio_ok": 2,
+    "audio_failed": 0
+  },
+  "verses": [
+    {
+      "id": "001",
+      "index": 1,
+      "text": "वसुदेवसुतं देवं कंसचाणूरमर्दनम् ।\nदेवकीपरमानन्दं कृष्णं वन्दे जगद्गुरुम् ॥",
+      "audio": "audio/001.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": null,
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": null,
+          "render": "auto",
+          "content": "वसुदेवस्य सुतं देवं कंस-चाणूर-मर्दनं देवकी-परमानन्दं जगद्गुरुं कृष्णं वन्दे।",
+          "meta": {}
+        },
+        {
+          "kind": "pratipada",
+          "title": null,
+          "render": "table",
+          "content": [
+            {
+              "pada": "वसुदेवसुतम्",
+              "artha": "son of Vasudeva"
+            },
+            {
+              "pada": "देवम्",
+              "artha": "the divine Lord"
+            },
+            {
+              "pada": "कंसचाणूरमर्दनम्",
+              "artha": "slayer of Kaṃsa and Cāṇūra"
+            },
+            {
+              "pada": "देवकीपरमानन्दम्",
+              "artha": "supreme joy of Devakī"
+            },
+            {
+              "pada": "कृष्णम्",
+              "artha": "Kṛṣṇa"
+            },
+            {
+              "pada": "वन्दे",
+              "artha": "I bow"
+            },
+            {
+              "pada": "जगद्गुरुम्",
+              "artha": "teacher of the world"
+            }
+          ],
+          "meta": {}
+        },
+        {
+          "kind": "translation",
+          "title": null,
+          "render": "auto",
+          "content": "I bow to Kṛṣṇa, son of Vasudeva, the Lord who crushed Kaṃsa and Cāṇūra, the supreme joy of Devakī, the guru of the world.",
+          "meta": {}
+        },
+        {
+          "kind": "grammar",
+          "title": null,
+          "render": "auto",
+          "content": "वन्दे — ātmanepada, lat, uttama eka.\nकृष्णम् — dvitīyā eka (object of वन्दे).",
+          "meta": {}
+        }
+      ],
+      "meta": {},
+      "error": null
+    },
+    {
+      "id": "002",
+      "index": 2,
+      "text": "शुक्लाम्बरधरं विष्णुं शशिवर्णं चतुर्भुजम् ।\nप्रसन्नवदनं ध्यायेत् सर्वविघ्नोपशान्तये ॥",
+      "audio": "audio/002.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": null,
+      "annotations": [
+        {
+          "kind": "translation",
+          "title": null,
+          "render": "auto",
+          "content": "One should meditate on Viṣṇu, clad in white, moon-hued, four-armed, with a serene face — for the calming of all obstacles.",
+          "meta": {}
+        },
+        {
+          "kind": "literary",
+          "title": null,
+          "render": "auto",
+          "content": "Opening maṅgala-śloka style invocation; anuṣṭubh metre.",
+          "meta": {}
+        }
+      ],
+      "meta": {},
+      "error": null
+    }
+  ],
+  "schema_version": 1
+}

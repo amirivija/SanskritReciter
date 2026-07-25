@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+out/
+*.wav
+!examples/**/*.wav
+!docs/**/*.wav
+.DS_Store
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+models/
+# Cloned by scripts/setup_local.sh — not committed (reference audio + BigVGAN code)
+vendor/
+# Intermediate build outputs
+out/

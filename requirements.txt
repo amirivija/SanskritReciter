@@ -1,0 +1,25 @@
+# Fully local Sanskrit chant TTS (Vāgdhenu pipeline on Mac MPS / CUDA / CPU)
+# Install torch first for your platform, then: pip install -r requirements.txt
+
+# PyTorch — macOS (MPS) / CPU wheels:
+#   pip install torch torchaudio
+# NVIDIA CUDA (Linux):
+#   pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
+
+# IndicF5 at the exact commit Vāgdhenu validates against (NOT the PyPI f5-tts package)
+git+https://github.com/ai4bharat/IndicF5.git@13f7c4d627cc10111aea8fe9c0039462cacacdc7
+
+transformers==4.46.3
+accelerate==0.34.2
+vocos==0.1.0
+x-transformers==2.19.7
+numpy==1.26.4
+librosa==0.11.0
+soundfile>=0.12
+huggingface_hub>=0.20
+indic-transliteration
+pydub
+torchcodec  # required by recent torchaudio.load()
+
+# BigVGAN code is vendored at vendor/BigVGAN (not a pip package).
+# Weights: python scripts/download_models.py

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SanskritReciter · Learning packs</title>
+  <style>
+
+  :root {
+    --bg: #f7f3ea;
+    --card: #fffdf7;
+    --ink: #1c1917;
+    --muted: #78716c;
+    --accent: #9a3412;
+    --line: #e7e0d2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 480px at 0% -10%, #fff8e7, transparent),
+      radial-gradient(800px 400px at 100% 0%, #f0e6d4, transparent),
+      var(--bg);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  .hero, main, footer {
+    width: min(900px, calc(100% - 2rem));
+    margin-left: auto; margin-right: auto;
+  }
+  .hero { padding: 2.5rem 0 1.2rem; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.78rem; color: var(--accent); margin: 0 0 0.4rem; font-weight: 700;
+  }
+  h1 {
+    font-family: "Noto Serif Devanagari", "Georgia", serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.5rem; color: var(--accent);
+  }
+  .lede { color: var(--muted); max-width: 52ch; margin: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem 0 2.5rem;
+  }
+  .card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.15rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 8px 24px rgba(68, 42, 12, 0.04);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card:hover {
+    border-color: #d6a57a;
+    transform: translateY(-2px);
+  }
+  .card h2 {
+    font-family: "Noto Serif Devanagari", "Georgia", serif;
+    font-size: 1.25rem; margin: 0 0 0.35rem; color: var(--accent);
+  }
+  .sub, .desc, .meta { margin: 0.25rem 0; color: var(--muted); font-size: 0.95rem; }
+  .desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .go { display: inline-block; margin-top: 0.7rem; color: var(--accent); font-weight: 600; font-size: 0.92rem; }
+  .empty {
+    background: var(--card); border: 1px dashed var(--line); border-radius: 14px;
+    padding: 1.5rem; color: var(--muted);
+  }
+  .empty pre {
+    background: #f3eee4; padding: 0.8rem 1rem; border-radius: 8px;
+    overflow-x: auto; color: var(--ink); font-size: 0.85rem;
+  }
+  footer { padding: 0 0 2.5rem; color: var(--muted); font-size: 0.88rem; }
+  footer a { color: var(--accent); }
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">SanskritReciter</p>
+    <h1>Learning packs</h1>
+    <p class="lede">
+      Śloka text with chanted audio — study offline-friendly packs hosted on GitHub Pages.
+    </p>
+  </header>
+  <main>
+    <div class="grid">
+    <a class="card" href="brahma-varga/">
+      <h2>अमरकोश · ब्रह्मवर्ग</h2>
+      
+      
+      <p class="meta">127 śloka(s) · 127 with audio</p>
+      <span class="go">Open pack →</span>
+    </a>
+
+    <a class="card" href="demo/">
+      <h2>Sample Learning Pack</h2>
+      <p class="sub">Demo annotations (anvaya · pratipada · grammar)</p>
+      <p class="desc">Illustrates how literary decorations attach to each śloka. Replace with real content for your curriculum.</p>
+      <p class="meta">2 śloka(s) · 2 with audio</p>
+      <span class="go">Open pack →</span>
+    </a></div>
+  </main>
+  <footer>
+    <p>Built with <a href="https://github.com/prathoshap/vagdhenu">Vāgdhenu</a> ·
+       open a pack to play each śloka in place.</p>
+  </footer>
+</body>
+</html>

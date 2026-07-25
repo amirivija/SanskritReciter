@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sanskrit-reciter"
+version = "0.2.0"
+description = "Fully local Sanskrit chant (pārāyaṇa) TTS from a text file — Vāgdhenu pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "SanskritReciter contributors" }]
+keywords = ["sanskrit", "tts", "chant", "vagdhenu", "shloka", "offline"]
+dependencies = [
+  "torch",
+  "torchaudio",
+  "transformers==4.46.3",
+  "accelerate==0.34.2",
+  "vocos==0.1.0",
+  "x-transformers==2.19.7",
+  "numpy==1.26.4",
+  "librosa==0.11.0",
+  "soundfile>=0.12",
+  "huggingface_hub>=0.20",
+  "indic-transliteration",
+  "pydub",
+  "torchcodec",
+]
+
+[project.scripts]
+sanskrit-reciter = "sanskrit_reciter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/prathoshap/vagdhenu"
+Demo = "https://prathosh.in/vagdhenu/"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sanskrit_reciter*"]

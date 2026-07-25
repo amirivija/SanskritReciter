@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-25T00:20:15.285123+00:00",
+  "packs": [
+    {
+      "slug": "brahma-varga",
+      "title": "अमरकोश · ब्रह्मवर्ग",
+      "subtitle": null,
+      "description": null,
+      "verse_count": 127,
+      "audio_count": 127,
+      "path": "brahma-varga/"
+    },
+    {
+      "slug": "demo",
+      "title": "Sample Learning Pack",
+      "subtitle": "Demo annotations (anvaya · pratipada · grammar)",
+      "description": "Illustrates how literary decorations attach to each śloka. Replace with real content for your curriculum.",
+      "verse_count": 2,
+      "audio_count": 2,
+      "path": "demo/"
+    }
+  ]
+}
