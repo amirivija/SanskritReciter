@@ -201,7 +201,12 @@ def _render_table(rows: Any) -> str:
     # Friendly Sanskrit learning defaults
     header_labels = {
         "pada": "पद",
-        "artha": "अर्थ",
+        "artha": "अर्थ (EN)",
+        "hindi": "अर्थ (HI)",
+        "morph": "रूप / विभक्ति",
+        "kaaraka": "कारक",
+        "sandhi": "सन्धि-रूप",
+        "samasa": "समास",
         "vibhakti": "विभक्ति",
         "linga": "लिङ्ग",
         "root": "धातु",

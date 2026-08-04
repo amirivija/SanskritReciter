@@ -20,3 +20,6 @@ models/
 vendor/
 # Intermediate build outputs
 out/
+# Large upstream cache (fetch with scripts/fetch_sbg_data.py); optional to commit
+# data/sbg/analysis.json is ~7MB — keep data/sbg tracked only if you want offline clones
+

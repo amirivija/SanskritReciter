@@ -91,6 +91,58 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_pub.set_defaults(func=cmd_publish)
 
+    # ── gita (Bhagavad Gītā from Samsaadhanii SCL data) ───────────────────
+    g = sub.add_parser(
+        "gita",
+        help="Build Bhagavad Gītā learning packs (text + grammar + audio)",
+        description=(
+            "Import ślokas and grammatical analysis from Samsaadhanii SCL "
+            "(https://github.com/samsaadhanii/scl), synthesize recitation, "
+            "and optionally publish chapter packs to docs/ for GitHub Pages."
+        ),
+    )
+    g.add_argument(
+        "--chapter",
+        "-c",
+        action="append",
+        dest="chapters",
+        help="Chapter number 1–18 (repeatable). Default: all 18 chapters",
+    )
+    g.add_argument(
+        "-o",
+        "--output",
+        default="out/gita",
+        help="Output root directory (default: out/gita → ch-01 … ch-18)",
+    )
+    g.add_argument(
+        "--data-dir",
+        default=None,
+        help="Path to SBG JSON data (default: data/sbg)",
+    )
+    g.add_argument(
+        "--publish",
+        action="store_true",
+        help="Copy finished chapter packs into docs/gita-ch-NN/ and refresh catalog",
+    )
+    g.add_argument(
+        "--skip-audio",
+        action="store_true",
+        help="HTML + grammar only (no TTS)",
+    )
+    g.add_argument(
+        "--no-resume",
+        action="store_true",
+        help="Re-synthesize even if audio files already exist",
+    )
+    g.add_argument(
+        "--fetch",
+        action="store_true",
+        help="Download/refresh SBG JSON from GitHub before building",
+    )
+    _add_common_synth(g)
+    # Most of the Gītā is anuṣṭubh; auto-detect often fails on sandhi-split text.
+    g.set_defaults(func=cmd_gita, meter="anuṣṭubh")
+
     # ── list / check (top-level convenience) ──────────────────────────────
     c = sub.add_parser("check", help="Verify local model assets")
     c.add_argument("--device", default="auto")
@@ -391,6 +443,79 @@ def cmd_learn(args: argparse.Namespace) -> int:
     return 0 if n_audio or args.skip_audio else 1
 
 
+def cmd_gita(args: argparse.Namespace) -> int:
+    from sanskrit_reciter.learning.sbg import DEFAULT_DATA_DIR, load_sbg_data
+    from sanskrit_reciter.learning.sbg_builder import build_all_chapters
+
+    data_dir = Path(args.data_dir) if args.data_dir else DEFAULT_DATA_DIR
+    if args.fetch:
+        import urllib.request
+
+        data_dir.mkdir(parents=True, exist_ok=True)
+        base = (
+            "https://raw.githubusercontent.com/samsaadhanii/scl/master/"
+            "e-readers/SBG-NEW/sbg_ereader/assets/data"
+        )
+        for name in (
+            "sloka.json",
+            "analysis.json",
+            "chapters.json",
+            "about.json",
+            "intro.json",
+        ):
+            print(f"↓ {name}")
+            urllib.request.urlretrieve(f"{base}/{name}", data_dir / name)
+        print(f"✓ data → {data_dir}")
+    try:
+        data = load_sbg_data(data_dir)
+    except FileNotFoundError as e:
+        print(f"error: {e}\nTip: ./sr gita --fetch …", file=sys.stderr)
+        return 1
+
+    chapters = None
+    if args.chapters:
+        chapters = [str(c) for c in args.chapters]
+
+    n_sloka = len({(s.get("chaptno"), s.get("slokano")) for s in data["sloka"]})
+    print(
+        f"SBG data: {n_sloka} unique ślokas, "
+        f"{len(data['analysis'])} analysis rows"
+    )
+    print(
+        f"building chapters={chapters or 'all 1–18'} → {args.output}"
+        + (" (+ publish to docs/)" if args.publish else "")
+    )
+
+    continue_on_error = _resolve_continue_on_error(args, default=True)
+    try:
+        build_all_chapters(
+            args.output,
+            chapters=chapters,
+            data_dir=data_dir,
+            publish_docs=args.publish,
+            device=args.device,
+            nfe=args.nfe,
+            meter=args.meter,
+            seed=args.seed,
+            continue_on_error=continue_on_error,
+            resume=not args.no_resume,
+            skip_audio=args.skip_audio,
+        )
+    except Exception as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+
+    print(
+        f"done. packs under {args.output}/ch-NN/\n"
+        + (
+            "published under docs/gita-ch-NN/ — commit & push to update GitHub Pages"
+            if args.publish
+            else "use: ./sr gita … --publish   to copy into docs/"
+        )
+    )
+    return 0
+
+
 def cmd_publish(args: argparse.Namespace) -> int:
     from sanskrit_reciter.learning.publish import (
         default_docs_dir,
@@ -469,6 +594,7 @@ def main(argv: list[str] | None = None) -> int:
         "recite",
         "learn",
         "publish",
+        "gita",
         "check",
         "help",
     ):
@@ -480,6 +606,7 @@ def main(argv: list[str] | None = None) -> int:
             "\nCommands:\n"
             "  recite   TEXT  -o audio.wav [--all]\n"
             "  learn    TEXT  -o pack_dir/     # HTML + per-śloka audio\n"
+            "  gita     [--chapter N] [--publish]  # full Bhagavad Gītā packs\n"
             "  publish  PACK  [--slug NAME]    # copy pack → docs/ (GitHub Pages)\n"
             "  check\n",
             file=sys.stderr,

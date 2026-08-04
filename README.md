@@ -99,6 +99,27 @@ Optional JSON sidecar (`--annotations`) attaches decorations per verse id (`001`
 
 Custom `kind` strings are allowed. See `examples/sample_annotations.json`. Re-render HTML later without TTS by editing `manifest.json` and calling the builder’s `rebuild_html_only` helper.
 
+## Bhagavad Gītā (all ślokas + grammar)
+
+Source data: [samsaadhanii/scl](https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data) — śloka text, anvaya, morphology, kāraka, English/Hindi glosses.
+
+```bash
+# Download JSON once (into data/sbg/)
+./sr gita --fetch --skip-audio -o out/gita   # or: python scripts/fetch_sbg_data.py
+
+# One chapter (HTML + grammar + audio) and publish to docs/
+./sr gita -c 1 -o out/gita --publish --meter anuṣṭubh
+
+# All 18 chapters (resume-safe; ~hours on MPS)
+./sr gita -o out/gita --publish --meter anuṣṭubh
+
+# Re-run later: skips existing audio files unless --no-resume
+```
+
+Each chapter becomes `docs/gita-ch-01/` … `docs/gita-ch-18/` with per-śloka audio plus **anvaya**, **pratipadārtha**, and **grammar** tables.
+
+Attribution is embedded in every pack description.
+
 ## Publish to GitHub Pages (`docs/`)
 
 Learning packs live under **`docs/`** in this repo and are served as a static site.

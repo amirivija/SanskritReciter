@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T00:20:15.285123+00:00",
+  "generated_at": "2026-08-04T03:02:53.061925+00:00",
   "packs": [
     {
       "slug": "brahma-varga",
@@ -18,6 +18,15 @@
       "verse_count": 2,
       "audio_count": 2,
       "path": "demo/"
+    },
+    {
+      "slug": "gita-ch-01",
+      "title": "भगवद्गीता · अध्यायः १",
+      "subtitle": "Chapter 1 · Śrīmad Bhagavad Gītā",
+      "description": "Text & grammatical analysis from Samsaadhanii SCL (Śrīmad Bhagavad Gītā e-reader) — https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data",
+      "verse_count": 47,
+      "audio_count": 47,
+      "path": "gita-ch-01/"
     }
   ]
 }
