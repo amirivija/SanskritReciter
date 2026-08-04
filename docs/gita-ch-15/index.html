@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>भगवद्गीता · अध्यायः १५</title>
+  <style>
+
+  :root {
+    --bg: #f7f3ea;
+    --card: #fffdf7;
+    --ink: #1c1917;
+    --muted: #78716c;
+    --accent: #9a3412;
+    --line: #e7e0d2;
+    --audio-bg: #f5efe3;
+    --ann-bg: #faf6ef;
+    --radius: 14px;
+    --font-sa: "Noto Serif Devanagari", "Devanagari MT", "Arial Unicode MS", serif;
+    --font-ui: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 10% -10%, #fff8e7, transparent),
+                radial-gradient(900px 500px at 100% 0%, #f0e6d4, transparent),
+                var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.55;
+  }
+  .pack-header, .pack-footer, .verse-list {
+    width: min(820px, calc(100% - 2rem));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pack-header {
+    padding: 2.2rem 0 1rem;
+  }
+  .pack-header h1 {
+    font-family: var(--font-sa);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin: 0 0 0.35rem;
+    color: var(--accent);
+  }
+  .subtitle { margin: 0.2rem 0; color: var(--muted); }
+  .description { margin: 0.6rem 0 0; max-width: 60ch; }
+  .stats { color: var(--muted); font-size: 0.92rem; margin: 0.75rem 0 1rem; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .btn {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fffaf3;
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    font: inherit;
+    cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+  }
+  .toggle { color: var(--muted); font-size: 0.92rem; display: flex; gap: 0.4rem; align-items: center; }
+  .verse-list { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 3rem; }
+  .verse {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem 1.15rem;
+    box-shadow: 0 8px 24px rgba(68, 42, 12, 0.04);
+  }
+  .verse:target, .verse.playing {
+    border-color: #d6a57a;
+    box-shadow: 0 0 0 3px rgba(154, 52, 18, 0.08);
+  }
+  .verse-error { opacity: 0.85; }
+  .verse-header {
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 0.55rem; color: var(--muted); font-size: 0.86rem;
+  }
+  .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 1.8rem; height: 1.8rem; border-radius: 999px;
+    background: #f3e7d5; color: var(--accent); font-weight: 700; font-size: 0.85rem;
+  }
+  .ref, .meter { background: #f3eee4; padding: 0.1rem 0.45rem; border-radius: 6px; }
+  .sloka-text {
+    font-family: var(--font-sa);
+    font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+    line-height: 1.85;
+    margin: 0.2rem 0 0.85rem;
+    white-space: normal;
+  }
+  .audio-block {
+    background: var(--audio-bg);
+    border-radius: 10px;
+    padding: 0.55rem 0.7rem;
+  }
+  .verse-audio { width: 100%; height: 36px; }
+  .audio-error, .audio-missing { color: #b45309; font-size: 0.9rem; margin: 0.4rem 0; }
+  .annotations {
+    margin-top: 0.9rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .annotation {
+    background: var(--ann-bg);
+    border-left: 3px solid #d6a57a;
+    border-radius: 0 10px 10px 0;
+    padding: 0.65rem 0.85rem;
+  }
+  .ann-title {
+    margin: 0 0 0.35rem;
+    font-size: 0.92rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+  .ann-body { font-size: 0.98rem; }
+  .ann-body p { margin: 0.2rem 0; }
+  .ann-body ul { margin: 0.2rem 0; padding-left: 1.2rem; }
+  table.data, table.kv {
+    width: 100%; border-collapse: collapse; font-size: 0.95rem;
+  }
+  table.data th, table.data td, table.kv th, table.kv td {
+    border-bottom: 1px solid var(--line); padding: 0.35rem 0.4rem; text-align: left;
+    vertical-align: top;
+  }
+  table.data th { color: var(--muted); font-weight: 600; }
+  table.kv th { width: 30%; color: var(--muted); font-weight: 600; }
+  .pack-footer {
+    padding: 1rem 0 2.5rem; color: var(--muted); font-size: 0.85rem;
+  }
+  .pack-footer .hint { opacity: 0.85; }
+  @media (max-width: 560px) {
+    .pack-header, .pack-footer, .verse-list { width: calc(100% - 1.2rem); }
+    .verse { padding: 0.95rem; }
+  }
+
+  </style>
+</head>
+<body>
+  <header class="pack-header">
+    <h1>भगवद्गीता · अध्यायः १५</h1>
+    <p class='subtitle'>Chapter 15 · Śrīmad Bhagavad Gītā</p>
+    <p class='description'>Text &amp; grammatical analysis from Samsaadhanii SCL (Śrīmad Bhagavad Gītā e-reader) — https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data</p>
+    <p class="stats">20 śloka(s) · 20 with audio</p>
+    <nav class="toolbar">
+      <button type="button" id="btn-play-all" class="btn">▶ Play all</button>
+      <button type="button" id="btn-stop" class="btn btn-ghost">■ Stop</button>
+      <label class="toggle"><input type="checkbox" id="auto-advance" checked /> Auto-advance</label>
+    </nav>
+  </header>
+
+  <main class="verse-list" id="verse-list">
+
+    <article class="verse" id="v-15-001" data-verse-id="15-001" data-index="1">
+      <header class="verse-header">
+        <span class="num">1</span>
+        <span class="ref">15.1</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ऊर्ध्वमूलमधःशाखमश्वत्थं प्राहुरव्ययम्<br />
+छन्दांसि यस्य पर्णानि यस्तं वेद सः वेदवित्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-001" class="verse-audio" controls preload="none" src="audio/15-001.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>ऊर्ध्व-मूलम् अधः-शाखम् अश्वत्थम् प्राहुः अ-व्ययम् (तम्) छन्दांसि यस्य पर्णानि (भवन्ति) यः तम् वेद सः वेद-वित् (भवति)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>ऊर्ध्व-मूलम्</td><td>with_roots_above</td><td>आदि_पुरुष_परमेश्वररूप_मूलवाले</td></tr><tr><td>अधः-शाखम्</td><td>downward_branches</td><td>ब्रह्मारूप_मुख्य_शाखावाले</td></tr><tr><td>अश्वत्थम्</td><td>banyan_tree</td><td>संसाररूप_पीपल_के_वृक्ष_को</td></tr><tr><td>प्राहुः</td><td>said</td><td>कहते_है</td></tr><tr><td>अ-व्ययम्</td><td>eternal</td><td>अविनाशी</td></tr><tr><td>(तम्)</td><td>that</td><td>(उस)</td></tr><tr><td>छन्दांसि</td><td>Vedic_hymns</td><td>वेद</td></tr><tr><td>यस्य</td><td>of_which</td><td>जिसके</td></tr><tr><td>पर्णानि</td><td>the_leaves</td><td>पत्ते</td></tr><tr><td>(भवन्ति)</td><td>become</td><td>(है)</td></tr><tr><td>यः</td><td>anyone</td><td>जो_(पुरुष)</td></tr><tr><td>तम्</td><td>that</td><td>उसको_(संसाररूप_वृक्ष_को)</td></tr><tr><td>वेद</td><td>knows</td><td>तत्त्व_से_जानता_है</td></tr><tr><td>सः</td><td>he</td><td>वह</td></tr><tr><td>वेद-वित्</td><td>the_knower_of_the_Vedas</td><td>वेद_के_तात्पर्य_को_जाननेवाला</td></tr><tr><td>(भवति)</td><td>becomes</td><td>(है)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>ऊर्ध्व-मूलम्</td><td>ऊर्ध्व-मूल{पुं}{2;एक}</td><td>विशेषणम्,3</td><td>ऊर्ध्वमूलमधःशाखमश्वत्थं</td><td>&lt;ऊर्ध्व-मूलम्&gt;Bs6</td></tr><tr><td>अधः-शाखम्</td><td>अधःशाख{पुं}{2;एक}</td><td>विशेषणम्,3</td><td>0</td><td>&lt;अधः-शाखम्&gt;Bs6</td></tr><tr><td>अश्वत्थम्</td><td>अश्वत्थ{पुं}{2;एक}</td><td>कर्म,4</td><td>0</td><td>-</td></tr><tr><td>प्राहुः</td><td>प्र_ब्रू1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;प्र_ब्रूञ्;अदादिः}</td><td>-</td><td>प्राहुरव्ययम्</td><td>-</td></tr><tr><td>अ-व्ययम्</td><td>अव्यय{पुं}{2;एक}</td><td>कर्मसमानाधिकरणम्,4</td><td>0</td><td>&lt;न-व्ययम्&gt;Bsmn</td></tr><tr><td>(तम्)</td><td>(तद्{पुं}{2;एक})</td><td>विशेषणम्,3</td><td>(0)</td><td>-</td></tr><tr><td>छन्दांसि</td><td>छन्दस्{नपुं}{1;बहु}</td><td>कर्तृसमानाधिकरणम्,8.1</td><td>छन्दांसि</td><td>-</td></tr><tr><td>यस्य</td><td>यद्{पुं}{6;एक}</td><td>षष्ठीसम्बन्धः,8</td><td>यस्य</td><td>-</td></tr><tr><td>पर्णानि</td><td>पर्ण{नपुं}{1;बहु}</td><td>कर्ता,8.1</td><td>पर्णानि</td><td>-</td></tr><tr><td>(भवन्ति)</td><td>(भू1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;भू;भ्वादिः})</td><td>अभिहितकर्ता,8;अकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>यः</td><td>यद्{पुं}{1;एक}</td><td>कर्ता,11;नित्यसम्बन्धः,12</td><td>यस्तं</td><td>-</td></tr><tr><td>तम्</td><td>तद्{पुं}{2;एक}</td><td>कर्म,11</td><td>0</td><td>-</td></tr><tr><td>वेद</td><td>विद्1{कर्तरि;लट्;उ;एक;परस्मैपदी;विदँ;अदादिः}</td><td>अभिहित_कर्ता,9;सकर्मकः</td><td>वेद</td><td>-</td></tr><tr><td>सः</td><td>तद्{पुं}{1;एक}</td><td>कर्ता,13.1</td><td>स</td><td>-</td></tr><tr><td>वेद-वित्</td><td>वेद-विद्{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,13.1</td><td>वेदवित्</td><td>&lt;वेद-वित्&gt;U</td></tr><tr><td>(भवति)</td><td>(भू1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भू;भ्वादिः})</td><td>अभिहित_कर्ता,12;अकर्मकः</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-002" data-verse-id="15-002" data-index="2">
+      <header class="verse-header">
+        <span class="num">2</span>
+        <span class="ref">15.2</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अधश्चोर्ध्वं प्रसृतास्तस्य शाखाः गुणप्रवृद्धा विषयप्रवालाः।<br />
+अधश्च मूलान्यनुसन्ततानि कर्मानुभन्धीनि मनुष्यलोके॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-002" class="verse-audio" controls preload="none" src="audio/15-002.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>अधः च ऊर्ध्वम् प्रसृताः तस्य शाखाः गुण-प्रवृद्धाः विषय-प्रवालाः अधः च मूलानि अनु-सन्ततानि कर्म-अनुबन्धीनि मनुष्य-लोके (सन्ति)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>अधः</td><td>downward</td><td>नीचे</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>ऊर्ध्वम्</td><td>upward</td><td>ऊपर_सर्वत्र</td></tr><tr><td>प्रसृताः</td><td>extended</td><td>फैली_हुई</td></tr><tr><td>तस्य</td><td>its</td><td>उसकी_(संसारवृक्ष_की)</td></tr><tr><td>शाखाः</td><td>branches</td><td>देव_मनुष्य_और_तिर्यक्_आदि_योनिरूप_शाखाएँ</td></tr><tr><td>गुण-प्रवृद्धाः</td><td>developed_modes_of_material_nature</td><td>तीनों_गुणोंरूप_जल_के_द्वारा_बढ़ी_हुई</td></tr><tr><td>विषय-प्रवालाः</td><td>twigs_of_sense_objects</td><td>विषय_भोगरूप_कोंपलोंवाली</td></tr><tr><td>अधः</td><td>downward</td><td>नीचे</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>मूलानि</td><td>roots</td><td>अहंता_ममता_और_वासनारूप_जड़ें</td></tr><tr><td>अनु-सन्ततानि</td><td>extended</td><td>सभी_लोकों_में_व्याप्त</td></tr><tr><td>कर्म-अनुबन्धीनि</td><td>bound_according_to_work</td><td>कर्मों_के_अनुसार_बाँधनेवाली</td></tr><tr><td>मनुष्य-लोके</td><td>in_the_world_of_human_society</td><td>मनुष्यलोक_में</td></tr><tr><td>(सन्ति)</td><td>are</td><td>(हैं)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>अधः</td><td>अधः{अव्य}</td><td>सुप्समुच्चितम्,2</td><td>अधश्चोर्ध्वं</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,3</td><td>0</td><td>-</td></tr><tr><td>ऊर्ध्वम्</td><td>ऊर्ध्वम्{अव्य}</td><td>अधिकरणम्,4</td><td>0</td><td>-</td></tr><tr><td>प्रसृताः</td><td>प्र_सृ1{कृत्_प्रत्ययः:क्त;प्र_सृ;भ्वादिः;पुं}{1;बहु}</td><td>अभिहितकर्ता,6;अकर्मकः</td><td>प्रसृतास्तस्य</td><td>-</td></tr><tr><td>तस्य</td><td>तद्{पुं}{6;एक}</td><td>षष्ठीसम्बन्धः,6</td><td>0</td><td>-</td></tr><tr><td>शाखाः</td><td>शाखा{स्त्री}{1;बहु}</td><td>कर्ता,4</td><td>शाखा</td><td>-</td></tr><tr><td>गुण-प्रवृद्धाः</td><td>गुण-प्र_वृध्1{कृत्_प्रत्ययः:क्त;प्र_वृधुँ;भ्वादिः;पुं}{1;बहु}</td><td>विशेषणम्,6</td><td>गुणप्रवृद्धा</td><td>&lt;गुण-प्रवृद्धाः&gt;T3</td></tr><tr><td>विषय-प्रवालाः</td><td>विषय-प्रवाल{पुं}{1;बहु}</td><td>विशेषणम्,6</td><td>विषयप्रवालाः</td><td>&lt;विषय-प्रवालाः&gt;K5</td></tr><tr><td>अधः</td><td>अधः{अव्य}</td><td>अधिकरणम्,14.1</td><td>अधश्च</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,14.1</td><td>0</td><td>-</td></tr><tr><td>मूलानि</td><td>मूल{नपुं}{1;बहु}</td><td>कर्ता,14.1</td><td>मूलान्यनुसन्ततानि</td><td>-</td></tr><tr><td>अनु-सन्ततानि</td><td>अनु-सन्तत{नपुं}{1;बहु}</td><td>कर्तृसमानाधिकरणम्,14.1</td><td>0</td><td>-</td></tr><tr><td>कर्म-अनुबन्धीनि</td><td>कर्म-अनुबन्ध{नपुं}{1;बहु}</td><td>विशेषणम्,11</td><td>कर्मानुबन्धीनि</td><td>&lt;कर्म-अनुबन्धीनि&gt;Bs6</td></tr><tr><td>मनुष्य-लोके</td><td>मनुष्य-लोक{पुं}{7;एक}</td><td>अधिकरणम्,14.1</td><td>मनुष्यलोके</td><td>&lt;मनुष्य-लोके&gt;T6</td></tr><tr><td>(सन्ति)</td><td>(अस्2{कर्तरि;लट्;प्र;बहु;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,11;अकर्मकः</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-003" data-verse-id="15-003" data-index="3">
+      <header class="verse-header">
+        <span class="num">3</span>
+        <span class="ref">15.3</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">न रूपमस्येह तथोपलभ्यते नान्तो न चादिर्न च सम्प्रतिष्ठा।<br />
+अश्वत्थमेनं सुविरूढमूलम् असङ्गशस्त्रेण दृढेन छित्त्वा॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-003" class="verse-audio" controls preload="none" src="audio/15-003.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>न रूपम् अस्य इह तथा उपलभ्यते न अन्तः न च आदिः न च सम्प्रतिष्ठा (भवति) अश्वत्थम् एनम् सुविरूढ-मूलम् अ-सङ्ग-शस्त्रेण दृढेन छित्त्वा ततः पदम् तत् परिमार्गितव्यम् यस्मिन् गताः न निवर्तन्ति भूयः तम् एव च आद्यम् पुरुषम् प्रपद्ये (अहम्) यतः प्रवृत्तिः प्रसृता पुराणी</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>न</td><td>not</td><td>नहीं</td></tr><tr><td>रूपम्</td><td>form</td><td>स्वरूप</td></tr><tr><td>अस्य</td><td>of_this_tree</td><td>इसका_(संसारवृक्ष_का)</td></tr><tr><td>इह</td><td>in_this</td><td>यहाँ_(विचारकाल_में)</td></tr><tr><td>तथा</td><td>also</td><td>वैसा</td></tr><tr><td>उपलभ्यते</td><td>can_be_perceived</td><td>पाया_जाता</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>अन्तः</td><td>end</td><td>अन्त</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>आदिः</td><td>beginning</td><td>आदि</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>च</td><td>also</td><td>तथा</td></tr><tr><td>सम्प्रतिष्ठा</td><td>the_foundation</td><td>अच्छी_प्रकार_से_स्थिति</td></tr><tr><td>(भवति)</td><td>becomes</td><td>(है)</td></tr><tr><td>अश्वत्थम्</td><td>banyan_tree</td><td>संसाररूप_पीपल_के_वृक्ष_को</td></tr><tr><td>एनम्</td><td>this</td><td>इस</td></tr><tr><td>सुविरूढ-मूलम्</td><td>strongly_rooted</td><td>अहंता_ममता_और_वासनारूप_अति_दृढ़_मूलोंवाले</td></tr><tr><td>अ-सङ्ग-शस्त्रेण</td><td>by_the_weapon_of_detachment</td><td>वैराग्यरूप_शस्त्र_द्वारा</td></tr><tr><td>दृढेन</td><td>strong</td><td>दृढ़</td></tr><tr><td>छित्त्वा</td><td>by_cutting</td><td>काटकर</td></tr><tr><td>ततः</td><td>thereafter</td><td>उसके_पश्चात्</td></tr><tr><td>पदम्</td><td>situation</td><td>परमपदरूप_परमेश्वर_को</td></tr><tr><td>तत्</td><td>that</td><td>उस</td></tr><tr><td>परिमार्गितव्यम्</td><td>has_to_be_searched_out</td><td>भलीभाँति_खोजना_चाहिये</td></tr><tr><td>यस्मिन्</td><td>where</td><td>जिसमें</td></tr><tr><td>गताः</td><td>going</td><td>गये_हुए_पुरुष</td></tr><tr><td>न</td><td>never</td><td>नहीं</td></tr><tr><td>निवर्तन्ति</td><td>comes_back</td><td>लौटकर_संसार_में_आते</td></tr><tr><td>भूयः</td><td>again</td><td>फिर</td></tr><tr><td>तम्</td><td>to_Him</td><td>उस</td></tr><tr><td>एव</td><td>certainly</td><td>ही</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>आद्यम्</td><td>original</td><td>आदि</td></tr><tr><td>पुरुषम्</td><td>the_Personality_of_Godhead</td><td>पुरुष_के</td></tr><tr><td>प्रपद्ये</td><td>surrender</td><td>शरण_हूँ</td></tr><tr><td>(अहम्)</td><td>I</td><td>(मैं)</td></tr><tr><td>यतः</td><td>from_whom</td><td>जिस_परमेश्वर_से</td></tr><tr><td>प्रवृत्तिः</td><td>beginning</td><td>संसारवृक्ष_की_प्रवृत्ति</td></tr><tr><td>प्रसृता</td><td>extended</td><td>विस्तार_को_प्राप्त_हुई</td></tr><tr><td>पुराणी</td><td>very_old</td><td>पुरातन</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,6</td><td>न</td><td>-</td></tr><tr><td>रूपम्</td><td>रूप{नपुं}{1;एक}</td><td>कर्म,6</td><td>रूपमस्येह</td><td>-</td></tr><tr><td>अस्य</td><td>इदम्{पुं}{6;एक}</td><td>षष्ठीसम्बन्धः,2</td><td>0</td><td>-</td></tr><tr><td>इह</td><td>इह{अव्य}</td><td>अधिकरणम्,6</td><td>0</td><td>-</td></tr><tr><td>तथा</td><td>तथा{अव्य}</td><td>क्रियाविशेषणम्,6</td><td>तथोपलभ्यते</td><td>-</td></tr><tr><td>उपलभ्यते</td><td>उप_लभ्1{कर्मणि;लट्;प्र;एक;आत्मनेपदी;उप_डुलभँष्;भ्वादिः}</td><td>अभिहितकर्म,2;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,8</td><td>नान्तो</td><td>-</td></tr><tr><td>अन्तः</td><td>अन्त{पुं}{1;एक}</td><td>सुप्समुच्चितम्,14</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,11</td><td>न</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,11</td><td>चादिर्न</td><td>-</td></tr><tr><td>आदिः</td><td>आदि{पुं}{1;एक}</td><td>सुप्समुच्चितम्,14</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,14</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,14</td><td>च</td><td>-</td></tr><tr><td>सम्प्रतिष्ठा</td><td>सम्प्रतिष्ठा{स्त्री}{1;एक}</td><td>कर्ता,14.1</td><td>सम्प्रतिष्ठा</td><td>-</td></tr><tr><td>(भवति)</td><td>(भू1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भू;भ्वादिः})</td><td>अभिहितकर्ता,14</td><td>(0)</td><td>-</td></tr><tr><td>अश्वत्थम्</td><td>अश्वत्थ{पुं}{2;एक}</td><td>कर्म,20</td><td>अश्वत्थमेनं</td><td>-</td></tr><tr><td>एनम्</td><td>इदम्{पुं}{2;एक}</td><td>विशेषणम्,15</td><td>0</td><td>-</td></tr><tr><td>सुविरूढ-मूलम्</td><td>सु-विरूढ-मूल{पुं}{2;एक}</td><td>विशेषणम्,15</td><td>सुविरूढमूलमसङ्गशस्त्रेण</td><td>&lt;सुविरूढ-मूलम्&gt;Bs6</td></tr><tr><td>अ-सङ्ग-शस्त्रेण</td><td>न-सङ्ग-शस्त्र{नपुं}{3;एक}</td><td>करणम्,20</td><td>0</td><td>&lt;&lt;न-सङ्ग&gt;Tn-शस्त्रेण&gt;K6</td></tr><tr><td>दृढेन</td><td>दृढ{नपुं}{3;एक}</td><td>विशेषणम्,18</td><td>दृढेन</td><td>-</td></tr><tr><td>छित्त्वा</td><td>छिद्1{कृत्_प्रत्ययः:क्त्वा;छिद;तुदादिः}</td><td>पूर्वकालः,24</td><td>छित्त्वा</td><td>-</td></tr><tr><td>ततः</td><td>ततः{अव्य}</td><td>अपादानम्,24</td><td>ततः</td><td>-</td></tr><tr><td>पदम्</td><td>पद{पुं}{1;एक}</td><td>कर्म,24</td><td>पदं</td><td>-</td></tr><tr><td>तत्</td><td>तद्{पुं}{1;एक}</td><td>विशेषणम्,22;नित्यसम्बन्धः,25</td><td>तत्परिमार्गितव्यं</td><td>-</td></tr><tr><td>परिमार्गितव्यम्</td><td>परि_मार्ग्1{कृत्_प्रत्ययः:तव्यत्;परि_मार्गँ;चुरादिः}</td><td>अभिहितकर्म,22;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>यस्मिन्</td><td>यद्{पुं}{7;एक}</td><td>अधिकरणम्,26</td><td>यस्मिन्गता</td><td>-</td></tr><tr><td>गताः</td><td>गम्1{कृत्_प्रत्ययः:क्त;गमॢँ;भ्वादिः}</td><td>कर्ता,28</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,28</td><td>न</td><td>-</td></tr><tr><td>निवर्तन्ति</td><td>नि_वृत्*1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;नि_वृतुँ;भ्वादिः}</td><td>अभिहितकर्ता,26;अकर्मकः</td><td>निवर्तन्ति</td><td>-</td></tr><tr><td>भूयः</td><td>भूयः{अव्य}</td><td>क्रियाविशेषणम्,28</td><td>भूयः</td><td>-</td></tr><tr><td>तम्</td><td>तद्{पुं}{2;एक}</td><td>विशेषणम्,34</td><td>तमेव</td><td>-</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,30</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,31</td><td>चाद्यं</td><td>-</td></tr><tr><td>आद्यम्</td><td>आद्य{पुं}{2;एक}</td><td>विशेषणम्,34</td><td>0</td><td>-</td></tr><tr><td>पुरुषम्</td><td>पुरुष{पुं}{2;एक}</td><td>कर्म,35</td><td>पुरुषं</td><td>-</td></tr><tr><td>प्रपद्ये</td><td>प्र_पद्1{कर्तरि;लट्;उ;एक;आत्मनेपदी;प्र_पदँ;दिवादिः}</td><td>अभिहितकर्ता,35.1</td><td>प्रपद्ये</td><td>-</td></tr><tr><td>(अहम्)</td><td>(अस्मद्{1;एक})</td><td>कर्ता,35</td><td>(0)</td><td>-</td></tr><tr><td>यतः</td><td>यतः{अव्य}</td><td>अपादानम्,41</td><td>यतः</td><td>-</td></tr><tr><td>प्रवृत्तिः</td><td>प्रवृत्ति{स्त्री}{1;एक}</td><td>कर्ता,41</td><td>प्रवृत्तिः</td><td>-</td></tr><tr><td>प्रसृता</td><td>प्र_सृ1{कृत्_प्रत्ययः:क्त;प्र_सृ;भ्वादिः;स्त्री}{1;एक}</td><td>अभिहितकर्ता,38</td><td>प्रसृता</td><td>-</td></tr><tr><td>पुराणी</td><td>पुराणी{स्त्री}{1;एक}</td><td>विशेषणम्,37</td><td>पुराणी</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-004" data-verse-id="15-004" data-index="4">
+      <header class="verse-header">
+        <span class="num">4</span>
+        <span class="ref">15.4</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ततः पदं तत्परिमार्गितव्यम् यस्मिन्गताः न निवर्तन्ति भूयः।<br />
+तमेव चाद्यं पुरुषं प्रपद्ये यतः प्रवृत्तिः प्रसृता पुराणी॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-004" class="verse-audio" controls preload="none" src="audio/15-004.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>न रूपम् अस्य इह तथा उपलभ्यते न अन्तः न च आदिः न च सम्प्रतिष्ठा (भवति) अश्वत्थम् एनम् सुविरूढ-मूलम् अ-सङ्ग-शस्त्रेण दृढेन छित्त्वा ततः पदम् तत् परिमार्गितव्यम् यस्मिन् गताः न निवर्तन्ति भूयः तम् एव च आद्यम् पुरुषम् प्रपद्ये (अहम्) यतः प्रवृत्तिः प्रसृता पुराणी</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>न</td><td>not</td><td>नहीं</td></tr><tr><td>रूपम्</td><td>form</td><td>स्वरूप</td></tr><tr><td>अस्य</td><td>of_this_tree</td><td>इसका_(संसारवृक्ष_का)</td></tr><tr><td>इह</td><td>in_this</td><td>यहाँ_(विचारकाल_में)</td></tr><tr><td>तथा</td><td>also</td><td>वैसा</td></tr><tr><td>उपलभ्यते</td><td>can_be_perceived</td><td>पाया_जाता</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>अन्तः</td><td>end</td><td>अन्त</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>आदिः</td><td>beginning</td><td>आदि</td></tr><tr><td>न</td><td>never</td><td>न</td></tr><tr><td>च</td><td>also</td><td>तथा</td></tr><tr><td>सम्प्रतिष्ठा</td><td>the_foundation</td><td>अच्छी_प्रकार_से_स्थिति</td></tr><tr><td>(भवति)</td><td>becomes</td><td>(है)</td></tr><tr><td>अश्वत्थम्</td><td>banyan_tree</td><td>संसाररूप_पीपल_के_वृक्ष_को</td></tr><tr><td>एनम्</td><td>this</td><td>इस</td></tr><tr><td>सुविरूढ-मूलम्</td><td>strongly_rooted</td><td>अहंता_ममता_और_वासनारूप_अति_दृढ़_मूलोंवाले</td></tr><tr><td>अ-सङ्ग-शस्त्रेण</td><td>by_the_weapon_of_detachment</td><td>वैराग्यरूप_शस्त्र_द्वारा</td></tr><tr><td>दृढेन</td><td>strong</td><td>दृढ़</td></tr><tr><td>छित्त्वा</td><td>by_cutting</td><td>काटकर</td></tr><tr><td>ततः</td><td>thereafter</td><td>उसके_पश्चात्</td></tr><tr><td>पदम्</td><td>situation</td><td>परमपदरूप_परमेश्वर_को</td></tr><tr><td>तत्</td><td>that</td><td>उस</td></tr><tr><td>परिमार्गितव्यम्</td><td>has_to_be_searched_out</td><td>भलीभाँति_खोजना_चाहिये</td></tr><tr><td>यस्मिन्</td><td>where</td><td>जिसमें</td></tr><tr><td>गताः</td><td>going</td><td>गये_हुए_पुरुष</td></tr><tr><td>न</td><td>never</td><td>नहीं</td></tr><tr><td>निवर्तन्ति</td><td>comes_back</td><td>लौटकर_संसार_में_आते</td></tr><tr><td>भूयः</td><td>again</td><td>फिर</td></tr><tr><td>तम्</td><td>to_Him</td><td>उस</td></tr><tr><td>एव</td><td>certainly</td><td>ही</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>आद्यम्</td><td>original</td><td>आदि</td></tr><tr><td>पुरुषम्</td><td>the_Personality_of_Godhead</td><td>पुरुष_के</td></tr><tr><td>प्रपद्ये</td><td>surrender</td><td>शरण_हूँ</td></tr><tr><td>(अहम्)</td><td>I</td><td>(मैं)</td></tr><tr><td>यतः</td><td>from_whom</td><td>जिस_परमेश्वर_से</td></tr><tr><td>प्रवृत्तिः</td><td>beginning</td><td>संसारवृक्ष_की_प्रवृत्ति</td></tr><tr><td>प्रसृता</td><td>extended</td><td>विस्तार_को_प्राप्त_हुई</td></tr><tr><td>पुराणी</td><td>very_old</td><td>पुरातन</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,6</td><td>न</td><td>-</td></tr><tr><td>रूपम्</td><td>रूप{नपुं}{1;एक}</td><td>कर्म,6</td><td>रूपमस्येह</td><td>-</td></tr><tr><td>अस्य</td><td>इदम्{पुं}{6;एक}</td><td>षष्ठीसम्बन्धः,2</td><td>0</td><td>-</td></tr><tr><td>इह</td><td>इह{अव्य}</td><td>अधिकरणम्,6</td><td>0</td><td>-</td></tr><tr><td>तथा</td><td>तथा{अव्य}</td><td>क्रियाविशेषणम्,6</td><td>तथोपलभ्यते</td><td>-</td></tr><tr><td>उपलभ्यते</td><td>उप_लभ्1{कर्मणि;लट्;प्र;एक;आत्मनेपदी;उप_डुलभँष्;भ्वादिः}</td><td>अभिहितकर्म,2;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,8</td><td>नान्तो</td><td>-</td></tr><tr><td>अन्तः</td><td>अन्त{पुं}{1;एक}</td><td>सुप्समुच्चितम्,14</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,11</td><td>न</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,11</td><td>चादिर्न</td><td>-</td></tr><tr><td>आदिः</td><td>आदि{पुं}{1;एक}</td><td>सुप्समुच्चितम्,14</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,14</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,14</td><td>च</td><td>-</td></tr><tr><td>सम्प्रतिष्ठा</td><td>सम्प्रतिष्ठा{स्त्री}{1;एक}</td><td>कर्ता,14.1</td><td>सम्प्रतिष्ठा</td><td>-</td></tr><tr><td>(भवति)</td><td>(भू1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भू;भ्वादिः})</td><td>अभिहितकर्ता,14</td><td>(0)</td><td>-</td></tr><tr><td>अश्वत्थम्</td><td>अश्वत्थ{पुं}{2;एक}</td><td>कर्म,20</td><td>अश्वत्थमेनं</td><td>-</td></tr><tr><td>एनम्</td><td>इदम्{पुं}{2;एक}</td><td>विशेषणम्,15</td><td>0</td><td>-</td></tr><tr><td>सुविरूढ-मूलम्</td><td>सु-विरूढ-मूल{पुं}{2;एक}</td><td>विशेषणम्,15</td><td>सुविरूढमूलमसङ्गशस्त्रेण</td><td>&lt;सुविरूढ-मूलम्&gt;Bs6</td></tr><tr><td>अ-सङ्ग-शस्त्रेण</td><td>न-सङ्ग-शस्त्र{नपुं}{3;एक}</td><td>करणम्,20</td><td>0</td><td>&lt;&lt;न-सङ्ग&gt;Tn-शस्त्रेण&gt;K6</td></tr><tr><td>दृढेन</td><td>दृढ{नपुं}{3;एक}</td><td>विशेषणम्,18</td><td>दृढेन</td><td>-</td></tr><tr><td>छित्त्वा</td><td>छिद्1{कृत्_प्रत्ययः:क्त्वा;छिद;तुदादिः}</td><td>पूर्वकालः,24</td><td>छित्त्वा</td><td>-</td></tr><tr><td>ततः</td><td>ततः{अव्य}</td><td>अपादानम्,24</td><td>ततः</td><td>-</td></tr><tr><td>पदम्</td><td>पद{पुं}{1;एक}</td><td>कर्म,24</td><td>पदं</td><td>-</td></tr><tr><td>तत्</td><td>तद्{पुं}{1;एक}</td><td>विशेषणम्,22;नित्यसम्बन्धः,25</td><td>तत्परिमार्गितव्यं</td><td>-</td></tr><tr><td>परिमार्गितव्यम्</td><td>परि_मार्ग्1{कृत्_प्रत्ययः:तव्यत्;परि_मार्गँ;चुरादिः}</td><td>अभिहितकर्म,22;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>यस्मिन्</td><td>यद्{पुं}{7;एक}</td><td>अधिकरणम्,26</td><td>यस्मिन्गता</td><td>-</td></tr><tr><td>गताः</td><td>गम्1{कृत्_प्रत्ययः:क्त;गमॢँ;भ्वादिः}</td><td>कर्ता,28</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>सम्बन्धः,28</td><td>न</td><td>-</td></tr><tr><td>निवर्तन्ति</td><td>नि_वृत्*1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;नि_वृतुँ;भ्वादिः}</td><td>अभिहितकर्ता,26;अकर्मकः</td><td>निवर्तन्ति</td><td>-</td></tr><tr><td>भूयः</td><td>भूयः{अव्य}</td><td>क्रियाविशेषणम्,28</td><td>भूयः</td><td>-</td></tr><tr><td>तम्</td><td>तद्{पुं}{2;एक}</td><td>विशेषणम्,34</td><td>तमेव</td><td>-</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,30</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,31</td><td>चाद्यं</td><td>-</td></tr><tr><td>आद्यम्</td><td>आद्य{पुं}{2;एक}</td><td>विशेषणम्,34</td><td>0</td><td>-</td></tr><tr><td>पुरुषम्</td><td>पुरुष{पुं}{2;एक}</td><td>कर्म,35</td><td>पुरुषं</td><td>-</td></tr><tr><td>प्रपद्ये</td><td>प्र_पद्1{कर्तरि;लट्;उ;एक;आत्मनेपदी;प्र_पदँ;दिवादिः}</td><td>अभिहितकर्ता,35.1</td><td>प्रपद्ये</td><td>-</td></tr><tr><td>(अहम्)</td><td>(अस्मद्{1;एक})</td><td>कर्ता,35</td><td>(0)</td><td>-</td></tr><tr><td>यतः</td><td>यतः{अव्य}</td><td>अपादानम्,41</td><td>यतः</td><td>-</td></tr><tr><td>प्रवृत्तिः</td><td>प्रवृत्ति{स्त्री}{1;एक}</td><td>कर्ता,41</td><td>प्रवृत्तिः</td><td>-</td></tr><tr><td>प्रसृता</td><td>प्र_सृ1{कृत्_प्रत्ययः:क्त;प्र_सृ;भ्वादिः;स्त्री}{1;एक}</td><td>अभिहितकर्ता,38</td><td>प्रसृता</td><td>-</td></tr><tr><td>पुराणी</td><td>पुराणी{स्त्री}{1;एक}</td><td>विशेषणम्,37</td><td>पुराणी</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-005" data-verse-id="15-005" data-index="5">
+      <header class="verse-header">
+        <span class="num">5</span>
+        <span class="ref">15.5</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">निर्मानमोहाः जितसङ्गदोषाः अध्यात्मनित्या विनिवृत्तकामाः।<br />
+द्वन्द्वैर्विमुक्ताः सुखदुःखसञ्ज्ञैः गच्छन्त्यमूढाः पदमव्ययं तत्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-005" class="verse-audio" controls preload="none" src="audio/15-005.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>निर्मान-मोहाः जित-सङ्ग-दोषाः अधि-आत्मा-नित्याः वि-निवृत्त-कामाः द्वन्द्वैः विमुक्ताः सुख-दुःख-संज्ञैः गच्छन्ति अ-मूढाः पदम् अ-व्ययम् तत्</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>निर्मान-मोहाः</td><td>without_respect_and_illusion</td><td>जिनका_मान_और_मोह_नष्ट_हो_गया_है</td></tr><tr><td>जित-सङ्ग-दोषाः</td><td>having_conquered_faulty_association</td><td>जिन्होंने_आसक्तिरूप_दोष_को_जीत_लिया_है</td></tr><tr><td>अधि-आत्मा-नित्याः</td><td>eternal_spirituality</td><td>जिनकी_परमात्मा_के_स्वरूप_में_नित्य_स्थिति_है</td></tr><tr><td>वि-निवृत्त-कामाः</td><td>associated_lust</td><td>जिनकी_कामनाएँ_पूर्णरूप_से_नष्ट_हो_गयी_हैं</td></tr><tr><td>द्वन्द्वैः</td><td>with_duality</td><td>द्वन्द्वों_से</td></tr><tr><td>विमुक्ताः</td><td>liberated</td><td>विमुक्त</td></tr><tr><td>सुख-दुःख-संज्ञैः</td><td>named_happiness_and_distress</td><td>सुख-दुःखनामक</td></tr><tr><td>गच्छन्ति</td><td>attains</td><td>प्राप्त_होते_हैं</td></tr><tr><td>अ-मूढाः</td><td>unbewildered</td><td>ज्ञानीजन</td></tr><tr><td>पदम्</td><td>situation</td><td>परमपद_को</td></tr><tr><td>अ-व्ययम्</td><td>eternal</td><td>अविनाशी</td></tr><tr><td>तत्</td><td>that</td><td>उस</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>निर्मान-मोहाः</td><td>निर्मान-मोह{पुं}{1;बहु}</td><td>विशेषणम्,9</td><td>निर्मानमोहा</td><td>&lt;निर्-&lt;मान-मोहाः&gt;Di&gt;Bvp</td></tr><tr><td>जित-सङ्ग-दोषाः</td><td>जित-सङ्ग-दोष{पुं}{1;बहु}</td><td>विशेषणम्,9</td><td>जितसङ्गदोषा</td><td>&lt;जित-&lt;सङ्ग-दोषाः&gt;K6&gt;Bs3</td></tr><tr><td>अधि-आत्मा-नित्याः</td><td>अध्यात्म-नित्य{पुं}{1;बहु}</td><td>विशेषणम्,9</td><td>अध्यात्मनित्या</td><td>&lt;&lt;अधि-आत्मा&gt;A1-नित्याः&gt;T7</td></tr><tr><td>वि-निवृत्त-कामाः</td><td>वि-निवृत्त-काम{पुं}{1;बहु}</td><td>विशेषणम्,9</td><td>विनिवृत्तकामाः</td><td>&lt;&lt;वि-निवृत्त&gt;Tp-कामाः&gt;Bs6</td></tr><tr><td>द्वन्द्वैः</td><td>द्वन्द्व{पुं}{3;बहु}</td><td>कर्ता,6</td><td>द्वन्द्वैर्विमुक्ताः</td><td>-</td></tr><tr><td>विमुक्ताः</td><td>वि_मुच्1{कृत्_प्रत्ययः:क्त;वि_मुचॢँ;तुदादिः;पुं}{1;बहु}</td><td>विशेषणम्,9</td><td>0</td><td>-</td></tr><tr><td>सुख-दुःख-संज्ञैः</td><td>सुख-दुःख-सञ्ज्ञ{पुं}{3;बहु}</td><td>विशेषणम्,5</td><td>सुखदुःखसंज्ञैर्गच्छन्त्यमूढाः</td><td>&lt;&lt;सुख-दुःख&gt;Di-सञ्ज्ञैः&gt;Bs6</td></tr><tr><td>गच्छन्ति</td><td>गम्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;गमॢँ;भ्वादिः}</td><td>अभिहितकर्म,9;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>अ-मूढाः</td><td>अमूढ{पुं}{1;बहु}</td><td>कर्ता,8</td><td>0</td><td>&lt;न-मूढाः&gt;Tn</td></tr><tr><td>पदम्</td><td>पद{नपुं}{2;एक}</td><td>कर्म,8</td><td>पदमव्ययं</td><td>-</td></tr><tr><td>अ-व्ययम्</td><td>अव्यय{नपुं}{2;एक}</td><td>विशेषणम्,10</td><td>0</td><td>&lt;न-व्ययं&gt;Bsmn</td></tr><tr><td>तत्</td><td>तद्{नपुं}{2;एक}</td><td>विशेषणम्,10</td><td>तत्</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-006" data-verse-id="15-006" data-index="6">
+      <header class="verse-header">
+        <span class="num">6</span>
+        <span class="ref">15.6</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">न तद्भासयते सूर्यो न शशाङ्को न पावकः<br />
+यद्गत्वा न निवर्तन्ते तत्धाम परमं मम॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-006" class="verse-audio" controls preload="none" src="audio/15-006.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>न तत् भासयते सूर्यः न शशाङ्कः न पावकः यत् गत्वा न निवर्तन्ते तत् धाम परमम् मम (अस्ति)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>न</td><td>not</td><td>न</td></tr><tr><td>तत्</td><td>that</td><td>उसको_(स्वयं_प्रकाश_परमपद_को)</td></tr><tr><td>भासयते</td><td>illuminates</td><td>प्रकाशित_कर_सकता_है</td></tr><tr><td>सूर्यः</td><td>the_sun</td><td>सूर्य</td></tr><tr><td>न</td><td>nor</td><td>न</td></tr><tr><td>शशाङ्कः</td><td>the_moon</td><td>चन्द्रमा</td></tr><tr><td>न</td><td>nor</td><td>न</td></tr><tr><td>पावकः</td><td>fire_electricity</td><td>अग्नि</td></tr><tr><td>यत्</td><td>where</td><td>जिसको_(परमपद_को)</td></tr><tr><td>गत्वा</td><td>going</td><td>प्राप्त_होकर</td></tr><tr><td>न</td><td>never</td><td>नहीं</td></tr><tr><td>निवर्तन्ते</td><td>comes_back</td><td>लौटकर_आते</td></tr><tr><td>तत्</td><td>that</td><td>उस</td></tr><tr><td>धाम</td><td>abode</td><td>धाम</td></tr><tr><td>परमम्</td><td>supreme</td><td>परम</td></tr><tr><td>मम</td><td>my</td><td>मेरा</td></tr><tr><td>(अस्ति)</td><td>is</td><td>(है)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,3</td><td>न</td><td>-</td></tr><tr><td>तत्</td><td>तद्{नपुं}{2;एक}</td><td>कर्म,3</td><td>तद्भासयते</td><td>-</td></tr><tr><td>भासयते</td><td>भास्1_णिच्{कर्तरि;लट्;प्र;एक;आत्मनेपदी;भासृँ_णिच्;भ्वादिः}</td><td>अभिहितकर्ता,4;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>सूर्यः</td><td>सूर्य{पुं}{1;एक}</td><td>कर्ता,3</td><td>सूर्यो</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,6</td><td>न</td><td>-</td></tr><tr><td>शशाङ्कः</td><td>शशाङ्क{पुं}{1;एक}</td><td>विशेषणम्,4</td><td>शशाङ्को</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,8</td><td>न</td><td>-</td></tr><tr><td>पावकः</td><td>पावक{पुं}{1;एक}</td><td>विशेेषणम्,4</td><td>पावकः</td><td>-</td></tr><tr><td>यत्</td><td>यद्{नपुं}{2;एक}</td><td>कर्म,10;नित्यसम्बन्धः,13</td><td>यद्गत्वा</td><td>-</td></tr><tr><td>गत्वा</td><td>गम्1{कृत्_प्रत्ययः:क्त्वा;गमॢँ;भ्वादिः}</td><td>पूर्वकालः,12</td><td>0</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,12</td><td>न</td><td>-</td></tr><tr><td>निवर्तन्ते</td><td>नि_वृत्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;नि_वृतुँ;भ्वादिः}</td><td>-</td><td>निवर्तन्ते</td><td>-</td></tr><tr><td>तत्</td><td>तद्{नपुं}{2;एक}</td><td>विशेषणम्,14</td><td>तद्धाम</td><td>-</td></tr><tr><td>धाम</td><td>धामन्{नपुं}{1;एक}</td><td>कर्ता,16.1</td><td>0</td><td>-</td></tr><tr><td>परमम्</td><td>परम{नपुं}{1;एक}</td><td>विशेषणम्,14</td><td>परमं</td><td>-</td></tr><tr><td>मम</td><td>अस्मद्{6;एक}</td><td>षष्ठीसम्बन्धः,15</td><td>मम</td><td>-</td></tr><tr><td>(अस्ति)</td><td>(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,14;अकर्मकः</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-007" data-verse-id="15-007" data-index="7">
+      <header class="verse-header">
+        <span class="num">7</span>
+        <span class="ref">15.7</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">ममैवांशो जीवलोके जीवभूतः सनातनः<br />
+मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-007" class="verse-audio" controls preload="none" src="audio/15-007.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>मम एव अंशः जीव-लोके जीव-भूतः सनातनः मनः-षष्ठानि इन्द्रियाणि प्रकृति-स्थानि कर्षति</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>मम</td><td>my</td><td>मेरा</td></tr><tr><td>एव</td><td>certainly</td><td>ही</td></tr><tr><td>अंशः</td><td>fragmental_particles</td><td>अंश_है</td></tr><tr><td>जीव-लोके</td><td>in_the_world_of_conditional_life</td><td>इस_देह_में</td></tr><tr><td>जीव-भूतः</td><td>the_conditioned_living_entity</td><td>जीवात्मा</td></tr><tr><td>सनातनः</td><td>eternal</td><td>यह_सनातन</td></tr><tr><td>मनः-षष्ठानि</td><td>mind_and_five</td><td>मन_और_पाँचों</td></tr><tr><td>इन्द्रियाणि</td><td>senses</td><td>इन्द्रियों_को</td></tr><tr><td>प्रकृति-स्थानि</td><td>situated_in_material_nature</td><td>इन_प्रकृति_में_स्थित</td></tr><tr><td>कर्षति</td><td>struggling_hard</td><td>आकर्षण_करता_है</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>मम</td><td>अस्मद्{6;एक}</td><td>षष्ठीसम्बन्धः,3</td><td>ममैवांशो</td><td>-</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,1</td><td>0</td><td>-</td></tr><tr><td>अंशः</td><td>अंश{पुं}{1;एक}</td><td>कर्ता,10</td><td>0</td><td>-</td></tr><tr><td>जीव-लोके</td><td>जीव-लोक{पुं}{7;एक}</td><td>अधिकरणम्,10</td><td>जीवलोके</td><td>&lt;जीव-लोके&gt;T6</td></tr><tr><td>जीव-भूतः</td><td>जीव-भूत{पुं}{1;एक}</td><td>विशेषणम्,3</td><td>जीवभूतः</td><td>&lt;जीव-भूतः&gt;T6</td></tr><tr><td>सनातनः</td><td>सनातन{पुं}{1;एक}</td><td>विशेषणम्,3</td><td>सनातनः</td><td>-</td></tr><tr><td>मनः-षष्ठानि</td><td>मनः-षष्ठ{नपुं}{2;बहु}</td><td>विशेषणम्,8</td><td>मनःषष्ठानीन्द्रियाणि</td><td>&lt;मनः-षष्ठानि&gt;Bs6</td></tr><tr><td>इन्द्रियाणि</td><td>इन्द्रिय{नपुं}{2;बहु}</td><td>कर्म,10</td><td>0</td><td>-</td></tr><tr><td>प्रकृति-स्थानि</td><td>प्रकृति-स्थ{नपुं}{2;बहु}</td><td>विशेषणम्,8</td><td>प्रकृतिस्थानि</td><td>&lt;प्रकृति-स्थानि&gt;U</td></tr><tr><td>कर्षति</td><td>कृष्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;कृषँ;भ्वादिः}</td><td>अभिहितकर्ता,3</td><td>कर्षति</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-008" data-verse-id="15-008" data-index="8">
+      <header class="verse-header">
+        <span class="num">8</span>
+        <span class="ref">15.8</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">शरीरं यदवाप्नोति यच्चाप्युत्क्रामतीश्वरः<br />
+गृहीत्वैतानि संयाति वायुर्गन्धानिवाशयात्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-008" class="verse-audio" controls preload="none" src="audio/15-008.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>शरीरम् यत् अवाप्नोति यत् च अपि उत्क्रामति ईश्वरः गृहीत्वा एतानि संयाति वायुः गन्धान् इव आशयात् (शरीरे) (तस्मिन्)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>शरीरम्</td><td>body</td><td>शरीर_को</td></tr><tr><td>यत्</td><td>that_which</td><td>जिसका_(शरीर_का)</td></tr><tr><td>अवाप्नोति</td><td>gets</td><td>प्राप्त_होता_है</td></tr><tr><td>यत्</td><td>as_much_as</td><td>जिस</td></tr><tr><td>च</td><td>also</td><td>फिर</td></tr><tr><td>अपि</td><td>virtually</td><td>भी</td></tr><tr><td>उत्क्रामति</td><td>gives_up</td><td>त्याग_करता_है</td></tr><tr><td>ईश्वरः</td><td>the_lord_of_the_body</td><td>देहादि_का_स्वामी_जीवात्मा</td></tr><tr><td>गृहीत्वा</td><td>taking</td><td>ग्रहण_करके</td></tr><tr><td>एतानि</td><td>all_these</td><td>इनको_(मनसहित_इन्द्रियों_को)</td></tr><tr><td>संयाति</td><td>goes_away</td><td>जाता_है</td></tr><tr><td>वायुः</td><td>air</td><td>वायु</td></tr><tr><td>गन्धान्</td><td>smell</td><td>गन्ध_को</td></tr><tr><td>इव</td><td>like</td><td>जैसे</td></tr><tr><td>आशयात्</td><td>from_the_flower</td><td>गन्ध_के_स्थान_से</td></tr><tr><td>(शरीरे)</td><td>in_that_body</td><td>(शरीर_में)</td></tr><tr><td>(तस्मिन्)</td><td>in_that</td><td>(उस)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>शरीरम्</td><td>शरीर{नपुं}{2;एक}</td><td>कर्म,3</td><td>शरीरं</td><td>-</td></tr><tr><td>यत्</td><td>यत्{अव्य}</td><td>सम्बन्धः,7</td><td>यदवाप्नोति</td><td>-</td></tr><tr><td>अवाप्नोति</td><td>अव_आप्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;अव_आपॢँ;स्वादिः}</td><td>-</td><td>0</td><td>-</td></tr><tr><td>यत्</td><td>यद्{नपुं}{2;एक}</td><td>विशेषणम्,1</td><td>यच्चाप्युत्क्रामतीश्वरः</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>-</td><td>0</td><td>-</td></tr><tr><td>अपि</td><td>अपि{अव्य}</td><td>सम्बन्धः,8</td><td>0</td><td>-</td></tr><tr><td>उत्क्रामति</td><td>उत्_क्रम्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;उत्_क्रमुँ;भ्वादिः}</td><td>-</td><td>0</td><td>-</td></tr><tr><td>ईश्वरः</td><td>ईश्वर{पुं}{1;एक}</td><td>कर्ता,7</td><td>0</td><td>-</td></tr><tr><td>गृहीत्वा</td><td>ग्रह्1{कृत्_प्रत्ययः:क्त्वा;ग्रहँ;क्र्यादिः}</td><td>पूर्वकालः,3</td><td>गृहीत्वैतानि</td><td>-</td></tr><tr><td>एतानि</td><td>एतद्{नपुं}{2;बहु}</td><td>कर्म,9</td><td>0</td><td>-</td></tr><tr><td>संयाति</td><td>सम्_या1{कर्तरि;लट्;प्र;एक;परस्मैपदी;सम्_या;अदादिः}</td><td>-</td><td>संयाति</td><td>-</td></tr><tr><td>वायुः</td><td>वायु{पुं}{1;एक}</td><td>प्रतियोगी,14</td><td>वायुर्गन्धानिवाशयात्</td><td>-</td></tr><tr><td>गन्धान्</td><td>गन्ध{पुं}{2;बहु}</td><td>कर्म,7</td><td>0</td><td>-</td></tr><tr><td>इव</td><td>इव{अव्य}</td><td>अनुयोगी,7</td><td>0</td><td>-</td></tr><tr><td>आशयात्</td><td>आशय{पुं}{5;एक}</td><td>अपादानम्,7</td><td>0</td><td>-</td></tr><tr><td>(शरीरे)</td><td>(शरीर{नपुं}{7;एक})</td><td>-</td><td>(0)</td><td>-</td></tr><tr><td>(तस्मिन्)</td><td>(तद्{नपुं}{7;एक})</td><td>-</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-009" data-verse-id="15-009" data-index="9">
+      <header class="verse-header">
+        <span class="num">9</span>
+        <span class="ref">15.9</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">श्रोत्रं चक्षुः स्पर्शनं च रसनं घ्राणमेव च<br />
+अधिष्ठाय मनश्चायं विषयानुपसेवते॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-009" class="verse-audio" controls preload="none" src="audio/15-009.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>श्रोत्रम् चक्षुः स्पर्शनम् च रसनम् घ्राणम् एव च अधिष्ठाय मनः च अयम् विषयान् उपसेवते</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>श्रोत्रम्</td><td>ears</td><td>क्षोत्र</td></tr><tr><td>चक्षुः</td><td>eyes</td><td>चक्षु</td></tr><tr><td>स्पर्शनम्</td><td>touch</td><td>त्वचा_को</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>रसनम्</td><td>tongue</td><td>रसना</td></tr><tr><td>घ्राणम्</td><td>smelling_power</td><td>घ्राण</td></tr><tr><td>एव</td><td>also</td><td>ही</td></tr><tr><td>च</td><td>also</td><td>तथा</td></tr><tr><td>अधिष्ठाय</td><td>being_situated</td><td>आश्रय_करके_(अर्थात्_इन_सबके_सहारे_से)</td></tr><tr><td>मनः</td><td>mind</td><td>मन_को</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>अयम्</td><td>this</td><td>यह_(जीवात्मा)</td></tr><tr><td>विषयान्</td><td>sense_objects</td><td>विषयों_का</td></tr><tr><td>उपसेवते</td><td>enjoys</td><td>सेवन_करता_है</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>श्रोत्रम्</td><td>श्रोत्र{नपुं}{2;एक}</td><td>सुप्_समुच्चितम्,10</td><td>श्रोत्रं</td><td>-</td></tr><tr><td>चक्षुः</td><td>चक्षुस्{नपुं}{2;एक}</td><td>सुप्_समुच्चितम्,10</td><td>चक्षुः</td><td>-</td></tr><tr><td>स्पर्शनम्</td><td>स्पर्शन{नपुं}{2;एक}</td><td>सुप्_समुच्चितम्,10</td><td>स्पर्शनं</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,9</td><td>च</td><td>-</td></tr><tr><td>रसनम्</td><td>रसन{नपुं}{2;एक}</td><td>सुप्_समुच्चितम्,10</td><td>रसनं</td><td>-</td></tr><tr><td>घ्राणम्</td><td>घ्राण{पुं}{2;एक}</td><td>सुप्_समुच्चितम्,10</td><td>घ्राणमेव</td><td>-</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,9</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,9</td><td>च</td><td>-</td></tr><tr><td>अधिष्ठाय</td><td>अधि_स्था1{कृत्_प्रत्ययः:ल्यप्;अधि_ष्ठा;भ्वादिः}</td><td>पूर्वकालः,14</td><td>अधिष्ठाय</td><td>-</td></tr><tr><td>मनः</td><td>मनस्{नपुं}{2;एक}</td><td>कर्म,9</td><td>मनश्चायं</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,10</td><td>0</td><td>-</td></tr><tr><td>अयम्</td><td>इदम्{पुं}{1;एक}</td><td>कर्ता,14</td><td>0</td><td>-</td></tr><tr><td>विषयान्</td><td>विषय{पुं}{2;बहु}</td><td>कर्म,14</td><td>विषयानुपसेवते</td><td>-</td></tr><tr><td>उपसेवते</td><td>उप_सेव्1{कर्तरि;लट्;प्र;एक;आत्मनेपदी;उप_षेवृँ;भ्वादिः}</td><td>-</td><td>0</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-010" data-verse-id="15-010" data-index="10">
+      <header class="verse-header">
+        <span class="num">10</span>
+        <span class="ref">15.10</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उत्क्रामन्तं स्थितं वापि भुञ्जानं वा गुणान्वितम्<br />
+विमूढा नानुपश्यन्ति पश्यन्ति ज्ञानचक्षुषः॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-010" class="verse-audio" controls preload="none" src="audio/15-010.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>उत्क्रामन्तम् स्थितम् वा अपि भुञ्जानम् वा गुण-अन्वितम् विमूढाः न अनुपश्यन्ति पश्यन्ति ज्ञान-चक्षुषः</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>उत्क्रामन्तम्</td><td>quitting_the_body</td><td>शरीर_को_छोड़कर_जाते_हुए_को</td></tr><tr><td>स्थितम्</td><td>situated_in_the_body</td><td>शरीर_में_स्थित_हुए_को</td></tr><tr><td>वा</td><td>either</td><td>अथवा</td></tr><tr><td>अपि</td><td>also</td><td>भी</td></tr><tr><td>भुञ्जानम्</td><td>enjoying</td><td>विषयों_को_भोगते_हुए_को</td></tr><tr><td>वा</td><td>or</td><td>अथवा</td></tr><tr><td>गुण-अन्वितम्</td><td>under_the_spell_of_the_modes_of_material_nature</td><td>तीनों_गुणों_से_युक्त_हुए_को</td></tr><tr><td>विमूढाः</td><td>foolish_persons</td><td>अज्ञानीजन</td></tr><tr><td>न</td><td>never</td><td>नहीं</td></tr><tr><td>अनुपश्यन्ति</td><td>can_see</td><td>जानते</td></tr><tr><td>पश्यन्ति</td><td>can_see</td><td>तत्त्व_से_जानते_हैं</td></tr><tr><td>ज्ञान-चक्षुषः</td><td>one_who_has_the_eyes_of_knowledge</td><td>ज्ञानरूप_नेत्रोंवाले</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>उत्क्रामन्तम्</td><td>उत्_क्रम्1{कृत्_प्रत्ययः:शतृ;उत्_क्रमुँ;भ्वादिः;पुं}{2;एक}</td><td>अन्यतरः,7</td><td>उत्क्रामन्तं</td><td>-</td></tr><tr><td>स्थितम्</td><td>स्था1{कृत्_प्रत्ययः:क्त;ष्ठा;भ्वादिः;नपुं}{2;एक}</td><td>अन्यतरः,7</td><td>स्थितं</td><td>-</td></tr><tr><td>वा</td><td>वा{अव्य}</td><td>अन्यतरद्योतकः,2</td><td>वापि</td><td>-</td></tr><tr><td>अपि</td><td>अपि{अव्य}</td><td>सम्बन्धः,2</td><td>0</td><td>-</td></tr><tr><td>भुञ्जानम्</td><td>भुज्2{कृत्_प्रत्ययः:शतृ;भुजँ;रुधादिः;पुं}{2;एक}</td><td>अन्यतरः,7</td><td>भुञ्जानं</td><td>-</td></tr><tr><td>वा</td><td>वा{अव्य}</td><td>अन्यतरद्योतकः,5</td><td>वा</td><td>-</td></tr><tr><td>गुण-अन्वितम्</td><td>गुण-अन्वित{पुं}{2;एक}</td><td>कर्म,10</td><td>गुणान्वितम्</td><td>&lt;गुण-अन्वितम्&gt;T3</td></tr><tr><td>विमूढाः</td><td>विमूढ{पुं}{1;बहु}</td><td>कर्ता,10</td><td>विमूढा</td><td>-</td></tr><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,10</td><td>नानुपश्यन्ति</td><td>-</td></tr><tr><td>अनुपश्यन्ति</td><td>अनु_दृश्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;अनु_दृशिँर्;भ्वादिः}</td><td>अभिहितकर्ता,8;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>पश्यन्ति</td><td>दृश्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;दृशिँर्;भ्वादिः}</td><td>अभिहितकर्ता,12;सकर्मकः</td><td>पश्यन्ति</td><td>-</td></tr><tr><td>ज्ञान-चक्षुषः</td><td>ज्ञान-चक्षुस्{नपुं}{1;एक}</td><td>कर्ता,11</td><td>ज्ञानचक्षुषः</td><td>&lt;ज्ञान-चक्षुषः&gt;Bs6</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-011" data-verse-id="15-011" data-index="11">
+      <header class="verse-header">
+        <span class="num">11</span>
+        <span class="ref">15.11</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यतन्तो योगिनश्चैनं पश्यन्त्यात्मन्यवस्थितम्<br />
+यतन्तोप्यकृतात्मानो नैनं पश्यन्त्यचेतसः॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-011" class="verse-audio" controls preload="none" src="audio/15-011.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>यतन्तः योगिनः च एनम् पश्यन्ति आत्मनि अवस्थितम् यतन्तः अपि अ-कृत-आत्मानः न एनम् पश्यन्ति अ-चेतसः</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>यतन्तः</td><td>endeavoring</td><td>यत्न_करनेवाले</td></tr><tr><td>योगिनः</td><td>transcendentalists</td><td>योगीजन_भी</td></tr><tr><td>च</td><td>also</td><td>किंतु</td></tr><tr><td>एनम्</td><td>this</td><td>इसको_(आत्मा_को)</td></tr><tr><td>पश्यन्ति</td><td>can_see</td><td>तत्त्व_से_जानते_हैं</td></tr><tr><td>आत्मनि</td><td>in_the_self</td><td>अपने_हृदय_में</td></tr><tr><td>अवस्थितम्</td><td>situated</td><td>स्थित</td></tr><tr><td>यतन्तः</td><td>endeavoring</td><td>यत्न_करते_रहने_पर</td></tr><tr><td>अपि</td><td>although</td><td>भी</td></tr><tr><td>अ-कृत-आत्मानः</td><td>without_self-realization</td><td>जिन्होंने_अपने_अन्तःकरण_को_शुद्ध_नहीं_किया_है</td></tr><tr><td>न</td><td>does_not</td><td>नहीं</td></tr><tr><td>एनम्</td><td>this</td><td>इसको_(आत्मा_को)</td></tr><tr><td>पश्यन्ति</td><td>see</td><td>देखते_हैं</td></tr><tr><td>अ-चेतसः</td><td>undeveloped_mind</td><td>अज्ञानीजन</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>यतन्तः</td><td>यत्1{कृत्_प्रत्ययः:शतृ;यतीँ;भ्वादिः;पुं}{1;बहु}</td><td>विशेषणम्,2</td><td>यतन्तो</td><td>-</td></tr><tr><td>योगिनः</td><td>योगिन्{पुं}{1;बहु}</td><td>कर्ता,5</td><td>योगिनश्चैनं</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,5</td><td>0</td><td>-</td></tr><tr><td>एनम्</td><td>इदम्{पुं}{2;एक}</td><td>कर्म,5</td><td>0</td><td>-</td></tr><tr><td>पश्यन्ति</td><td>दृश्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;दृशिँर्;भ्वादिः}</td><td>अभिहितकर्ता,2;सकर्मकः</td><td>पश्यन्त्यात्मन्यवस्थितम्</td><td>-</td></tr><tr><td>आत्मनि</td><td>आत्मन्{पुं}{7;एक}</td><td>अधिकरणम्,7</td><td>0</td><td>-</td></tr><tr><td>अवस्थितम्</td><td>अव_स्था1{कृत्_प्रत्ययः:क्त;अव_ष्ठा;भ्वादिः;नपुं}{2;एक}</td><td>विशेषणम्,4</td><td>0</td><td>-</td></tr><tr><td>यतन्तः</td><td>यत्1{कृत्_प्रत्ययः:शतृ;यतीँ;भ्वादिः;पुं}{1;बहु}</td><td>विशेषणम्,14</td><td>यतन्तोऽप्यकृतात्मानो</td><td>-</td></tr><tr><td>अपि</td><td>अपि{अव्य}</td><td>सम्बन्धः,8</td><td>0</td><td>-</td></tr><tr><td>अ-कृत-आत्मानः</td><td>न-कृत-आत्मन्{पुं}{1;बहु}</td><td>विशेषणम्,14</td><td>0</td><td>&lt;न-&lt;कृत-आत्मानः&gt;Bs6&gt;Tn</td></tr><tr><td>न</td><td>न{अव्य}</td><td>प्रतिषेधः,13</td><td>नैनं</td><td>-</td></tr><tr><td>एनम्</td><td>इदम्{पुं}{2;एक}</td><td>कर्म,13</td><td>0</td><td>-</td></tr><tr><td>पश्यन्ति</td><td>दृश्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;दृशिँर्;भ्वादिः}</td><td>अभिहितकर्ता,14;सकर्मकः</td><td>पश्यन्त्यचेतसः</td><td>-</td></tr><tr><td>अ-चेतसः</td><td>न-चेतस्{नपुं}{1;बहु}</td><td>कर्ता,13</td><td>0</td><td>&lt;न-चेतसः&gt;Bsmn</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-012" data-verse-id="15-012" data-index="12">
+      <header class="verse-header">
+        <span class="num">12</span>
+        <span class="ref">15.12</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यदादित्यगतं तेजो जगद्भासयतेखिलम्<br />
+यच्चन्द्रमसि यच्चाग्नौ तत्तेजो विद्धि मामकम्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-012" class="verse-audio" controls preload="none" src="audio/15-012.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>यत् आदित्य-गतम् तेजः जगत् भासयते अ-खिलम् यत् चन्द्रमसि (भासयते) यत् च अग्नौ (भासयते) तत् तेजः विद्धि मामकम् (त्वम्)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>यत्</td><td>that</td><td>जो</td></tr><tr><td>आदित्य-गतम्</td><td>in_the_sunshine</td><td>सूर्य_में_स्थित</td></tr><tr><td>तेजः</td><td>splendor</td><td>तेज</td></tr><tr><td>जगत्</td><td>world</td><td>जगत्_को</td></tr><tr><td>भासयते</td><td>illuminates</td><td>प्रकाशित_करता_है</td></tr><tr><td>अ-खिलम्</td><td>entire</td><td>सम्पूर्ण</td></tr><tr><td>यत्</td><td>that</td><td>जो_(तेज)</td></tr><tr><td>चन्द्रमसि</td><td>in_the_moon</td><td>चन्द्रमा_में</td></tr><tr><td>(भासयते)</td><td>illuminates</td><td>प्रकाशित_करता_है</td></tr><tr><td>यत्</td><td>that</td><td>जो</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>अग्नौ</td><td>in_the_fire</td><td>अग्नि_में</td></tr><tr><td>(भासयते)</td><td>illuminates</td><td>प्रकाशित_करता_है</td></tr><tr><td>तत्</td><td>that</td><td>उसको</td></tr><tr><td>तेजः</td><td>splendor</td><td>तेज</td></tr><tr><td>विद्धि</td><td>understand</td><td>जान</td></tr><tr><td>मामकम्</td><td>from_me</td><td>मेरा</td></tr><tr><td>(त्वम्)</td><td>in_that</td><td>(उस)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>यत्</td><td>यत्{अव्य}</td><td>विशेषणम्,3; नित्य_सम्बन्धः,12</td><td>यदादित्यगतं</td><td>-</td></tr><tr><td>आदित्य-गतम्</td><td>आदित्य-गत{नपुं}{1;एक}</td><td>समुच्चितम्,10</td><td>0</td><td>&lt;आदित्य-गतं&gt;T2</td></tr><tr><td>तेजः</td><td>तेजस्{नपुं}{1;एक}</td><td>कर्ता,5</td><td>तेजो</td><td>-</td></tr><tr><td>जगत्</td><td>जगत्{नपुं}{2;एक}</td><td>कर्म,5</td><td>जगद्भासयतेऽखिलम्</td><td>-</td></tr><tr><td>भासयते</td><td>भास्1_णिच्{कर्तरि;लट्;प्र;एक;आत्मनेपदी;भासृँ_णिच्;भ्वादिः}</td><td>अभिहितकर्ता,3;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>अ-खिलम्</td><td>अखिल{नपुं}{2;एक}</td><td>विशेषणम्,4</td><td>0</td><td>&lt;न-खिलम्&gt;Tn</td></tr><tr><td>यत्</td><td>यत्{अव्य}</td><td>कर्ता,8.1</td><td>यच्चन्द्रमसि</td><td>-</td></tr><tr><td>चन्द्रमसि</td><td>चन्द्रमस्{पुं}{7;एक}</td><td>अधिकरणम्,8.1</td><td>0</td><td>-</td></tr><tr><td>(भासयते)</td><td>भास्1_णिच्{कर्तरि;लट्;प्र;एक;आत्मनेपदी;भासृँ_णिच्;भ्वादिः}</td><td>अभिहितकर्ता,7;सकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>यत्</td><td>यत्{अव्य}</td><td>कर्ता,11.1</td><td>यच्चाग्नौ</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,11.1</td><td>0</td><td>-</td></tr><tr><td>अग्नौ</td><td>अग्नि{पुं}{7;एक}</td><td>अधिकरणम्,11.1</td><td>0</td><td>-</td></tr><tr><td>(भासयते)</td><td>भास्1_णिच्{कर्तरि;लट्;प्र;एक;आत्मनेपदी;भासृँ_णिच्;भ्वादिः}</td><td>अभिहितकर्ता,9;सकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>तत्</td><td>तद्{नपुं}{2;एक}</td><td>विशेषणम्,13</td><td>तत्तेजो</td><td>-</td></tr><tr><td>तेजः</td><td>तेजस्{नपुं}{2;एक}</td><td>कर्म,14</td><td>0</td><td>-</td></tr><tr><td>विद्धि</td><td>विद्1{कर्तरि;लोट्;म;एक;परस्मैपदी;विदँ;अदादिः}</td><td>अभिहितकर्ता,12;सकर्मकः</td><td>विद्धि</td><td>-</td></tr><tr><td>मामकम्</td><td>मामक{पुं}{2;एक}</td><td>कर्मसमानाधिकरणम्,13</td><td>मामकम्</td><td>-</td></tr><tr><td>(त्वम्)</td><td>(युष्मद्{पुं}{1;एक}</td><td>कर्ता,14</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-013" data-verse-id="15-013" data-index="13">
+      <header class="verse-header">
+        <span class="num">13</span>
+        <span class="ref">15.13</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">गामाविश्य च भूतानि धारयाम्यहमोजसा<br />
+पुष्णामि चौषधीः सर्वाः सोमो भूत्वा रसात्मकः॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-013" class="verse-audio" controls preload="none" src="audio/15-013.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>गाम् आविश्य च भूतानि धारयामि अहम् ओजसा पुष्णामि *च ओषधीः सर्वाः सोमः भूत्वा रस-आत्मकः</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>गाम्</td><td>the_planets</td><td>पृथ्वी_में</td></tr><tr><td>आविश्य</td><td>entering</td><td>प्रवेश_करके</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>भूतानि</td><td>living_entities</td><td>सब_भूतों_को</td></tr><tr><td>धारयामि</td><td>sustaining</td><td>धारण_करता_हूँ</td></tr><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>ओजसा</td><td>by_My_energy</td><td>अपनी_शक्ति_से</td></tr><tr><td>पुष्णामि</td><td>nourish</td><td>पुष्ट_करता_हूँ</td></tr><tr><td>*च</td><td>and</td><td>और</td></tr><tr><td>ओषधीः</td><td>vegetables</td><td>ओषधियों_को_(अर्थात्_वनस्पतियों_को)</td></tr><tr><td>सर्वाः</td><td>all</td><td>सम्पूर्ण</td></tr><tr><td>सोमः</td><td>the_moon</td><td>चन्द्रमा</td></tr><tr><td>भूत्वा</td><td>becoming</td><td>होकर</td></tr><tr><td>रस-आत्मकः</td><td>supplying_the_juice</td><td>रसस्वरूप_अर्थात्_अमृतमय</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>गाम्</td><td>गो{स्त्री}{2;एक}</td><td>कर्म,2</td><td>गामाविश्य</td><td>-</td></tr><tr><td>आविश्य</td><td>आङ्_विश्1{कृत्_प्रत्ययः:ल्यप्;आङ्_विशँ;तुदादिः}</td><td>पूर्वकालः,5</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः5</td><td>च</td><td>-</td></tr><tr><td>भूतानि</td><td>भूत{नपुं}{2;बहु}</td><td>कर्म,5</td><td>भूतानि</td><td>-</td></tr><tr><td>धारयामि</td><td>धृ1_णिच्{कर्तरि;लट्;उ;एक;परस्मैपदी;धृञ्_णिच्;भ्वादिः}</td><td>अभिहितकर्ता,6;सकर्मकः</td><td>धारयाम्यहमोजसा</td><td>-</td></tr><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्ता,5</td><td>0</td><td>-</td></tr><tr><td>ओजसा</td><td>ओजस्{नपुं}{3;एक}</td><td>हेतुः,5</td><td>0</td><td>-</td></tr><tr><td>पुष्णामि</td><td>पुष्3{कर्तरि;लट्;उ;एक;परस्मैपदी;पुषँ;क्र्यादिः}</td><td>समुच्चितम्,5</td><td>पुष्णामि</td><td>-</td></tr><tr><td>*च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,8</td><td>चौषधीः</td><td>-</td></tr><tr><td>ओषधीः</td><td>ओषधी{स्त्री}{2;एक}</td><td>कर्म,8</td><td>0</td><td>-</td></tr><tr><td>सर्वाः</td><td>सर्वा{स्त्री}{2;बहु}</td><td>विशेषणम्,10</td><td>सर्वाः</td><td>-</td></tr><tr><td>सोमः</td><td>सोम{पुं}{1;एक}</td><td>कर्ता,13</td><td>सोमो</td><td>-</td></tr><tr><td>भूत्वा</td><td>भू1{कृत्_प्रत्ययः:क्त्वा;भू;भ्वादिः}</td><td>पूर्वकालः,8</td><td>भूत्वा</td><td>-</td></tr><tr><td>रस-आत्मकः</td><td>रसात्मक{पुं}{1;एक}</td><td>विशेषणम्,12</td><td>रसात्मकः</td><td>&lt;रस-आत्मकः&gt;Bs6</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-014" data-verse-id="15-014" data-index="14">
+      <header class="verse-header">
+        <span class="num">14</span>
+        <span class="ref">15.14</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">अहं वैश्वानरो भूत्वा प्राणिनां देहमाश्रितः<br />
+प्राणापानसमायुक्तः पचाम्यन्नम् चतुर्विधम्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-014" class="verse-audio" controls preload="none" src="audio/15-014.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>अहम् वैश्वानरः भूत्वा प्राणिनाम् देहम् आश्रितः प्राण-अपान-समायुक्तः पचामि अन्नम् चतुर्-विधम्</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>वैश्वानरः</td><td>by_My_plenary_portion_as_the_digesting_fire</td><td>वैश्वानर_अग्निरूप</td></tr><tr><td>भूत्वा</td><td>becoming</td><td>होकर</td></tr><tr><td>प्राणिनाम्</td><td>of_all_living_entities</td><td>सब_प्राणियों_के</td></tr><tr><td>देहम्</td><td>body</td><td>शरीर_में</td></tr><tr><td>आश्रितः</td><td>situated</td><td>स्थित_रहनेवाला</td></tr><tr><td>प्राण-अपान-समायुक्तः</td><td>keeping_balanced_outgoing_air_and_down-going_air</td><td>प्राण_और_अपान_से_संयुक्त</td></tr><tr><td>पचामि</td><td>digest</td><td>पचाता_हूँ</td></tr><tr><td>अन्नम्</td><td>foodstuff</td><td>अन्न_को</td></tr><tr><td>चतुर्-विधम्</td><td>four_kinds_of</td><td>चार_प्रकार_के</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्ता,8</td><td>अहं</td><td>-</td></tr><tr><td>वैश्वानरः</td><td>वैश्वानर{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,3</td><td>वैश्वानरो</td><td>-</td></tr><tr><td>भूत्वा</td><td>भू1{कृत्_प्रत्ययः:क्त्वा;भू;भ्वादिः}</td><td>पूर्वकालः,8</td><td>भूत्वा</td><td>-</td></tr><tr><td>प्राणिनाम्</td><td>प्राणिन्{पुं}{6;बहु}</td><td>षष्ठीसम्बन्धः,5</td><td>प्राणिनां</td><td>-</td></tr><tr><td>देहम्</td><td>देह{नपुं}{2;एक}</td><td>कर्म,6</td><td>देहमाश्रितः</td><td>-</td></tr><tr><td>आश्रितः</td><td>आङ्_श्रि1{कृत्_प्रत्ययः:क्त;आङ्_श्रिञ्;भ्वादिः;पुं}{1;एक}</td><td>विशेषणम्,1</td><td>0</td><td>-</td></tr><tr><td>प्राण-अपान-समायुक्तः</td><td>प्राण-अपान-सम्_आङ्_युज्2{कृत्_प्रत्ययः:क्त;सम्_आङ्_युजिँर्;रुधादिः;पुं}{1;एक}</td><td>विशेषणम्,1</td><td>प्राणानापानसमायुक्तः</td><td>&lt;&lt;प्राण-अपान&gt;Di-समायुक्तः&gt;T3</td></tr><tr><td>पचामि</td><td>पच्1{कर्तरि;लट्;उ;एक;परस्मैपदी;डुपचँष्;भ्वादिः}</td><td>अभिहितकर्ता,1;सकर्मकः</td><td>पचाम्यन्नं</td><td>-</td></tr><tr><td>अन्नम्</td><td>अन्न{नपुं}{2;एक}</td><td>कर्म,8</td><td>0</td><td>-</td></tr><tr><td>चतुर्-विधम्</td><td>चतुर्-विध{नपुं}{2;एक}</td><td>विशेषणम्,9</td><td>चतुर्विधम्</td><td>&lt;चतुर्-विधम्&gt;Bs6</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-015" data-verse-id="15-015" data-index="15">
+      <header class="verse-header">
+        <span class="num">15</span>
+        <span class="ref">15.15</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">सर्वस्य चाहं हृदि सन्निविष्टः मत्तः स्मृतिर्ज्ञानमपोहनं च।<br />
+वेदैश्च सर्वैरहमेव वेद्यः वेदान्तकृद्वेदविदेव चाहम्॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-015" class="verse-audio" controls preload="none" src="audio/15-015.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>सर्वस्य च अहम् हृदि सन्निविष्टः मत्तः स्मृतिः ज्ञानम् अपोहनम् च (भवति) वेदैः च सर्वैः अहम् एव वेद्यः वेद-अन्त-कृत् वेद-वित् एव च अहम् (अस्मि)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>सर्वस्य</td><td>of_all_living_beings</td><td>सब_प्राणियों_के</td></tr><tr><td>च</td><td>and</td><td>तथा</td></tr><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>हृदि</td><td>in_the_heart</td><td>हृदय_में</td></tr><tr><td>सन्निविष्टः</td><td>being_situated</td><td>अन्तर्यामीरूप_से_स्थित</td></tr><tr><td>मत्तः</td><td>from_Me</td><td>मुझसे</td></tr><tr><td>स्मृतिः</td><td>remembrance</td><td>स्मृति</td></tr><tr><td>ज्ञानम्</td><td>knowledge</td><td>ज्ञान</td></tr><tr><td>अपोहनम्</td><td>forgetfulness</td><td>अपोहन</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>(भवति)</td><td>becomes</td><td>(होता_है)</td></tr><tr><td>वेदैः</td><td>by_the_Vedas</td><td>वेदों_द्वारा</td></tr><tr><td>च</td><td>also</td><td>और</td></tr><tr><td>सर्वैः</td><td>all</td><td>सब</td></tr><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>एव</td><td>certainly</td><td>ही</td></tr><tr><td>वेद्यः</td><td>knowable</td><td>जानने_के_योग्य</td></tr><tr><td>वेद-अन्त-कृत्</td><td>the_compiler_of_the_Vedanta</td><td>वेदान्त_का_कर्ता</td></tr><tr><td>वेद-वित्</td><td>the_knower_of_the_Vedas</td><td>वेदों_को_जाननेवाला</td></tr><tr><td>एव</td><td>certainly</td><td>ही</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>(अस्मि)</td><td>am</td><td>(हूँ)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>सर्वस्य</td><td>सर्व{पुं}{6;एक}</td><td>षष्ठीसम्बन्धः,4</td><td>सर्वस्य</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,5</td><td>चाहं</td><td>-</td></tr><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्ता,5</td><td>0</td><td>-</td></tr><tr><td>हृदि</td><td>हृद्{नपुं}{7;एक}</td><td>अधिकरणम्,5</td><td>हृदि</td><td>-</td></tr><tr><td>सन्निविष्टः</td><td>सम्_नि_विष्2{कृत्_प्रत्ययः:क्त;सम्_नि_विषॢँ;जुहोत्यादिः;पुं}{1;एक}</td><td>समुच्चितम्,21.1</td><td>सन्निविष्टो</td><td>-</td></tr><tr><td>मत्तः</td><td>मत्त{तसिल्}</td><td>अपादानम्,10.1</td><td>मत्तः</td><td>-</td></tr><tr><td>स्मृतिः</td><td>स्मृति{स्त्री}{1;एक}</td><td>सुप्समुच्चितम्,9</td><td>स्मृतिर्ज्ञानमपोहनं</td><td>-</td></tr><tr><td>ज्ञानम्</td><td>ज्ञान{नपुं}{1;एक}</td><td>सुप्समुच्चितम्,9</td><td>0</td><td>-</td></tr><tr><td>अपोहनम्</td><td>अपोहन{नपुं}{1;एक}</td><td>कर्ता,10.1</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,10.1</td><td>च</td><td>-</td></tr><tr><td>(भवति)</td><td>(भू1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भू;भ्वादिः})</td><td>समुच्चितम्,21.1</td><td>(0)</td><td>-</td></tr><tr><td>वेदैः</td><td>वेद{पुं}{3;बहु}</td><td>करणम्,16</td><td>वेदैश्च</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,16</td><td>0</td><td>-</td></tr><tr><td>सर्वैः</td><td>सर्व{पुं}{3;बहु}</td><td>विशेषणम्,11</td><td>सर्वैरहमेव</td><td>-</td></tr><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्म,16</td><td>0</td><td>-</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,14</td><td>0</td><td>-</td></tr><tr><td>वेद्यः</td><td>विद्1{कृत्_प्रत्ययः:ण्यत्;विदँ;अदादिः;पुं}{1;एक}</td><td>समुच्चितम्,21.1</td><td>वेद्यो</td><td>-</td></tr><tr><td>वेद-अन्त-कृत्</td><td>वेदान्त-कृत्{पुं}{1;एक}</td><td>सुप्समुच्चितम्,20</td><td>वेदान्तकृद्वेदविदेव</td><td>&lt;&lt;वेद-अन्त&gt;T6-कृत्&gt;U</td></tr><tr><td>वेद-वित्</td><td>वेद-विद्{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,21.1</td><td>0</td><td>&lt;वेद-वित्&gt;U</td></tr><tr><td>एव</td><td>एव{अव्य}</td><td>सम्बन्धः,18</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,21.1</td><td>चाहम्</td><td>-</td></tr><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्ता,21.1</td><td>0</td><td>-</td></tr><tr><td>(अस्मि)</td><td>(अस्2{कर्तरि;लट्;उ;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,21;अकर्मकः</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-016" data-verse-id="15-016" data-index="16">
+      <header class="verse-header">
+        <span class="num">16</span>
+        <span class="ref">15.16</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">द्वाविमौ पुरुषौ लोके क्षरश्चाक्षर एव च<br />
+क्षरः सर्वाणि भूतानि कूटस्थोक्षर उच्यते॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-016" class="verse-audio" controls preload="none" src="audio/15-016.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="notes">
+          <h3 class="ann-title">Notes</h3>
+          <div class="ann-body"><p>Grammatical analysis not available for this verse in the SCL dataset.</p></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-017" data-verse-id="15-017" data-index="17">
+      <header class="verse-header">
+        <span class="num">17</span>
+        <span class="ref">15.17</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">उत्तमः पुरुषस्त्वन्यः परमात्मेत्युदाहृतः<br />
+यो लोकत्रयमाविश्य बिभर्त्यव्यय ईश्वरः॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-017" class="verse-audio" controls preload="none" src="audio/15-017.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>उत्तमः पुरुषः तु अन्यः (अस्ति) परम-आत्मा इति उदाहृतः यः लोक-त्रयम् आविश्य बिभर्ति अ-व्ययः ईश्वरः (च) (अस्ति) (सः)</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>उत्तमः</td><td>the_best</td><td>उत्तम</td></tr><tr><td>पुरुषः</td><td>personality</td><td>पुरुष</td></tr><tr><td>तु</td><td>but</td><td>तो</td></tr><tr><td>अन्यः</td><td>another</td><td>अन्य</td></tr><tr><td>(अस्ति)</td><td>is</td><td>(है)</td></tr><tr><td>परम-आत्मा</td><td>the_Supreme_self</td><td>परमात्मा</td></tr><tr><td>इति</td><td>thus</td><td>इस_प्रकार</td></tr><tr><td>उदाहृतः</td><td>said</td><td>कहा_गया</td></tr><tr><td>यः</td><td>one_who</td><td>जो</td></tr><tr><td>लोक-त्रयम्</td><td>the_three_divisions_of_the_universe</td><td>तीनों_लोकों_में</td></tr><tr><td>आविश्य</td><td>entering</td><td>प्रवेश_करके</td></tr><tr><td>बिभर्ति</td><td>maintaining</td><td>सबका_धारण_पोषण_करता_है</td></tr><tr><td>अ-व्ययः</td><td>inexhaustible</td><td>अविनाशी</td></tr><tr><td>ईश्वरः</td><td>the_Lord</td><td>परमेश्वर</td></tr><tr><td>(च)</td><td>also</td><td>(और)</td></tr><tr><td>(अस्ति)</td><td>is</td><td>(है)</td></tr><tr><td>(सः)</td><td>he</td><td>(वह)</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>उत्तमः</td><td>उत्तम{पुं}{1;एक}</td><td>विशेषणम्,2</td><td>उत्तमः</td><td>-</td></tr><tr><td>पुरुषः</td><td>पुरुष{पुं}{1;एक}</td><td>कर्ता,4.1</td><td>पुरुषस्त्वन्यः</td><td>-</td></tr><tr><td>तु</td><td>तु{अव्य}</td><td>सम्बन्धः,2</td><td>0</td><td>-</td></tr><tr><td>अन्यः</td><td>अन्य{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,4.1</td><td>0</td><td>-</td></tr><tr><td>(अस्ति)</td><td>(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,2</td><td>(0)</td><td>-</td></tr><tr><td>परम-आत्मा</td><td>परमात्मन्{पुं}{1;एक}</td><td>कर्म,7</td><td>परमात्मेत्युदाहृतः</td><td>&lt;परम-आत्मा&gt;K1</td></tr><tr><td>इति</td><td>इति{अव्य}</td><td>कर्मद्योतकः,5</td><td>0</td><td>-</td></tr><tr><td>उदाहृतः</td><td>उत्_आङ्_हृ1{कृत्_प्रत्ययः:क्त;उत्_आङ्_हृञ्;भ्वादिः;पुं}{1;एक}</td><td>अभिहितकर्म,5;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>यः</td><td>यद्{पुं}{1;एक}</td><td>कर्ता,11;नित्यसम्बन्धः,4</td><td>यो</td><td>-</td></tr><tr><td>लोक-त्रयम्</td><td>लोक-त्रय{नपुं}{2;एक}</td><td>कर्म,10</td><td>लोकत्रयमाविश्य</td><td>&lt;लोक-त्रयम्&gt;T6</td></tr><tr><td>आविश्य</td><td>आङ्_विश्1{कृत्_प्रत्ययः:ल्यप्;आङ्_विशँ;तुदादिः}</td><td>पूर्वकालः,11</td><td>0</td><td>-</td></tr><tr><td>बिभर्ति</td><td>भृ2{कर्तरि;लट्;प्र;एक;परस्मैपदी;डुभृञ्;जुहोत्यादिः}</td><td>अभिहितकर्ता,8</td><td>बिभर्त्यव्यय</td><td>-</td></tr><tr><td>अ-व्ययः</td><td>अव्यय{पुं}{1;एक}</td><td>सुप्समुच्चितम,13</td><td>0</td><td>&lt;न-व्ययः&gt;Bsmn</td></tr><tr><td>ईश्वरः</td><td>ईश्वर{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,13.2</td><td>ईश्वरः</td><td>-</td></tr><tr><td>(च)</td><td>(च{अव्य})</td><td>समुच्चयद्योतकः,13</td><td>(0)</td><td>-</td></tr><tr><td>(अस्ति)</td><td>(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,13.3;सकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>(सः)</td><td>(तद्{पुं}{1;एक})</td><td>कर्ता,13.2</td><td>(0)</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-018" data-verse-id="15-018" data-index="18">
+      <header class="verse-header">
+        <span class="num">18</span>
+        <span class="ref">15.18</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यस्मात्क्षरमतीतोहमक्षरादपि चोत्तमः<br />
+अतोस्मि लोके वेदे च प्रथितः पुरुषोत्तमः॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-018" class="verse-audio" controls preload="none" src="audio/15-018.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>यस्मात् क्षरम् अतीतः अहम् (अस्मि) अ-क्षरात् अपि च उत्तमः (अहम्) (अस्मि) अतः अस्मि लोके वेदे च प्रथितः पुरुष-उत्तमः</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>यस्मात्</td><td>because</td><td>क्योंकि</td></tr><tr><td>क्षरम्</td><td>the_fallible</td><td>नाशवान्</td></tr><tr><td>अतीतः</td><td>transcendental</td><td>अतीत</td></tr><tr><td>अहम्</td><td>I</td><td>मैं</td></tr><tr><td>(अस्मि)</td><td>am</td><td>(हूँ)</td></tr><tr><td>अ-क्षरात्</td><td>from_the_infallible</td><td>अविनाशी_जीवात्मा_से</td></tr><tr><td>अपि</td><td>better_than_that</td><td>भी</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>उत्तमः</td><td>the_best</td><td>उत्तम</td></tr><tr><td>(अहम्)</td><td>I</td><td>मैं</td></tr><tr><td>(अस्मि)</td><td>am</td><td>(हूँ)</td></tr><tr><td>अतः</td><td>therefore</td><td>इसलिये</td></tr><tr><td>अस्मि</td><td>am</td><td>हूँ</td></tr><tr><td>लोके</td><td>in_the_world</td><td>लोक_में</td></tr><tr><td>वेदे</td><td>in_the_Vedic_literature</td><td>वेद_में</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>प्रथितः</td><td>celebrated</td><td>प्रसिद्ध</td></tr><tr><td>पुरुष-उत्तमः</td><td>as_the_Supreme_Personality</td><td>पुरुषोत्तम_नाम_से</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>यस्मात्</td><td>यस्मात्{अव्य}</td><td>हेतुः,4॥1</td><td>यस्मात्क्षरमतीतोऽहमक्षरादपि</td><td>-</td></tr><tr><td>क्षरम्</td><td>क्षर{पुं}{2;एक}</td><td>कर्म,3</td><td>0</td><td>-</td></tr><tr><td>अतीतः</td><td>अति_इ1{कृत्_प्रत्ययः:क्त;अति_इ1;अदादिः;पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,4.1</td><td>0</td><td>-</td></tr><tr><td>अहम्</td><td>अस्मद्{1;एक}</td><td>कर्ता,4.1</td><td>0</td><td>-</td></tr><tr><td>(अस्मि)</td><td>(अस्2{कर्तरि;लट्;उ;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,4;अकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>अ-क्षरात्</td><td>अक्षर{नपुं}{5;एक}</td><td>तुलनाविन्दुः,8</td><td>0</td><td>&lt;न-क्षरात्&gt;Tn</td></tr><tr><td>अपि</td><td>अपि{अव्य}</td><td>सम्बन्धः,5</td><td>0</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>सम्बन्धः,8.2</td><td>चोत्तमः</td><td>-</td></tr><tr><td>उत्तमः</td><td>उत्तम{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,8.2</td><td>0</td><td>-</td></tr><tr><td>(अहम्)</td><td>अस्मद्{1;एक}</td><td>कर्ता,8.2</td><td>(0)</td><td>-</td></tr><tr><td>(अस्मि)</td><td>(अस्2{कर्तरि;लट्;उ;एक;परस्मैपदी;असँ;अदादिः})</td><td>अभिहितकर्ता,8.1;अकर्मकः</td><td>(0)</td><td>-</td></tr><tr><td>अतः</td><td>अतः{अव्य}</td><td>हेतुः,10</td><td>अतोऽस्मि</td><td>-</td></tr><tr><td>अस्मि</td><td>अस्2{कर्तरि;लट्;उ;एक;परस्मैपदी;असँ;अदादिः}</td><td>अभिहितकर्ता,15;अकर्मकः</td><td>0</td><td>-</td></tr><tr><td>लोके</td><td>लोक{पुं}{7;एक}</td><td>सुप्समुच्चितम्,12</td><td>लोके</td><td>-</td></tr><tr><td>वेदे</td><td>वेद{पुं}{7;एक}</td><td>अधिकरणम्,10</td><td>वेदे</td><td>-</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,12</td><td>च</td><td>-</td></tr><tr><td>प्रथितः</td><td>प्रथित{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,10</td><td>प्रथितः</td><td>-</td></tr><tr><td>पुरुष-उत्तमः</td><td>पुरुष-उत्तम{पुं}{1;एक}</td><td>कर्ता,10</td><td>पुरुषोत्तमः</td><td>&lt;पुरुष-उत्तमः&gt;T7</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-019" data-verse-id="15-019" data-index="19">
+      <header class="verse-header">
+        <span class="num">19</span>
+        <span class="ref">15.19</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">यो मामेवमसम्मूढो जानाति पुरुषोत्तमम्<br />
+स सर्वविद्भजति मां सर्वभावेन भारत॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-019" class="verse-audio" controls preload="none" src="audio/15-019.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>यः माम् एवम् अ-सम्मूढः जानाति पुरुष-उत्तमम् सः सर्व-विद् भजति माम् सर्व-भावेन भारत</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>यः</td><td>anyone</td><td>जो</td></tr><tr><td>माम्</td><td>unto_Me</td><td>मुझको</td></tr><tr><td>एवम्</td><td>certainly</td><td>इस_प्रकार_(तत्त्व_से)</td></tr><tr><td>अ-सम्मूढः</td><td>without_a_doubt</td><td>ज्ञानी_पुरुष</td></tr><tr><td>जानाति</td><td>knows</td><td>जानता_है</td></tr><tr><td>पुरुष-उत्तमम्</td><td>the_Supreme_Personality_of_Godhead</td><td>पुरुषोत्तम</td></tr><tr><td>सः</td><td>he</td><td>वह</td></tr><tr><td>सर्व-विद्</td><td>knower_of_everything</td><td>सर्वज्ञ_पुरुष</td></tr><tr><td>भजति</td><td>renders_devotional_service</td><td>भजता_है</td></tr><tr><td>माम्</td><td>unto_Me</td><td>मुझ_वासुदेव_परमेश्वर_को</td></tr><tr><td>सर्व-भावेन</td><td>in_all_respects</td><td>सब_प्रकार_से_निरन्तर</td></tr><tr><td>भारत</td><td>O_son_of_Bharata</td><td>हे_भारत</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>यः</td><td>यद्{पुं}{1;एक}</td><td>विशेषणम्,4</td><td>यो</td><td>-</td></tr><tr><td>माम्</td><td>अस्मद्{2;एक}</td><td>विशेषणम्,6</td><td>मामेवमसम्मूढो</td><td>-</td></tr><tr><td>एवम्</td><td>एवम्{अव्य}</td><td>सम्बन्धः,5</td><td>0</td><td>-</td></tr><tr><td>अ-सम्मूढः</td><td>न-सम्मूढ{पुं}{1;एक}</td><td>कर्ता,5</td><td>0</td><td>&lt;न-सम्मूढः&gt;Tn</td></tr><tr><td>जानाति</td><td>ज्ञा2{कर्तरि;लट्;प्र;एक;परस्मैपदी;ज्ञा;क्र्यादिः}</td><td>प्रतियोगी,1</td><td>जानाति</td><td>-</td></tr><tr><td>पुरुष-उत्तमम्</td><td>पुरुष-उत्तम{पुं}{2;एक}</td><td>कर्म,5</td><td>पुरुषोत्तमम्</td><td>&lt;पुरुष-उत्तमम्&gt;T7</td></tr><tr><td>सः</td><td>तद्{पुं}{1;एक}</td><td>विशेषणम्,8</td><td>स</td><td>-</td></tr><tr><td>सर्व-विद्</td><td>सर्व-विद्{पुं}{1;एक}</td><td>कर्ता,9</td><td>सर्वविद्भजति</td><td>&lt;सर्व-वित्&gt;U</td></tr><tr><td>भजति</td><td>भज्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भजँ;भ्वादिः}</td><td>अभिहितकर्ता,7;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>माम्</td><td>अस्मद्{2;एक}</td><td>कर्म,9</td><td>मां</td><td>-</td></tr><tr><td>सर्व-भावेन</td><td>सर्व-भाव{पुं}{3;एक}</td><td>क्रियाविशेषणम्,9</td><td>सर्वभावेन</td><td>&lt;सर्व-भावेन&gt;K1</td></tr><tr><td>भारत</td><td>भारत{पुं}{8;एक}</td><td>सम्बोध्यः,9</td><td>भारत</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="verse" id="v-15-020" data-verse-id="15-020" data-index="20">
+      <header class="verse-header">
+        <span class="num">20</span>
+        <span class="ref">15.20</span> <span class="meter">anuṣṭubh</span>
+      </header>
+      <div class="sloka-text" lang="sa">इति गुह्यतमं शास्त्रमिदमुक्तं मयानघ<br />
+एतद्बुद्ध्वा बुद्धिमान्स्यात्कृतकृत्यश्च भारत॥</div>
+      
+      <div class="audio-block">
+        <audio id="audio-15-020" class="verse-audio" controls preload="none" src="audio/15-020.wav"></audio>
+      </div>
+      <section class="annotations" aria-label="Annotations">
+
+        <div class="annotation" data-kind="anvaya">
+          <h3 class="ann-title">अन्वय · Anvaya</h3>
+          <div class="ann-body"><p>इति गुह्य-तमम् शास्त्रम् इदम् उक्तम् मया अन्-अघ एतद् बुद्ध्वा बुद्धिमान् स्यात् कृत-कृत्यः च भारत</p></div>
+        </div>
+
+        <div class="annotation" data-kind="pratipada">
+          <h3 class="ann-title">प्रतिपदार्य · Word meanings</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>अर्थ (EN)</th><th>अर्थ (HI)</th></tr></thead><tbody><tr><td>इति</td><td>thus</td><td>इस_प्रकार</td></tr><tr><td>गुह्य-तमम्</td><td>the_most_confidential</td><td>अति_रहस्ययुक्त_गोपनीय</td></tr><tr><td>शास्त्रम्</td><td>revealed_scripture</td><td>शास्त्र</td></tr><tr><td>इदम्</td><td>this</td><td>यह</td></tr><tr><td>उक्तम्</td><td>disclosed</td><td>कहा_गया</td></tr><tr><td>मया</td><td>by_Me</td><td>मेरे_द्वारा</td></tr><tr><td>अन्-अघ</td><td>O_sinless_one</td><td>हे_निष्पाप</td></tr><tr><td>एतद्</td><td>this</td><td>इसको</td></tr><tr><td>बुद्ध्वा</td><td>understanding</td><td>तत्त्व_से_जानकर</td></tr><tr><td>बुद्धिमान्</td><td>intelligent</td><td>ज्ञानवान्</td></tr><tr><td>स्यात्</td><td>becomes</td><td>हो_जाता_है</td></tr><tr><td>कृत-कृत्यः</td><td>the_most_perfect</td><td>कृतार्थ</td></tr><tr><td>च</td><td>and</td><td>और</td></tr><tr><td>भारत</td><td>O_son_of_Bharata</td><td>अर्जुन</td></tr></tbody></table></div>
+        </div>
+
+        <div class="annotation" data-kind="grammar">
+          <h3 class="ann-title">व्याकरण · Grammatical analysis</h3>
+          <div class="ann-body"><table class="data"><thead><tr><th>पद</th><th>रूप / विभक्ति</th><th>कारक</th><th>सन्धि-रूप</th><th>समास</th></tr></thead><tbody><tr><td>इति</td><td>इति{अव्य}</td><td>सम्बन्धः,5</td><td>इति</td><td>-</td></tr><tr><td>गुह्य-तमम्</td><td>गुह्य-तम{नपुं}{1;एक}</td><td>विशेषणम्,3</td><td>गुह्यतमं</td><td>-</td></tr><tr><td>शास्त्रम्</td><td>शास्त्र{नपुं}{1;एक}</td><td>कर्म,5</td><td>शास्त्रमिदमुक्तं</td><td>-</td></tr><tr><td>इदम्</td><td>इदम्{नपुं}{1;एक}</td><td>विशेषणम्,3</td><td>0</td><td>-</td></tr><tr><td>उक्तम्</td><td>वच्1{कृत्_प्रत्ययः:क्त;वचँ;अदादिः;नपुं}{1;एक}</td><td>अभिहितकर्म,3;सकर्मकः</td><td>0</td><td>-</td></tr><tr><td>मया</td><td>अस्मद्{3;एक}</td><td>कर्ता,5</td><td>मयानघ</td><td>-</td></tr><tr><td>अन्-अघ</td><td>अनघ{पुं}{8;एक}</td><td>सम्बोध्यः,5</td><td>0</td><td>&lt;न-अघ&gt;Bsmn</td></tr><tr><td>एतद्</td><td>एतद्{नपुं}{2;एक}</td><td>कर्म,9</td><td>एतद्बुद्ध्वा</td><td>-</td></tr><tr><td>बुद्ध्वा</td><td>बुध्2{कृत्_प्रत्ययः:क्त्वा;बुधिँर्;भ्वादिः}</td><td>पूर्वकालः,11</td><td>0</td><td>-</td></tr><tr><td>बुद्धिमान्</td><td>बुद्धिमत्{पुं}{1;एक}</td><td>सुप्समुच्चितम्,12</td><td>बुद्धिमान्स्यात्कृतकृत्यश्च</td><td>-</td></tr><tr><td>स्यात्</td><td>अस्2{कर्तरि;विधिलिङ्;प्र;एक;परस्मैपदी;असँ;अदादिः}</td><td>-</td><td>0</td><td>-</td></tr><tr><td>कृत-कृत्यः</td><td>कृत-कृत्य{पुं}{1;एक}</td><td>कर्तृसमानाधिकरणम्,11</td><td>0</td><td>&lt;कृत-कृत्यः&gt;Bs3</td></tr><tr><td>च</td><td>च{अव्य}</td><td>समुच्चयद्योतकः,12</td><td>0</td><td>-</td></tr><tr><td>भारत</td><td>भारत{पुं}{8;एक}</td><td>सम्बोध्यः,11</td><td>भारत</td><td>-</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="pack-footer">
+    <p>Generated by SanskritReciter · audio via Vāgdhenu · offline learning pack</p>
+    <p class="hint">Future annotations (anvaya, pratipadārtha, grammar, …) appear under each śloka when provided.</p>
+  </footer>
+
+  <script>
+
+  (function () {
+    const players = () => Array.from(document.querySelectorAll('audio.verse-audio'));
+    const autoAdv = () => document.getElementById('auto-advance')?.checked;
+
+    function clearPlaying() {
+      document.querySelectorAll('.verse.playing').forEach(el => el.classList.remove('playing'));
+    }
+
+    players().forEach((audio, idx, all) => {
+      audio.addEventListener('play', () => {
+        clearPlaying();
+        audio.closest('.verse')?.classList.add('playing');
+        all.forEach(a => { if (a !== audio) { a.pause(); } });
+      });
+      audio.addEventListener('ended', () => {
+        audio.closest('.verse')?.classList.remove('playing');
+        if (!autoAdv()) return;
+        const next = all[idx + 1];
+        if (next) {
+          next.closest('.verse')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          next.play().catch(() => {});
+        }
+      });
+      audio.addEventListener('pause', () => {
+        if (audio.ended) return;
+        // keep highlight only while actively playing
+        if (audio.currentTime > 0 && !audio.paused) return;
+      });
+    });
+
+    document.getElementById('btn-play-all')?.addEventListener('click', () => {
+      const all = players();
+      if (!all.length) return;
+      all.forEach(a => { a.pause(); a.currentTime = 0; });
+      all[0].closest('.verse')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      all[0].play().catch(() => {});
+    });
+    document.getElementById('btn-stop')?.addEventListener('click', () => {
+      players().forEach(a => { a.pause(); });
+      clearPlaying();
+    });
+  })();
+
+  </script>
+</body>
+</html>
