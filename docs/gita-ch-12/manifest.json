@@ -1,0 +1,4937 @@
+{
+  "title": "भगवद्गीता · अध्यायः १२",
+  "subtitle": "Chapter 12 · Śrīmad Bhagavad Gītā",
+  "description": "Text & grammatical analysis from Samsaadhanii SCL (Śrīmad Bhagavad Gītā e-reader) — https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data",
+  "language": "sa",
+  "meta": {
+    "work": "bhagavad_gita",
+    "chapter": "12",
+    "source": "https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data",
+    "attribution": "Text & grammatical analysis from Samsaadhanii SCL (Śrīmad Bhagavad Gītā e-reader) — https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data",
+    "verse_count": 20,
+    "audio_ok": 20,
+    "audio_resumed": 0,
+    "audio_failed": 0
+  },
+  "verses": [
+    {
+      "id": "12-001",
+      "index": 1,
+      "text": "एवं सततयुक्ताः ये भक्ताः त्वाम् पर्युपासते।\nये च अपि अक्षरम् अव्यक्तं तेषां के योगवित्तमाः॥",
+      "audio": "audio/12-001.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.1",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "एवम् सतत-युक्ताः ये भक्ताः त्वाम् पर्युपासते ये च अपि अ-क्षरम् अ-व्यक्तम् (पर्युपासते) तेषाम् के योग-वित्तमाः (सन्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "एवम्",
+              "artha": "thus",
+              "hindi": "पूर्वोक्त_प्रकार_से"
+            },
+            {
+              "pada": "सतत-युक्ताः",
+              "artha": "always_engaged",
+              "hindi": "निरन्तर_आपके_भजन-ध्यान_में_लगे_रहकर"
+            },
+            {
+              "pada": "ये",
+              "artha": "those",
+              "hindi": "जो"
+            },
+            {
+              "pada": "भक्ताः",
+              "artha": "devotees",
+              "hindi": "अनन्य_प्रेमी_भक्तजन"
+            },
+            {
+              "pada": "त्वाम्",
+              "artha": "unto_You",
+              "hindi": "आपको_(सगुणरूप_परमेश्वर_को)"
+            },
+            {
+              "pada": "पर्युपासते",
+              "artha": "properly_worship",
+              "hindi": "अतिश्रेष्ठ_भाव_से_भजते_हैं"
+            },
+            {
+              "pada": "ये",
+              "artha": "those",
+              "hindi": "जो"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "अपि",
+              "artha": "again",
+              "hindi": "ही"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "artha": "beyond_the_senses",
+              "hindi": "अविनाशी_सच्चिदानन्दघन"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "artha": "unmanifested",
+              "hindi": "निराकार_ब्रह्म_को"
+            },
+            {
+              "pada": "(पर्युपासते)",
+              "artha": "properly_worship",
+              "hindi": "(अतिश्रेष्ठ_भाव_से_भजते_हैं)"
+            },
+            {
+              "pada": "तेषाम्",
+              "artha": "of_them",
+              "hindi": "उनमें_(दोनों_प्रकार_के_उपासकों_में)"
+            },
+            {
+              "pada": "के",
+              "artha": "who",
+              "hindi": "कौन"
+            },
+            {
+              "pada": "योग-वित्तमाः",
+              "artha": "the_most_perfect",
+              "hindi": "अति_उत्तम_योगवेत्ता"
+            },
+            {
+              "pada": "(सन्ति)",
+              "artha": "are",
+              "hindi": "(हैं)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "एवम्",
+              "morph": "एवम्{अव्य}",
+              "kaaraka": "सम्बन्धः,2",
+              "sandhi": "एवं",
+              "samasa": "-"
+            },
+            {
+              "pada": "सतत-युक्ताः",
+              "morph": "सतत-युज्2{कृत्_प्रत्ययः:क्त;युजिँर्;रुधादिः;पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,4",
+              "sandhi": "सततयुक्ता",
+              "samasa": "<सतत-युक्ताः>K1"
+            },
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,4;नित्यसम्बन्धः,12",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "भक्ताः",
+              "morph": "भक्त{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,6",
+              "sandhi": "भक्तास्त्वां",
+              "samasa": "-"
+            },
+            {
+              "pada": "त्वाम्",
+              "morph": "युष्मद्{2;एक}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "पर्युपासते",
+              "morph": "परि_उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;परि_उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,4;अकर्मकः",
+              "sandhi": "पर्युपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,11.1;नित्यसम्बन्धः,12",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,11",
+              "sandhi": "चाप्यक्षरमव्यक्तं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अपि",
+              "morph": "अपि{अव्य}",
+              "kaaraka": "सम्बन्धः,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "morph": "अक्षर{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "0",
+              "samasa": "<न-क्षरम्>Tn"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "morph": "अव्यक्त{पुं}{2;एक}",
+              "kaaraka": "कर्म,11.1",
+              "sandhi": "0",
+              "samasa": "<न-व्यक्तं>Bsmn"
+            },
+            {
+              "pada": "(पर्युपासते)",
+              "morph": "(परि_उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;परि_उप_आसँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,7;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "तेषाम्",
+              "morph": "तद्{पुं}{6;बहु}",
+              "kaaraka": "निर्धारणम्,14",
+              "sandhi": "तेषां",
+              "samasa": "-"
+            },
+            {
+              "pada": "के",
+              "morph": "किम्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,14.1",
+              "sandhi": "के",
+              "samasa": "-"
+            },
+            {
+              "pada": "योग-वित्तमाः",
+              "morph": "योग-वित्तम{पुं}{1;बहु}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,14.1",
+              "sandhi": "योगवित्तमाः",
+              "samasa": "<योग-वित्तमाः>T7"
+            },
+            {
+              "pada": "(सन्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;बहु;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,13;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "001",
+        "has_analysis": true,
+        "word_count": 16
+      },
+      "error": null
+    },
+    {
+      "id": "12-002",
+      "index": 2,
+      "text": "मयि आवेश्य मनः ये मां नित्ययुक्ताः उपासते।\nश्रद्धया परयाउपेताः ते मे युक्ततमाः मताः॥",
+      "audio": "audio/12-002.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.2",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "मयि आवेश्य मनः ये माम् नित्य-युक्ताः उपासते श्रद्धया परया उपेताः ते मे युक्त-तमाः मताः (सन्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "मयि",
+              "artha": "unto_me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "आवेश्य",
+              "artha": "fixing",
+              "hindi": "एकाग्र_करके"
+            },
+            {
+              "pada": "मनः",
+              "artha": "mind",
+              "hindi": "मन_को"
+            },
+            {
+              "pada": "ये",
+              "artha": "one_who",
+              "hindi": "जो_(भक्तजन)"
+            },
+            {
+              "pada": "माम्",
+              "artha": "unto_Me",
+              "hindi": "मुझको_(सगुणरूप_परमेश्वर_को)"
+            },
+            {
+              "pada": "नित्य-युक्ताः",
+              "artha": "always_engaged",
+              "hindi": "निरन्तर_मेरे_भजन_ध्यान_में_लगे_हुए"
+            },
+            {
+              "pada": "उपासते",
+              "artha": "worships",
+              "hindi": "भजते_हैं"
+            },
+            {
+              "pada": "श्रद्धया",
+              "artha": "with_faith",
+              "hindi": "श्रद्धा_से"
+            },
+            {
+              "pada": "परया",
+              "artha": "transcendental",
+              "hindi": "अतिशय_श्रेष्ठ"
+            },
+            {
+              "pada": "उपेताः",
+              "artha": "engages",
+              "hindi": "युक्त_होकर"
+            },
+            {
+              "pada": "ते",
+              "artha": "they",
+              "hindi": "वे"
+            },
+            {
+              "pada": "मे",
+              "artha": "me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "युक्त-तमाः",
+              "artha": "most_perfect",
+              "hindi": "योगियों_में_अति_उत्तम_योगी"
+            },
+            {
+              "pada": "मताः",
+              "artha": "consider",
+              "hindi": "मान्य"
+            },
+            {
+              "pada": "(सन्ति)",
+              "artha": "are",
+              "hindi": "(हैं)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,2",
+              "sandhi": "मय्यावेश्य",
+              "samasa": "-"
+            },
+            {
+              "pada": "आवेश्य",
+              "morph": "आङ्_विश्1{कृत्_प्रत्ययः:ल्यप्;आङ्_विशँ;तुदादिः}",
+              "kaaraka": "पूर्वकालः,7",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मनः",
+              "morph": "मनस्{नपुं}{2;एक}",
+              "kaaraka": "कर्म,2",
+              "sandhi": "मनो",
+              "samasa": "-"
+            },
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,7;नित्यसम्बन्धः,11",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,7",
+              "sandhi": "मां",
+              "samasa": "-"
+            },
+            {
+              "pada": "नित्य-युक्ताः",
+              "morph": "नित्य-युज्2{कृत्_प्रत्ययः:क्त;युजिँर्;रुधादिः;पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,4",
+              "sandhi": "नित्ययुक्ता",
+              "samasa": "<नित्य-युक्ताः>K1"
+            },
+            {
+              "pada": "उपासते",
+              "morph": "उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,4;सकर्मकः",
+              "sandhi": "उपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "श्रद्धया",
+              "morph": "श्रद्धा{स्त्री}{3;एक}",
+              "kaaraka": "करणम्,10",
+              "sandhi": "श्रद्धया",
+              "samasa": "-"
+            },
+            {
+              "pada": "परया",
+              "morph": "परा{स्त्री}{3;एक}",
+              "kaaraka": "विशेषणम्,8",
+              "sandhi": "परयोपेतास्ते",
+              "samasa": "-"
+            },
+            {
+              "pada": "उपेताः",
+              "morph": "उप_इ1{कृत्_प्रत्ययः:क्त;उप_इण्;अदादिः;पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "ते",
+              "morph": "तद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,14",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,13",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "युक्त-तमाः",
+              "morph": "युक्त-तम{पुं}{1;बहु}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,14",
+              "sandhi": "युक्ततमा",
+              "samasa": "-"
+            },
+            {
+              "pada": "मताः",
+              "morph": "मन्2{कृत्_प्रत्ययः:क्त;मनुँ;तनादिः}{पुं}{1;बहु}",
+              "kaaraka": "अभिहितकर्म,11;सकर्मकः",
+              "sandhi": "मताः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(सन्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;बहु;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "002",
+        "has_analysis": true,
+        "word_count": 15
+      },
+      "error": null
+    },
+    {
+      "id": "12-003",
+      "index": 3,
+      "text": "ये तु अक्षरम् अनिर्देश्यम् अव्यक्तं पर्युपासते।\nसर्वत्रगम् अचिन्त्यं च कूटस्थम् अचलं ध्रुवम्॥",
+      "audio": "audio/12-003.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.3",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "ये तु अ-क्षरम् अ-निर्देश्यम् अ-व्यक्तम् पर्युपासते सर्वत्र-गम् अ-चिन्त्यम् च कूट-स्थम् अ-चलम् ध्रुवम् संनियम्य इन्द्रिय-ग्रामम् सर्वत्र सम-बुद्धयः ते प्राप्नुवन्ति माम् एव सर्व-भूत-हिते रताः",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "artha": "those",
+              "hindi": "जो_(पुरुष)"
+            },
+            {
+              "pada": "तु",
+              "artha": "but",
+              "hindi": "परंतु"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "artha": "which_is_beyond_the_perception_of_the_senses",
+              "hindi": "अविनाशी_सच्चिदानन्दघन_ब्रह्म_को"
+            },
+            {
+              "pada": "अ-निर्देश्यम्",
+              "artha": "indefinite",
+              "hindi": "अकथनीय_स्वरूप"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "artha": "unmanifested",
+              "hindi": "निराकार"
+            },
+            {
+              "pada": "पर्युपासते",
+              "artha": "completely_engages",
+              "hindi": "निरन्तर_एकीभाव_से_ध्यान_करते_हुए_भजते_हैं"
+            },
+            {
+              "pada": "सर्वत्र-गम्",
+              "artha": "all-pervading",
+              "hindi": "सर्वव्यापी"
+            },
+            {
+              "pada": "अ-चिन्त्यम्",
+              "artha": "inconceivable",
+              "hindi": "मन-बुद्धि_से_परे"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "कूट-स्थम्",
+              "artha": "in_the_center",
+              "hindi": "सदा_एकरस_रहनेवाले"
+            },
+            {
+              "pada": "अ-चलम्",
+              "artha": "immovable",
+              "hindi": "अचल"
+            },
+            {
+              "pada": "ध्रुवम्",
+              "artha": "fixed",
+              "hindi": "नित्य"
+            },
+            {
+              "pada": "संनियम्य",
+              "artha": "controlling",
+              "hindi": "भली_प्रकार_से_वश_में_करके"
+            },
+            {
+              "pada": "इन्द्रिय-ग्रामम्",
+              "artha": "all_the_senses",
+              "hindi": "इन्द्रियों_के_समुदाय_को"
+            },
+            {
+              "pada": "सर्वत्र",
+              "artha": "everywhere",
+              "hindi": "सबमें"
+            },
+            {
+              "pada": "सम-बुद्धयः",
+              "artha": "equally_disposed",
+              "hindi": "समानभाववाले_योगी"
+            },
+            {
+              "pada": "ते",
+              "artha": "they",
+              "hindi": "वे"
+            },
+            {
+              "pada": "प्राप्नुवन्ति",
+              "artha": "achieve",
+              "hindi": "प्राप्त_होते_हैं"
+            },
+            {
+              "pada": "माम्",
+              "artha": "unto_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "सर्व-भूत-हिते",
+              "artha": "all_living_entities'_welfare",
+              "hindi": "सम्पूर्ण_भूतों_के_हित_में"
+            },
+            {
+              "pada": "रताः",
+              "artha": "engaged",
+              "hindi": "रत"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,6;नित्यसम्बन्धः,17",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "तु",
+              "morph": "तु{अव्य}",
+              "kaaraka": "सम्बन्धः,6",
+              "sandhi": "त्वक्षरमनिर्देश्यमव्यक्तं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "morph": "अक्षर{नपुं}{2;एक}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "0",
+              "samasa": "<न-क्षरम्>Tn"
+            },
+            {
+              "pada": "अ-निर्देश्यम्",
+              "morph": "अनिर्देश्य{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-निर्देश्यम्>Tn"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "morph": "अव्यक्त{पुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-व्यक्तं>Bsmn"
+            },
+            {
+              "pada": "पर्युपासते",
+              "morph": "परि_उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;परि_उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,1;सकर्मकः",
+              "sandhi": "पर्युपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्वत्र-गम्",
+              "morph": "सर्वत्र-ग{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "सर्वत्रगमचिन्त्यं",
+              "samasa": "<सर्वत्र-गम्>U"
+            },
+            {
+              "pada": "अ-चिन्त्यम्",
+              "morph": "अचिन्त्य{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-चिन्त्यम्>Tn"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,6",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "कूट-स्थम्",
+              "morph": "कूटस्थ{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "कूटस्थमचलं",
+              "samasa": "<कूट-स्थम्>U"
+            },
+            {
+              "pada": "अ-चलम्",
+              "morph": "अचल{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-चलम्>Tn"
+            },
+            {
+              "pada": "ध्रुवम्",
+              "morph": "ध्रुव{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "ध्रुवम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "संनियम्य",
+              "morph": "सम्_नि_यम्1{कृत्_प्रत्ययः:ल्यप्;सम्_नि_यमोँ;भ्वादिः}",
+              "kaaraka": "पूर्वकालः,6",
+              "sandhi": "सन्नियम्येन्द्रियग्रामं",
+              "samasa": "-"
+            },
+            {
+              "pada": "इन्द्रिय-ग्रामम्",
+              "morph": "इन्द्रिय-ग्राम{पुं}{2;एक}",
+              "kaaraka": "कर्म,13",
+              "sandhi": "0",
+              "samasa": "<इन्द्रिय-ग्रामं>T6"
+            },
+            {
+              "pada": "सर्वत्र",
+              "morph": "सर्वत्र{अव्य}",
+              "kaaraka": "अधिकरणम्,18",
+              "sandhi": "सर्वत्र",
+              "samasa": "-"
+            },
+            {
+              "pada": "सम-बुद्धयः",
+              "morph": "सम-बुद्धि{स्त्री}{1;बहु}",
+              "kaaraka": "विशेषणम्,17",
+              "sandhi": "समबुद्धयः",
+              "samasa": "<सम-बुद्धयः>Bs6"
+            },
+            {
+              "pada": "ते",
+              "morph": "तद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,18",
+              "sandhi": "ते",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्राप्नुवन्ति",
+              "morph": "प्र_आप्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;प्र_आपॢँ;स्वादिः}",
+              "kaaraka": "अभिहितकर्ता,17;सकर्मकः",
+              "sandhi": "प्राप्नुवन्ति",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,18",
+              "sandhi": "मामेव",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्व-भूत-हिते",
+              "morph": "सर्व-भूत-हित{पुं}{7;एक}",
+              "kaaraka": "अधिकरणम्,22",
+              "sandhi": "सर्वभूतहिते",
+              "samasa": "<<सर्व-भूत>K1-हिते>T6"
+            },
+            {
+              "pada": "रताः",
+              "morph": "रत{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,17",
+              "sandhi": "रताः",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "003",
+        "has_analysis": true,
+        "word_count": 22
+      },
+      "error": null
+    },
+    {
+      "id": "12-004",
+      "index": 4,
+      "text": "सन्नियम्य इन्द्रियग्रामं सर्वत्र समबुद्धयः।\nते प्राप्नुवन्ति माम् एव सर्वभूतहिते रताः॥",
+      "audio": "audio/12-004.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.4",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "ये तु अ-क्षरम् अ-निर्देश्यम् अ-व्यक्तम् पर्युपासते सर्वत्र-गम् अ-चिन्त्यम् च कूट-स्थम् अ-चलम् ध्रुवम् संनियम्य इन्द्रिय-ग्रामम् सर्वत्र सम-बुद्धयः ते प्राप्नुवन्ति माम् एव सर्व-भूत-हिते रताः",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "artha": "those",
+              "hindi": "जो_(पुरुष)"
+            },
+            {
+              "pada": "तु",
+              "artha": "but",
+              "hindi": "परंतु"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "artha": "which_is_beyond_the_perception_of_the_senses",
+              "hindi": "अविनाशी_सच्चिदानन्दघन_ब्रह्म_को"
+            },
+            {
+              "pada": "अ-निर्देश्यम्",
+              "artha": "indefinite",
+              "hindi": "अकथनीय_स्वरूप"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "artha": "unmanifested",
+              "hindi": "निराकार"
+            },
+            {
+              "pada": "पर्युपासते",
+              "artha": "completely_engages",
+              "hindi": "निरन्तर_एकीभाव_से_ध्यान_करते_हुए_भजते_हैं"
+            },
+            {
+              "pada": "सर्वत्र-गम्",
+              "artha": "all-pervading",
+              "hindi": "सर्वव्यापी"
+            },
+            {
+              "pada": "अ-चिन्त्यम्",
+              "artha": "inconceivable",
+              "hindi": "मन-बुद्धि_से_परे"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "कूट-स्थम्",
+              "artha": "in_the_center",
+              "hindi": "सदा_एकरस_रहनेवाले"
+            },
+            {
+              "pada": "अ-चलम्",
+              "artha": "immovable",
+              "hindi": "अचल"
+            },
+            {
+              "pada": "ध्रुवम्",
+              "artha": "fixed",
+              "hindi": "नित्य"
+            },
+            {
+              "pada": "संनियम्य",
+              "artha": "controlling",
+              "hindi": "भली_प्रकार_से_वश_में_करके"
+            },
+            {
+              "pada": "इन्द्रिय-ग्रामम्",
+              "artha": "all_the_senses",
+              "hindi": "इन्द्रियों_के_समुदाय_को"
+            },
+            {
+              "pada": "सर्वत्र",
+              "artha": "everywhere",
+              "hindi": "सबमें"
+            },
+            {
+              "pada": "सम-बुद्धयः",
+              "artha": "equally_disposed",
+              "hindi": "समानभाववाले_योगी"
+            },
+            {
+              "pada": "ते",
+              "artha": "they",
+              "hindi": "वे"
+            },
+            {
+              "pada": "प्राप्नुवन्ति",
+              "artha": "achieve",
+              "hindi": "प्राप्त_होते_हैं"
+            },
+            {
+              "pada": "माम्",
+              "artha": "unto_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "सर्व-भूत-हिते",
+              "artha": "all_living_entities'_welfare",
+              "hindi": "सम्पूर्ण_भूतों_के_हित_में"
+            },
+            {
+              "pada": "रताः",
+              "artha": "engaged",
+              "hindi": "रत"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,6;नित्यसम्बन्धः,17",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "तु",
+              "morph": "तु{अव्य}",
+              "kaaraka": "सम्बन्धः,6",
+              "sandhi": "त्वक्षरमनिर्देश्यमव्यक्तं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-क्षरम्",
+              "morph": "अक्षर{नपुं}{2;एक}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "0",
+              "samasa": "<न-क्षरम्>Tn"
+            },
+            {
+              "pada": "अ-निर्देश्यम्",
+              "morph": "अनिर्देश्य{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-निर्देश्यम्>Tn"
+            },
+            {
+              "pada": "अ-व्यक्तम्",
+              "morph": "अव्यक्त{पुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-व्यक्तं>Bsmn"
+            },
+            {
+              "pada": "पर्युपासते",
+              "morph": "परि_उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;परि_उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,1;सकर्मकः",
+              "sandhi": "पर्युपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्वत्र-गम्",
+              "morph": "सर्वत्र-ग{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "सर्वत्रगमचिन्त्यं",
+              "samasa": "<सर्वत्र-गम्>U"
+            },
+            {
+              "pada": "अ-चिन्त्यम्",
+              "morph": "अचिन्त्य{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-चिन्त्यम्>Tn"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,6",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "कूट-स्थम्",
+              "morph": "कूटस्थ{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "कूटस्थमचलं",
+              "samasa": "<कूट-स्थम्>U"
+            },
+            {
+              "pada": "अ-चलम्",
+              "morph": "अचल{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "<न-चलम्>Tn"
+            },
+            {
+              "pada": "ध्रुवम्",
+              "morph": "ध्रुव{नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "ध्रुवम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "संनियम्य",
+              "morph": "सम्_नि_यम्1{कृत्_प्रत्ययः:ल्यप्;सम्_नि_यमोँ;भ्वादिः}",
+              "kaaraka": "पूर्वकालः,6",
+              "sandhi": "सन्नियम्येन्द्रियग्रामं",
+              "samasa": "-"
+            },
+            {
+              "pada": "इन्द्रिय-ग्रामम्",
+              "morph": "इन्द्रिय-ग्राम{पुं}{2;एक}",
+              "kaaraka": "कर्म,13",
+              "sandhi": "0",
+              "samasa": "<इन्द्रिय-ग्रामं>T6"
+            },
+            {
+              "pada": "सर्वत्र",
+              "morph": "सर्वत्र{अव्य}",
+              "kaaraka": "अधिकरणम्,18",
+              "sandhi": "सर्वत्र",
+              "samasa": "-"
+            },
+            {
+              "pada": "सम-बुद्धयः",
+              "morph": "सम-बुद्धि{स्त्री}{1;बहु}",
+              "kaaraka": "विशेषणम्,17",
+              "sandhi": "समबुद्धयः",
+              "samasa": "<सम-बुद्धयः>Bs6"
+            },
+            {
+              "pada": "ते",
+              "morph": "तद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,18",
+              "sandhi": "ते",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्राप्नुवन्ति",
+              "morph": "प्र_आप्1{कर्तरि;लट्;प्र;बहु;परस्मैपदी;प्र_आपॢँ;स्वादिः}",
+              "kaaraka": "अभिहितकर्ता,17;सकर्मकः",
+              "sandhi": "प्राप्नुवन्ति",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,18",
+              "sandhi": "मामेव",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्व-भूत-हिते",
+              "morph": "सर्व-भूत-हित{पुं}{7;एक}",
+              "kaaraka": "अधिकरणम्,22",
+              "sandhi": "सर्वभूतहिते",
+              "samasa": "<<सर्व-भूत>K1-हिते>T6"
+            },
+            {
+              "pada": "रताः",
+              "morph": "रत{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,17",
+              "sandhi": "रताः",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "004",
+        "has_analysis": true,
+        "word_count": 22
+      },
+      "error": null
+    },
+    {
+      "id": "12-005",
+      "index": 5,
+      "text": "क्लेशः अधिकतरः तेषाम् अव्यक्तअसक्तचेतसाम्।\nअव्यक्ता हि गतिः दुःखम् देहवद्भिः अवाप्यते॥",
+      "audio": "audio/12-005.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.5",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "क्लेशः अधिकतरः तेषाम् अ-व्यक्त-आसक्त-चेतसाम् अ-व्यक्ता हि गतिः दुःखम् देहवद्भिः अवाप्यते (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "क्लेशः",
+              "artha": "trouble",
+              "hindi": "परिश्रम"
+            },
+            {
+              "pada": "अधिकतरः",
+              "artha": "more_troublesome",
+              "hindi": "विशेष"
+            },
+            {
+              "pada": "तेषाम्",
+              "artha": "of_them",
+              "hindi": "उन"
+            },
+            {
+              "pada": "अ-व्यक्त-आसक्त-चेतसाम्",
+              "artha": "of_those_whose_minds_are_being_attached_to_unmanifested_Brahma",
+              "hindi": "सच्चिदानन्दघन_निराकारब्रह्म_में_आसक्तचित्तवाले_पुरुषों_के"
+            },
+            {
+              "pada": "अ-व्यक्ता",
+              "artha": "toward_the_unmanifested",
+              "hindi": "अव्यक्तविषयक"
+            },
+            {
+              "pada": "हि",
+              "artha": "certainly",
+              "hindi": "क्योंकि"
+            },
+            {
+              "pada": "गतिः",
+              "artha": "progress",
+              "hindi": "गति"
+            },
+            {
+              "pada": "दुःखम्",
+              "artha": "troublesome",
+              "hindi": "दुःखपूर्वक"
+            },
+            {
+              "pada": "देहवद्भिः",
+              "artha": "of_the_embodiments",
+              "hindi": "देहाभिमानियों_के_द्वारा"
+            },
+            {
+              "pada": "अवाप्यते",
+              "artha": "achieve",
+              "hindi": "प्राप्त_की_जाती_है"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "क्लेशः",
+              "morph": "क्लेश{पुं}{1;एक}",
+              "kaaraka": "कर्ता,4.1",
+              "sandhi": "क्लेशोऽधिकतरस्तेषामव्यक्तासक्तचेतसाम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "अधिकतरः",
+              "morph": "अधिकतर{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,4.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "तेषाम्",
+              "morph": "तद्{पुं}{6;बहु}",
+              "kaaraka": "विशेषणम्,4",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-व्यक्त-आसक्त-चेतसाम्",
+              "morph": "अव्यक्त-आसक्त-चेतस्{पुं}{6;बहु}",
+              "kaaraka": "षष्ठीसम्बन्धः,1",
+              "sandhi": "0",
+              "samasa": "<<<न-व्यक्त>Tn-आसक्त>T7-चेतसाम्>Bs6"
+            },
+            {
+              "pada": "अ-व्यक्ता",
+              "morph": "अव्यक्ता{स्त्री}{1;एक}",
+              "kaaraka": "विशेषणम्,7",
+              "sandhi": "अव्यक्ता",
+              "samasa": "<न-व्यक्ता>Tn"
+            },
+            {
+              "pada": "हि",
+              "morph": "हि{अव्य}",
+              "kaaraka": "सम्बन्धः,10",
+              "sandhi": "हि",
+              "samasa": "-"
+            },
+            {
+              "pada": "गतिः",
+              "morph": "गति{स्त्री}{1;एक}",
+              "kaaraka": "कर्म,10",
+              "sandhi": "गतिर्दुःखं",
+              "samasa": "-"
+            },
+            {
+              "pada": "दुःखम्",
+              "morph": "दुःख{नपुं}{1;एक}",
+              "kaaraka": "क्रियाविशेषणम्,10",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "देहवद्भिः",
+              "morph": "देहवद्{पुं}{3;बहु}",
+              "kaaraka": "कर्ता,10",
+              "sandhi": "देहवद्भिरवाप्यते",
+              "samasa": "-"
+            },
+            {
+              "pada": "अवाप्यते",
+              "morph": "अव_आप्1{कर्मणि;लट्;प्र;एक;आत्मनेपदी;अव_आपॢँ;स्वादिः}",
+              "kaaraka": "अभिहितकर्म,7;अकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,1;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "005",
+        "has_analysis": true,
+        "word_count": 11
+      },
+      "error": null
+    },
+    {
+      "id": "12-006",
+      "index": 6,
+      "text": "ये तु सर्वाणि कर्माणि मयि सन्न्यस्य मत्पराः।\nअनन्येन एव योगेन मां ध्यायन्तः उपासते॥",
+      "audio": "audio/12-006.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.6",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "ये तु सर्वाणि कर्माणि मयि सन्न्यस्य मत्-पराः अन्-अन्येन एव योगेन माम् ध्यायन्तः उपासते तेषाम् अहम् समुद्धर्ता मृत्यु-संसार-सागरात् भवामि नचिरात् पार्थ मयि आवेशित-चेतसाम्",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "artha": "one_who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "तु",
+              "artha": "but",
+              "hindi": "परंतु"
+            },
+            {
+              "pada": "सर्वाणि",
+              "artha": "everything",
+              "hindi": "सम्पूर्ण"
+            },
+            {
+              "pada": "कर्माणि",
+              "artha": "activities",
+              "hindi": "कर्मों_को"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "सन्न्यस्य",
+              "artha": "giving_up",
+              "hindi": "अर्पण_करके"
+            },
+            {
+              "pada": "मत्-पराः",
+              "artha": "being_attached_to_Me",
+              "hindi": "मेरे_परायण_रहनेवाले_भक्तजन"
+            },
+            {
+              "pada": "अन्-अन्येन",
+              "artha": "without_division",
+              "hindi": "अनन्य"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "योगेन",
+              "artha": "by_practice_of_such_bhakti-yoga",
+              "hindi": "भक्तियोग_से"
+            },
+            {
+              "pada": "माम्",
+              "artha": "unto_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "ध्यायन्तः",
+              "artha": "meditating",
+              "hindi": "निरन्तर_चिन्तन_करते_हुए"
+            },
+            {
+              "pada": "उपासते",
+              "artha": "worship",
+              "hindi": "भजते_हैं"
+            },
+            {
+              "pada": "तेषाम्",
+              "artha": "of_them",
+              "hindi": "उन"
+            },
+            {
+              "pada": "अहम्",
+              "artha": "I",
+              "hindi": "मैं"
+            },
+            {
+              "pada": "समुद्धर्ता",
+              "artha": "deliverer",
+              "hindi": "उद्धार_करनेवाला"
+            },
+            {
+              "pada": "मृत्यु-संसार-सागरात्",
+              "artha": "from_the_ocean_of_death_and_material_existence",
+              "hindi": "मृत्युरूप_संसारसमुद्र_से"
+            },
+            {
+              "pada": "भवामि",
+              "artha": "become",
+              "hindi": "होता_हूँ"
+            },
+            {
+              "pada": "नचिरात्",
+              "artha": "not_a_long_time",
+              "hindi": "शीघ्र_ही"
+            },
+            {
+              "pada": "पार्थ",
+              "artha": "O_son_of_Prtha",
+              "hindi": "हे_अर्जुन"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "आवेशित-चेतसाम्",
+              "artha": "of_those_minds_are_fixed",
+              "hindi": "चित्त_लगानेवाले_प्रेमी_भक्तों_का"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,6;नित्यसम्बन्धः,14",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "तु",
+              "morph": "तु{अव्य}",
+              "kaaraka": "सम्बन्धः,1",
+              "sandhi": "तु",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्वाणि",
+              "morph": "सर्व{नपुं}{2;बहु}",
+              "kaaraka": "विशेषणम्,4",
+              "sandhi": "सर्वाणि",
+              "samasa": "-"
+            },
+            {
+              "pada": "कर्माणि",
+              "morph": "कर्मन्{नपुं}{2;बहु}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "कर्माणि",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,6",
+              "sandhi": "मयि",
+              "samasa": "-"
+            },
+            {
+              "pada": "सन्न्यस्य",
+              "morph": "सम्_नि_अस्1{कृत्_प्रत्ययः:ल्यप्;सम्_नि_असँ;भ्वादिः}",
+              "kaaraka": "पूर्वकालः,13",
+              "sandhi": "सन्न्यस्य",
+              "samasa": "-"
+            },
+            {
+              "pada": "मत्-पराः",
+              "morph": "अस्मत्-पर{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,1",
+              "sandhi": "मत्पराः",
+              "samasa": "<अस्मत्-पराः>Bs6"
+            },
+            {
+              "pada": "अन्-अन्येन",
+              "morph": "अनन्य{पुं}{3;एक}",
+              "kaaraka": "विशेषणम्,10",
+              "sandhi": "अनन्येनैव",
+              "samasa": "<न-अन्येन>Bsmn"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "योगेन",
+              "morph": "योग{पुं}{3;एक}",
+              "kaaraka": "करणम्,12",
+              "sandhi": "योगेन",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,12",
+              "sandhi": "मां",
+              "samasa": "-"
+            },
+            {
+              "pada": "ध्यायन्तः",
+              "morph": "ध्यै1{कृत्_प्रत्ययः:शतृ;ध्यै;भ्वादिः;पुं}{1;बहु}",
+              "kaaraka": "वर्तमानसमानकालः,13",
+              "sandhi": "ध्यायन्त",
+              "samasa": "-"
+            },
+            {
+              "pada": "उपासते",
+              "morph": "उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,1;सकर्मकः",
+              "sandhi": "उपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "तेषाम्",
+              "morph": "तद्{पुं}{6;बहु}",
+              "kaaraka": "विशेषणम्,22",
+              "sandhi": "तेषामहं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अहम्",
+              "morph": "अस्मद्{1;एक}",
+              "kaaraka": "कर्ता,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "समुद्धर्ता",
+              "morph": "समुद्धर्तृ{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,18",
+              "sandhi": "समुद्धर्ता",
+              "samasa": "-"
+            },
+            {
+              "pada": "मृत्यु-संसार-सागरात्",
+              "morph": "मृत्यु-संसार-सागर{पुं}{5;एक}",
+              "kaaraka": "अपादानम्,16",
+              "sandhi": "मृत्युसंसारसागरात्",
+              "samasa": "<<मृत्यु-संसार>Km-सागरात्>K6"
+            },
+            {
+              "pada": "भवामि",
+              "morph": "भू1{कर्तरि;लट्;उ;एक;परस्मैपदी;भू;भ्वादिः}",
+              "kaaraka": "अभिहितकर्ता,15;अकर्मकः",
+              "sandhi": "भवामि",
+              "samasa": "-"
+            },
+            {
+              "pada": "नचिरात्",
+              "morph": "नचिरात्{अव्य}",
+              "kaaraka": "क्रियाविशेषणम्,18",
+              "sandhi": "नचिरात्पार्थ",
+              "samasa": "-"
+            },
+            {
+              "pada": "पार्थ",
+              "morph": "पार्थ{पुं}{8;एक}",
+              "kaaraka": "सम्बोध्यः,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,22",
+              "sandhi": "मय्यावेशितचेतसाम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "आवेशित-चेतसाम्",
+              "morph": "आवेशित-चेतस्{नपुं}{6;बहु}",
+              "kaaraka": "षष्ठीसम्बन्धः,16",
+              "sandhi": "0",
+              "samasa": "<आवेशित-चेतसाम्>Bs3"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "006",
+        "has_analysis": true,
+        "word_count": 22
+      },
+      "error": null
+    },
+    {
+      "id": "12-007",
+      "index": 7,
+      "text": "तेषाम् अहं समुद्धर्ता मृत्युसंसारसागरात्।\nभवामि न चिरात् पार्थ मयि आवेशितचेतसाम्॥",
+      "audio": "audio/12-007.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.7",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "ये तु सर्वाणि कर्माणि मयि सन्न्यस्य मत्-पराः अन्-अन्येन एव योगेन माम् ध्यायन्तः उपासते तेषाम् अहम् समुद्धर्ता मृत्यु-संसार-सागरात् भवामि नचिरात् पार्थ मयि आवेशित-चेतसाम्",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "artha": "one_who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "तु",
+              "artha": "but",
+              "hindi": "परंतु"
+            },
+            {
+              "pada": "सर्वाणि",
+              "artha": "everything",
+              "hindi": "सम्पूर्ण"
+            },
+            {
+              "pada": "कर्माणि",
+              "artha": "activities",
+              "hindi": "कर्मों_को"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "सन्न्यस्य",
+              "artha": "giving_up",
+              "hindi": "अर्पण_करके"
+            },
+            {
+              "pada": "मत्-पराः",
+              "artha": "being_attached_to_Me",
+              "hindi": "मेरे_परायण_रहनेवाले_भक्तजन"
+            },
+            {
+              "pada": "अन्-अन्येन",
+              "artha": "without_division",
+              "hindi": "अनन्य"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "योगेन",
+              "artha": "by_practice_of_such_bhakti-yoga",
+              "hindi": "भक्तियोग_से"
+            },
+            {
+              "pada": "माम्",
+              "artha": "unto_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "ध्यायन्तः",
+              "artha": "meditating",
+              "hindi": "निरन्तर_चिन्तन_करते_हुए"
+            },
+            {
+              "pada": "उपासते",
+              "artha": "worship",
+              "hindi": "भजते_हैं"
+            },
+            {
+              "pada": "तेषाम्",
+              "artha": "of_them",
+              "hindi": "उन"
+            },
+            {
+              "pada": "अहम्",
+              "artha": "I",
+              "hindi": "मैं"
+            },
+            {
+              "pada": "समुद्धर्ता",
+              "artha": "deliverer",
+              "hindi": "उद्धार_करनेवाला"
+            },
+            {
+              "pada": "मृत्यु-संसार-सागरात्",
+              "artha": "from_the_ocean_of_death_and_material_existence",
+              "hindi": "मृत्युरूप_संसारसमुद्र_से"
+            },
+            {
+              "pada": "भवामि",
+              "artha": "become",
+              "hindi": "होता_हूँ"
+            },
+            {
+              "pada": "नचिरात्",
+              "artha": "not_a_long_time",
+              "hindi": "शीघ्र_ही"
+            },
+            {
+              "pada": "पार्थ",
+              "artha": "O_son_of_Prtha",
+              "hindi": "हे_अर्जुन"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "आवेशित-चेतसाम्",
+              "artha": "of_those_minds_are_fixed",
+              "hindi": "चित्त_लगानेवाले_प्रेमी_भक्तों_का"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,6;नित्यसम्बन्धः,14",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "तु",
+              "morph": "तु{अव्य}",
+              "kaaraka": "सम्बन्धः,1",
+              "sandhi": "तु",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्वाणि",
+              "morph": "सर्व{नपुं}{2;बहु}",
+              "kaaraka": "विशेषणम्,4",
+              "sandhi": "सर्वाणि",
+              "samasa": "-"
+            },
+            {
+              "pada": "कर्माणि",
+              "morph": "कर्मन्{नपुं}{2;बहु}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "कर्माणि",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,6",
+              "sandhi": "मयि",
+              "samasa": "-"
+            },
+            {
+              "pada": "सन्न्यस्य",
+              "morph": "सम्_नि_अस्1{कृत्_प्रत्ययः:ल्यप्;सम्_नि_असँ;भ्वादिः}",
+              "kaaraka": "पूर्वकालः,13",
+              "sandhi": "सन्न्यस्य",
+              "samasa": "-"
+            },
+            {
+              "pada": "मत्-पराः",
+              "morph": "अस्मत्-पर{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,1",
+              "sandhi": "मत्पराः",
+              "samasa": "<अस्मत्-पराः>Bs6"
+            },
+            {
+              "pada": "अन्-अन्येन",
+              "morph": "अनन्य{पुं}{3;एक}",
+              "kaaraka": "विशेषणम्,10",
+              "sandhi": "अनन्येनैव",
+              "samasa": "<न-अन्येन>Bsmn"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "योगेन",
+              "morph": "योग{पुं}{3;एक}",
+              "kaaraka": "करणम्,12",
+              "sandhi": "योगेन",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,12",
+              "sandhi": "मां",
+              "samasa": "-"
+            },
+            {
+              "pada": "ध्यायन्तः",
+              "morph": "ध्यै1{कृत्_प्रत्ययः:शतृ;ध्यै;भ्वादिः;पुं}{1;बहु}",
+              "kaaraka": "वर्तमानसमानकालः,13",
+              "sandhi": "ध्यायन्त",
+              "samasa": "-"
+            },
+            {
+              "pada": "उपासते",
+              "morph": "उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,1;सकर्मकः",
+              "sandhi": "उपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "तेषाम्",
+              "morph": "तद्{पुं}{6;बहु}",
+              "kaaraka": "विशेषणम्,22",
+              "sandhi": "तेषामहं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अहम्",
+              "morph": "अस्मद्{1;एक}",
+              "kaaraka": "कर्ता,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "समुद्धर्ता",
+              "morph": "समुद्धर्तृ{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,18",
+              "sandhi": "समुद्धर्ता",
+              "samasa": "-"
+            },
+            {
+              "pada": "मृत्यु-संसार-सागरात्",
+              "morph": "मृत्यु-संसार-सागर{पुं}{5;एक}",
+              "kaaraka": "अपादानम्,16",
+              "sandhi": "मृत्युसंसारसागरात्",
+              "samasa": "<<मृत्यु-संसार>Km-सागरात्>K6"
+            },
+            {
+              "pada": "भवामि",
+              "morph": "भू1{कर्तरि;लट्;उ;एक;परस्मैपदी;भू;भ्वादिः}",
+              "kaaraka": "अभिहितकर्ता,15;अकर्मकः",
+              "sandhi": "भवामि",
+              "samasa": "-"
+            },
+            {
+              "pada": "नचिरात्",
+              "morph": "नचिरात्{अव्य}",
+              "kaaraka": "क्रियाविशेषणम्,18",
+              "sandhi": "नचिरात्पार्थ",
+              "samasa": "-"
+            },
+            {
+              "pada": "पार्थ",
+              "morph": "पार्थ{पुं}{8;एक}",
+              "kaaraka": "सम्बोध्यः,18",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,22",
+              "sandhi": "मय्यावेशितचेतसाम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "आवेशित-चेतसाम्",
+              "morph": "आवेशित-चेतस्{नपुं}{6;बहु}",
+              "kaaraka": "षष्ठीसम्बन्धः,16",
+              "sandhi": "0",
+              "samasa": "<आवेशित-चेतसाम्>Bs3"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "007",
+        "has_analysis": true,
+        "word_count": 22
+      },
+      "error": null
+    },
+    {
+      "id": "12-008",
+      "index": 8,
+      "text": "मयि एव मनः आधत्स्व मयि बुद्धिं निवेशय।\nनिवसिष्यसि मयि एव अत ऊर्ध्वं न संशयः॥",
+      "audio": "audio/12-008.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.8",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "मयि एव मनः आधत्स्व (त्वम्) मयि बुद्धिम् निवेशय (त्वम्) निवसिष्यसि मयि एव (त्वम्) अतः ऊर्ध्वम् न संशयः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "मयि",
+              "artha": "upon_me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "मनः",
+              "artha": "mind",
+              "hindi": "मन_को"
+            },
+            {
+              "pada": "आधत्स्व",
+              "artha": "fix",
+              "hindi": "लगाओ"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "बुद्धिम्",
+              "artha": "intelligence",
+              "hindi": "बुद्धि_को"
+            },
+            {
+              "pada": "निवेशय",
+              "artha": "apply",
+              "hindi": "लगाओ"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "निवसिष्यसि",
+              "artha": "live",
+              "hindi": "निवास_करोगे"
+            },
+            {
+              "pada": "मयि",
+              "artha": "unto_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "ही"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "अतः",
+              "artha": "after",
+              "hindi": "इसके"
+            },
+            {
+              "pada": "ऊर्ध्वम्",
+              "artha": "that",
+              "hindi": "उपरान्त"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "नहीं"
+            },
+            {
+              "pada": "संशयः",
+              "artha": "doubt",
+              "hindi": "संशय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,7",
+              "sandhi": "मय्येव",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मनः",
+              "morph": "मनस्{नपुं}{2;एक}",
+              "kaaraka": "कर्म,4",
+              "sandhi": "मन",
+              "samasa": "-"
+            },
+            {
+              "pada": "आधत्स्व",
+              "morph": "आङ्_धा1{कर्तरि;लोट्;म;एक;आत्मनेपदी;आङ्_डुधाञ्;जुहोत्यादिः}",
+              "kaaraka": "अभिहितकर्ता,4.1;सकर्मकः",
+              "sandhi": "आधत्स्व",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,4",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,7",
+              "sandhi": "मयि",
+              "samasa": "-"
+            },
+            {
+              "pada": "बुद्धिम्",
+              "morph": "बुद्धि{स्त्री}{2;एक}",
+              "kaaraka": "कर्म,7",
+              "sandhi": "बुद्धिं",
+              "samasa": "-"
+            },
+            {
+              "pada": "निवेशय",
+              "morph": "नि_विश्1_णिच्{कर्तरि;लट्;प्र;एक;परस्मैपदी;नि_विशँ_णिच्;तुदादिः}",
+              "kaaraka": "अभिहितकर्ता,7.1;सकर्मकः",
+              "sandhi": "निवेशय",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,7",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "निवसिष्यसि",
+              "morph": "नि_वस्1{कर्तरि;लृट्;म;एक;परस्मैपदी;नि_वसँ;भ्वादिः}",
+              "kaaraka": "अभिहितकर्ता,10.1;सकर्मकः",
+              "sandhi": "निवसिष्यसि",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,8",
+              "sandhi": "मय्येव",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,9",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,8",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "अतः",
+              "morph": "अतः{अव्य}",
+              "kaaraka": "हेतुः,14.1",
+              "sandhi": "अत",
+              "samasa": "-"
+            },
+            {
+              "pada": "ऊर्ध्वम्",
+              "morph": "ऊर्ध्वम्{अव्य}",
+              "kaaraka": "अधिकरणम्,14.1",
+              "sandhi": "ऊर्ध्वं",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,14.1",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "संशयः",
+              "morph": "संशय{पुं}{1;एक}",
+              "kaaraka": "कर्ता,14.1",
+              "sandhi": "संशयः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,14;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "008",
+        "has_analysis": true,
+        "word_count": 18
+      },
+      "error": null
+    },
+    {
+      "id": "12-009",
+      "index": 9,
+      "text": "अथ चित्तं समाधातुं न शक्नोषि मयि स्थिरम्।\nअभ्यासयोगेन ततः माम् इच्छ आप्तुम् धनञ्जय॥",
+      "audio": "audio/12-009.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.9",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अथ चित्तम् समाधातुम् न शक्नोषि मयि स्थिरम् (त्वम्) अभ्यास-योगेन ततः माम् इच्छ आप्तुम् धनञ्जय (त्वम्)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अथ",
+              "artha": "if_therefore",
+              "hindi": "यदि"
+            },
+            {
+              "pada": "चित्तम्",
+              "artha": "mind",
+              "hindi": "मन_को"
+            },
+            {
+              "pada": "समाधातुम्",
+              "artha": "fixing",
+              "hindi": "स्थापन_करने_के_लिये"
+            },
+            {
+              "pada": "न",
+              "artha": "not",
+              "hindi": "नहीं"
+            },
+            {
+              "pada": "शक्नोषि",
+              "artha": "able",
+              "hindi": "समर्थ_हो"
+            },
+            {
+              "pada": "मयि",
+              "artha": "upon_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "स्थिरम्",
+              "artha": "fixed",
+              "hindi": "अचल"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "अभ्यास-योगेन",
+              "artha": "by_practice_of_devotional_service",
+              "hindi": "अभ्यासरूप_योग_के_द्वारा"
+            },
+            {
+              "pada": "ततः",
+              "artha": "therefore",
+              "hindi": "तो"
+            },
+            {
+              "pada": "माम्",
+              "artha": "me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "इच्छ",
+              "artha": "desire",
+              "hindi": "इच्छा_कर"
+            },
+            {
+              "pada": "आप्तुम्",
+              "artha": "to_get",
+              "hindi": "प्राप्त_होने_के_लिये"
+            },
+            {
+              "pada": "धनञ्जय",
+              "artha": "O_Arjuna",
+              "hindi": "हे_अर्जुन"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तू)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अथ",
+              "morph": "अथ{अव्य}",
+              "kaaraka": "सम्बन्धः,5",
+              "sandhi": "अथ",
+              "samasa": "-"
+            },
+            {
+              "pada": "चित्तम्",
+              "morph": "चित्त{नपुं}{2;एक}",
+              "kaaraka": "कर्म,3",
+              "sandhi": "चित्तं",
+              "samasa": "-"
+            },
+            {
+              "pada": "समाधातुम्",
+              "morph": "सम्_आङ्_धा1{कृत्_प्रत्ययः:तुमुन्;सम्_आङ्_डुधाञ्;जुहोत्यादिः}",
+              "kaaraka": "सहायकक्रिया,5",
+              "sandhi": "समाधातुं",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,5",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "शक्नोषि",
+              "morph": "शक्1{कर्तरि;लट्;म;एक;परस्मैपदी;शकॢँ;स्वादिः}",
+              "kaaraka": "अभिहितकर्ता,7.1;सकर्मकः",
+              "sandhi": "शक्नोषि",
+              "samasa": "-"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,3",
+              "sandhi": "मयि",
+              "samasa": "-"
+            },
+            {
+              "pada": "स्थिरम्",
+              "morph": "स्थिर{नपुं}{2;एक}",
+              "kaaraka": "कर्मसमानाधिकरणम्,3",
+              "sandhi": "स्थिरम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,5",
+              "sandhi": "(त्वम्)",
+              "samasa": "-"
+            },
+            {
+              "pada": "अभ्यास-योगेन",
+              "morph": "अभ्यास-योग{पुं}{3;एक}",
+              "kaaraka": "करणम्,12",
+              "sandhi": "अभ्यासयोगेन",
+              "samasa": "<अभ्यास-योगेन>K6"
+            },
+            {
+              "pada": "ततः",
+              "morph": "ततः{अव्य}",
+              "kaaraka": "हेतुः,11",
+              "sandhi": "ततो",
+              "samasa": "-"
+            },
+            {
+              "pada": "माम्",
+              "morph": "अस्मद्{2;एक}",
+              "kaaraka": "कर्म,12",
+              "sandhi": "मामिच्छाप्तुं",
+              "samasa": "-"
+            },
+            {
+              "pada": "इच्छ",
+              "morph": "इष्2{कर्तरि;लोट्;म;एक;परस्मैपदी;इषुँ;तुदादिः}",
+              "kaaraka": "अभिहितकर्ता,13.1;सकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "आप्तुम्",
+              "morph": "आप्1{कृत्_प्रत्ययः:तुमुन्;आपॢँ;स्वादिः}",
+              "kaaraka": "कर्म,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "धनञ्जय",
+              "morph": "धनञ्जय{पुं}{8;एक}",
+              "kaaraka": "सम्बोध्यः,11",
+              "sandhi": "धनञ्जय",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,11",
+              "sandhi": "(त्वम्)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "009",
+        "has_analysis": true,
+        "word_count": 15
+      },
+      "error": null
+    },
+    {
+      "id": "12-010",
+      "index": 10,
+      "text": "अभ्यासे अपि असमर्थः असि मत्कर्मपरमः भव।\nमत्अर्थम् अपि कर्माणि कुर्वन् सिद्धिम् अवाप्स्यसि॥",
+      "audio": "audio/12-010.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.10",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अभ्यासे अपि अ-समर्थः असि (त्वम्) मत्-कर्म-परमः भव (त्वम्) मद्-अर्थं अपि कर्माणि कुर्वन् सिद्धिम् अवाप्स्यसि (त्वम्)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अभ्यासे",
+              "artha": "in_practice_of",
+              "hindi": "अभ्यास_में"
+            },
+            {
+              "pada": "अपि",
+              "artha": "even",
+              "hindi": "भी"
+            },
+            {
+              "pada": "अ-समर्थः",
+              "artha": "unable",
+              "hindi": "असमर्थ"
+            },
+            {
+              "pada": "असि",
+              "artha": "are",
+              "hindi": "हो"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "मत्-कर्म-परमः",
+              "artha": "my_supreme_work",
+              "hindi": "मेरे_लिये_कर्म_करने_के_ही_परायण"
+            },
+            {
+              "pada": "भव",
+              "artha": "become",
+              "hindi": "हो_जा"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            },
+            {
+              "pada": "मद्-अर्थं",
+              "artha": "for_My_sake",
+              "hindi": "मेरे_निमित"
+            },
+            {
+              "pada": "अपि",
+              "artha": "even_though",
+              "hindi": "भी"
+            },
+            {
+              "pada": "कर्माणि",
+              "artha": "work",
+              "hindi": "कर्मों_को"
+            },
+            {
+              "pada": "कुर्वन्",
+              "artha": "performing",
+              "hindi": "करता_हुआ"
+            },
+            {
+              "pada": "सिद्धिम्",
+              "artha": "perfection",
+              "hindi": "सिद्धि_को"
+            },
+            {
+              "pada": "अवाप्स्यसि",
+              "artha": "achieve",
+              "hindi": "प्राप्त_होगा"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अभ्यासे",
+              "morph": "अभ्यास{पुं}{7;एक}",
+              "kaaraka": "अधिकरणम्,4",
+              "sandhi": "अभ्यासेऽप्यसमर्थोऽसि",
+              "samasa": "-"
+            },
+            {
+              "pada": "अपि",
+              "morph": "अपि{अव्य}",
+              "kaaraka": "सम्बन्धः,4",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-समर्थः",
+              "morph": "असमर्थ{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,4",
+              "sandhi": "0",
+              "samasa": "<न-समर्थः>Tn"
+            },
+            {
+              "pada": "असि",
+              "morph": "अस्2{कर्तरि;लट्;म;एक;परस्मैपदी;असँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,4.1;अकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,4",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "मत्-कर्म-परमः",
+              "morph": "अस्मत्-कर्म-परम{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,6",
+              "sandhi": "मत्कर्मपरमो",
+              "samasa": "<<अस्मत्-कर्म>T6-परमः>T7"
+            },
+            {
+              "pada": "भव",
+              "morph": "भू1{कर्तरि;लोट्;म;एक;परस्मैपदी;भू;भ्वादिः}",
+              "kaaraka": "अभिहितकर्ता,6.1;अकर्मकः",
+              "sandhi": "भव",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,6",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "मद्-अर्थं",
+              "morph": "अस्मद्-अर्थ{नपुं}{1;एक}",
+              "kaaraka": "प्रयोजनम्,10",
+              "sandhi": "मदर्थमपि",
+              "samasa": "<अस्मत्-अर्थम्>T4"
+            },
+            {
+              "pada": "अपि",
+              "morph": "अपि{अव्य}",
+              "kaaraka": "सम्बन्धः,10",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "कर्माणि",
+              "morph": "कर्मन्{नपुं}{2;बहु}",
+              "kaaraka": "कर्म,10",
+              "sandhi": "कर्माणि",
+              "samasa": "-"
+            },
+            {
+              "pada": "कुर्वन्",
+              "morph": "कृ3{कृत्_प्रत्ययः:शतृ;डुकृञ्;तनादिः;पुं}{1;एक}",
+              "kaaraka": "वर्तमानसमानकालः,12",
+              "sandhi": "कुर्वन्सिद्धिमवाप्स्यसि",
+              "samasa": "-"
+            },
+            {
+              "pada": "सिद्धिम्",
+              "morph": "सिद्धि{स्त्री}{2;एक}",
+              "kaaraka": "कर्म,12",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अवाप्स्यसि",
+              "morph": "अव_आप्1{कर्तरि;लृट्;म;एक;परस्मैपदी;अव_आपॢँ;स्वादिः}",
+              "kaaraka": "अभिहितकर्ता,12.1;सकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,12",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "010",
+        "has_analysis": true,
+        "word_count": 15
+      },
+      "error": null
+    },
+    {
+      "id": "12-011",
+      "index": 11,
+      "text": "अथ एतत् अपि अशक्तः असि कर्तुं मत्योगम् आश्रितः।\nसर्वकर्मफलत्यागं ततः कुरु यत आत्मवान्॥",
+      "audio": "audio/12-011.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.11",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अथ एतत् अपि अ-शक्तः असि कर्तुम् (त्वम्) मद्-योगम् आश्रितः सर्व-कर्म-फल-त्यागम् ततः कुरु यत्-आत्मवान् (त्वम्)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अथ",
+              "artha": "even_though",
+              "hindi": "यदि"
+            },
+            {
+              "pada": "एतत्",
+              "artha": "this",
+              "hindi": "उपर्युक्त_साधन_को"
+            },
+            {
+              "pada": "अपि",
+              "artha": "also",
+              "hindi": "भी"
+            },
+            {
+              "pada": "अ-शक्तः",
+              "artha": "unable",
+              "hindi": "असमर्थ"
+            },
+            {
+              "pada": "असि",
+              "artha": "are",
+              "hindi": "है"
+            },
+            {
+              "pada": "कर्तुम्",
+              "artha": "to_perform",
+              "hindi": "करने_में"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तू)"
+            },
+            {
+              "pada": "मद्-योगम्",
+              "artha": "devotional_service_unto_me",
+              "hindi": "मेरी_प्राप्तिरूप_योग_के"
+            },
+            {
+              "pada": "आश्रितः",
+              "artha": "refuge",
+              "hindi": "आश्रित_होकर"
+            },
+            {
+              "pada": "सर्व-कर्म-फल-त्यागम्",
+              "artha": "renounce_the_result_of_all_activities",
+              "hindi": "सब_कर्मों_के_फल_का_त्याग"
+            },
+            {
+              "pada": "ततः",
+              "artha": "therefore",
+              "hindi": "तो"
+            },
+            {
+              "pada": "कुरु",
+              "artha": "do",
+              "hindi": "करो"
+            },
+            {
+              "pada": "यत्-आत्मवान्",
+              "artha": "self-situated",
+              "hindi": "मन-बुद्धि_आदि_पर_विजय_प्राप्त_करनेवाला_होकर"
+            },
+            {
+              "pada": "(त्वम्)",
+              "artha": "you",
+              "hindi": "(तुम)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अथ",
+              "morph": "अथ{अव्य}",
+              "kaaraka": "सम्बन्धः,5",
+              "sandhi": "अथैतदप्यशक्तोऽसि",
+              "samasa": "-"
+            },
+            {
+              "pada": "एतत्",
+              "morph": "एतद्{नपुं}{1;एक}",
+              "kaaraka": "कर्म,6",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अपि",
+              "morph": "अपि{अव्य}",
+              "kaaraka": "सम्बन्धः,6",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-शक्तः",
+              "morph": "न-शक्त{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,5",
+              "sandhi": "0",
+              "samasa": "<न-शक्तः>Tn"
+            },
+            {
+              "pada": "असि",
+              "morph": "अस्2{कर्तरि;लट्;म;एक;परस्मैपदी;असँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,6.1;अकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "कर्तुम्",
+              "morph": "कृ3{कृत्_प्रत्ययः:तुमुन्;डुकृञ्;तनादिः}",
+              "kaaraka": "सहायकक्रिया,4",
+              "sandhi": "कर्तुं",
+              "samasa": "-"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,5",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "मद्-योगम्",
+              "morph": "अस्मद्-योग{पुं}{2;एक}",
+              "kaaraka": "कर्म,8",
+              "sandhi": "मद्योगमाश्रितः",
+              "samasa": "<अस्मत्-योगम्>Bs6"
+            },
+            {
+              "pada": "आश्रितः",
+              "morph": "आङ्_श्रि1{कृत्_प्रत्ययः:क्त;आङ्_श्रिञ्;भ्वादिः;पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,12.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "सर्व-कर्म-फल-त्यागम्",
+              "morph": "सर्व-कर्मन्-फल-त्याग{पुं}{2;एक}",
+              "kaaraka": "कर्म,11",
+              "sandhi": "सर्वकर्मफलत्यागं",
+              "samasa": "<<<सर्व-कर्म>K1-फल>T6-त्यागं>T6"
+            },
+            {
+              "pada": "ततः",
+              "morph": "ततः{अव्य}",
+              "kaaraka": "हेतुः,11",
+              "sandhi": "ततः",
+              "samasa": "-"
+            },
+            {
+              "pada": "कुरु",
+              "morph": "कृ3{कर्तरि;लोट्;म;एक;परस्मैपदी;डुकृञ्;तनादिः}",
+              "kaaraka": "अभिहितकर्ता,12.1;सकर्मकः",
+              "sandhi": "कुरु",
+              "samasa": "-"
+            },
+            {
+              "pada": "यत्-आत्मवान्",
+              "morph": "यद्-आत्मवत्{पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,12.1",
+              "sandhi": "यतात्मवान्",
+              "samasa": "<यत-आत्मवान्>Bs6"
+            },
+            {
+              "pada": "(त्वम्)",
+              "morph": "(युष्मद्{1;एक})",
+              "kaaraka": "कर्ता,11",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "011",
+        "has_analysis": true,
+        "word_count": 14
+      },
+      "error": null
+    },
+    {
+      "id": "12-012",
+      "index": 12,
+      "text": "श्रेयः हि ज्ञानम् अभ्यासात् ज्ञानात् ध्यानं विशिष्यते।\nध्यानात् कर्मफलत्यागः त्यागात् शान्तिः अनन्तरम्॥",
+      "audio": "audio/12-012.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.12",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "श्रेयः हि ज्ञानम् अभ्यासात् ज्ञानात् ध्यानम् विशिष्यते ध्यानात् कर्म-फल-त्यागः (विशिष्यते) त्यागात् शान्तिः अनन्तरम् (भवति) (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "श्रेयः",
+              "artha": "better",
+              "hindi": "श्रेष्ठ"
+            },
+            {
+              "pada": "हि",
+              "artha": "certainly",
+              "hindi": "क्योंकि"
+            },
+            {
+              "pada": "ज्ञानम्",
+              "artha": "knowledge",
+              "hindi": "ज्ञान"
+            },
+            {
+              "pada": "अभ्यासात्",
+              "artha": "by_practice",
+              "hindi": "मर्म_को_न_जानकर_किये_हुए_अभ्यास_से"
+            },
+            {
+              "pada": "ज्ञानात्",
+              "artha": "better_than_knowledge",
+              "hindi": "ज्ञान_से"
+            },
+            {
+              "pada": "ध्यानम्",
+              "artha": "meditation",
+              "hindi": "ध्यान"
+            },
+            {
+              "pada": "विशिष्यते",
+              "artha": "especially_considered",
+              "hindi": "श्रेष्ठ_है"
+            },
+            {
+              "pada": "ध्यानात्",
+              "artha": "from_meditation",
+              "hindi": "ध्यान_से"
+            },
+            {
+              "pada": "कर्म-फल-त्यागः",
+              "artha": "renunciation_of_the_results_of_fruitive_action",
+              "hindi": "सब_कर्मों_के_फल_का_त्याग"
+            },
+            {
+              "pada": "(विशिष्यते)",
+              "artha": "especially_considered",
+              "hindi": "(श्रेष्ठ_है)"
+            },
+            {
+              "pada": "त्यागात्",
+              "artha": "by_such_renunciation",
+              "hindi": "त्याग_से"
+            },
+            {
+              "pada": "शान्तिः",
+              "artha": "thereafter",
+              "hindi": "परम_शान्ति"
+            },
+            {
+              "pada": "अनन्तरम्",
+              "artha": "peace",
+              "hindi": "तत्काल_ही"
+            },
+            {
+              "pada": "(भवति)",
+              "artha": "is",
+              "hindi": "(होती_है)"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "श्रेयः",
+              "morph": "श्रेयस्{नपुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,4.1",
+              "sandhi": "श्रेयो",
+              "samasa": "-"
+            },
+            {
+              "pada": "हि",
+              "morph": "हि{अव्य}",
+              "kaaraka": "सम्बन्धः,4.1",
+              "sandhi": "हि",
+              "samasa": "-"
+            },
+            {
+              "pada": "ज्ञानम्",
+              "morph": "ज्ञान{नपुं}{1;एक}",
+              "kaaraka": "कर्ता,5",
+              "sandhi": "ज्ञानमभ्यासाञ्ज्ञानाद्ध्यानं",
+              "samasa": "-"
+            },
+            {
+              "pada": "अभ्यासात्",
+              "morph": "अभ्यास{पुं}{5;एक}",
+              "kaaraka": "तुलना_बिन्दुः,3",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "ज्ञानात्",
+              "morph": "ज्ञान{नपुं}{5;एक}",
+              "kaaraka": "तुलना_बिन्दुः,6",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "ध्यानम्",
+              "morph": "ध्यान{नपुं}{1;एक}",
+              "kaaraka": "कर्ता,7",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "विशिष्यते",
+              "morph": "वि_शास्1{कर्तरि;लट्;प्र;एक;आत्मनेपदी;वि_शासुँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,6;अकर्मकः",
+              "sandhi": "विशिष्यते",
+              "samasa": "-"
+            },
+            {
+              "pada": "ध्यानात्",
+              "morph": "ध्यान{नपुं}{5;एक}",
+              "kaaraka": "तुलना_बिन्दुः,9",
+              "sandhi": "ध्यानात्कर्मफलत्यागस्त्यागाच्छान्तिरनन्तरम्",
+              "samasa": "-"
+            },
+            {
+              "pada": "कर्म-फल-त्यागः",
+              "morph": "कर्म-फल-त्याग{पुं}{1;एक}",
+              "kaaraka": "कर्ता,9.1",
+              "sandhi": "0",
+              "samasa": "<<कर्म-फल>T6-त्यागः>T6"
+            },
+            {
+              "pada": "(विशिष्यते)",
+              "morph": "(वि_शास्1{कर्तरि;लट्;प्र;एक;आत्मनेपदी;वि_शासुँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,9;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "त्यागात्",
+              "morph": "त्याग{पुं}{5;एक}",
+              "kaaraka": "तुलना_बिन्दुः,11.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "शान्तिः",
+              "morph": "शान्ति{स्त्री}{1;एक}",
+              "kaaraka": "कर्ता,12.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अनन्तरम्",
+              "morph": "अनन्तर{अव्य}",
+              "kaaraka": "कालाधिकरणम्,12.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "(भवति)",
+              "morph": "(भू1{कर्तरि;लट्;प्र;एक;परस्मैपदी;भू;भ्वादिः})",
+              "kaaraka": "अभिहितकर्ता,11;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,3;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "012",
+        "has_analysis": true,
+        "word_count": 15
+      },
+      "error": null
+    },
+    {
+      "id": "12-013",
+      "index": 13,
+      "text": "अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च।\nनिर्ममः निरहङ्कारः समदुःखसुखः क्षमी॥",
+      "audio": "audio/12-013.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.13",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अ-द्वेष्टा सर्व-भूतानाम् मैत्रः करुणः एव च निर्-ममः निर्-अहङ्कारः सम-दुःख-सुखः क्षमी सन्तुष्टः सततम् योगी यत्-आत्मा दृढ-निश्चयः मयि अर्पित-मनः-बुद्धिः यः मद्-भक्तः (च) (अस्ति) सः मे प्रियः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अ-द्वेष्टा",
+              "artha": "nonenvious",
+              "hindi": "द्वेष-भाव_से_रहित"
+            },
+            {
+              "pada": "सर्व-भूतानाम्",
+              "artha": "for_all_living_entities",
+              "hindi": "सब_भूतों_में"
+            },
+            {
+              "pada": "मैत्रः",
+              "artha": "friendly",
+              "hindi": "स्वार्थरहित_सबका_प्रेमी"
+            },
+            {
+              "pada": "करुणः",
+              "artha": "kindly",
+              "hindi": "हेतुरहित_दयालु"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "तथा"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "निर्-ममः",
+              "artha": "with_no_sense_of_proprietorship",
+              "hindi": "ममता_से_रहित"
+            },
+            {
+              "pada": "निर्-अहङ्कारः",
+              "artha": "without_false_ego",
+              "hindi": "अहंकार_से_रहित"
+            },
+            {
+              "pada": "सम-दुःख-सुखः",
+              "artha": "equal_in_distress_and_happiness",
+              "hindi": "सुख-दुःखों_की_प्राप्ति_में_सम"
+            },
+            {
+              "pada": "क्षमी",
+              "artha": "forgiving",
+              "hindi": "क्षमावान्"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "artha": "satisfied",
+              "hindi": "संतुष्ट"
+            },
+            {
+              "pada": "सततम्",
+              "artha": "always",
+              "hindi": "निरन्तर"
+            },
+            {
+              "pada": "योगी",
+              "artha": "engaged_in_devotion",
+              "hindi": "योगी"
+            },
+            {
+              "pada": "यत्-आत्मा",
+              "artha": "self-controlled",
+              "hindi": "मन-इन्द्रियोंसहित_शरीर_को_वश_में_किये_हुए"
+            },
+            {
+              "pada": "दृढ-निश्चयः",
+              "artha": "with_determination",
+              "hindi": "मुझमें_दृढ़_निश्चयवाला"
+            },
+            {
+              "pada": "मयि",
+              "artha": "upon_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "अर्पित-मनः-बुद्धिः",
+              "artha": "engaged_mind_and_intelligence",
+              "hindi": "अर्पण_किये_हुए_मन-बुद्धिवाला"
+            },
+            {
+              "pada": "यः",
+              "artha": "one_who",
+              "hindi": "जो_(पुरुष)"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "artha": "My_devotee",
+              "hindi": "मेरा_भक्त"
+            },
+            {
+              "pada": "(च)",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "सः",
+              "artha": "he",
+              "hindi": "वह"
+            },
+            {
+              "pada": "मे",
+              "artha": "to_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अ-द्वेष्टा",
+              "morph": "न-द्वेष्टृ{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "अद्वेष्टा",
+              "samasa": "<न-द्वेष्टा>Tn"
+            },
+            {
+              "pada": "सर्व-भूतानाम्",
+              "morph": "सर्व-भूत{पुं}{6;बहु}",
+              "kaaraka": "षष्ठीसम्बन्धः,1",
+              "sandhi": "सर्वभूतानां",
+              "samasa": "<सर्व-भूतानां>K1"
+            },
+            {
+              "pada": "मैत्रः",
+              "morph": "मैत्र{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "मैत्रः",
+              "samasa": "-"
+            },
+            {
+              "pada": "करुणः",
+              "morph": "करुण{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "करुण",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,4",
+              "sandhi": "एव",
+              "samasa": "-"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,5",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "निर्-ममः",
+              "morph": "निर्-मम{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "निर्ममो",
+              "samasa": "<निर्-ममः>Bvp"
+            },
+            {
+              "pada": "निर्-अहङ्कारः",
+              "morph": "निर्-अहङ्कार{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "निरहङ्कारः",
+              "samasa": "<निर्-अहङ्कारः>Bvp"
+            },
+            {
+              "pada": "सम-दुःख-सुखः",
+              "morph": "सम-दुःख-सुख{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "समदुःखसुखः",
+              "samasa": "<सम-<दुःख-सुखः>Di>Bs6"
+            },
+            {
+              "pada": "क्षमी",
+              "morph": "क्षमिन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "क्षमी",
+              "samasa": "-"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "morph": "सम्_तुष्1{कृत्_प्रत्ययः:क्त;वचँ;दीवादिः;पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "सन्तुष्टः",
+              "samasa": "-"
+            },
+            {
+              "pada": "सततम्",
+              "morph": "सततम्{अव्य}",
+              "kaaraka": "क्रियाविशेषणम्,11",
+              "sandhi": "सततं",
+              "samasa": "-"
+            },
+            {
+              "pada": "योगी",
+              "morph": "योगिन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "योगी",
+              "samasa": "-"
+            },
+            {
+              "pada": "यत्-आत्मा",
+              "morph": "यद्-आत्मन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "यतात्मा",
+              "samasa": "<यत-आत्मा>Bs6"
+            },
+            {
+              "pada": "दृढ-निश्चयः",
+              "morph": "दृढ-निश्चय{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "दृढनिश्चयः",
+              "samasa": "<दृढ-निश्चयः>Bs6"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,17",
+              "sandhi": "मय्यर्पितमनोबुद्धिर्यो",
+              "samasa": "-"
+            },
+            {
+              "pada": "अर्पित-मनः-बुद्धिः",
+              "morph": "अर्पित-मनस्-बुद्धि{स्त्री}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "0",
+              "samasa": "<अर्पित-<मनः-बुद्धिः>Di>Bs3"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,19.2;नित्यसम्बन्धः,20",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "morph": "अस्मद्-भक्त{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,19.2",
+              "sandhi": "मद्भक्तः",
+              "samasa": "<अस्मत्-भक्तः>T6"
+            },
+            {
+              "pada": "(च)",
+              "morph": "च{अव्य}",
+              "kaaraka": "समुच्चयद्योतकः,19.2",
+              "sandhi": "(च)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,18;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "सः",
+              "morph": "तद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,22.1",
+              "sandhi": "स",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,22.1",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,22.1",
+              "sandhi": "प्रियः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,20;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "013",
+        "has_analysis": true,
+        "word_count": 25
+      },
+      "error": null
+    },
+    {
+      "id": "12-014",
+      "index": 14,
+      "text": "सन्तुष्टः सततं योगी यतात्मा दृढनिश्चयः।\nमयि अर्पितमनः बुद्धिः यः मत्भक्तः सः मे प्रियः॥",
+      "audio": "audio/12-014.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.14",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अ-द्वेष्टा सर्व-भूतानाम् मैत्रः करुणः एव च निर्-ममः निर्-अहङ्कारः सम-दुःख-सुखः क्षमी सन्तुष्टः सततम् योगी यत्-आत्मा दृढ-निश्चयः मयि अर्पित-मनः-बुद्धिः यः मद्-भक्तः (च) (अस्ति) सः मे प्रियः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अ-द्वेष्टा",
+              "artha": "nonenvious",
+              "hindi": "द्वेष-भाव_से_रहित"
+            },
+            {
+              "pada": "सर्व-भूतानाम्",
+              "artha": "for_all_living_entities",
+              "hindi": "सब_भूतों_में"
+            },
+            {
+              "pada": "मैत्रः",
+              "artha": "friendly",
+              "hindi": "स्वार्थरहित_सबका_प्रेमी"
+            },
+            {
+              "pada": "करुणः",
+              "artha": "kindly",
+              "hindi": "हेतुरहित_दयालु"
+            },
+            {
+              "pada": "एव",
+              "artha": "certainly",
+              "hindi": "तथा"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "निर्-ममः",
+              "artha": "with_no_sense_of_proprietorship",
+              "hindi": "ममता_से_रहित"
+            },
+            {
+              "pada": "निर्-अहङ्कारः",
+              "artha": "without_false_ego",
+              "hindi": "अहंकार_से_रहित"
+            },
+            {
+              "pada": "सम-दुःख-सुखः",
+              "artha": "equal_in_distress_and_happiness",
+              "hindi": "सुख-दुःखों_की_प्राप्ति_में_सम"
+            },
+            {
+              "pada": "क्षमी",
+              "artha": "forgiving",
+              "hindi": "क्षमावान्"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "artha": "satisfied",
+              "hindi": "संतुष्ट"
+            },
+            {
+              "pada": "सततम्",
+              "artha": "always",
+              "hindi": "निरन्तर"
+            },
+            {
+              "pada": "योगी",
+              "artha": "engaged_in_devotion",
+              "hindi": "योगी"
+            },
+            {
+              "pada": "यत्-आत्मा",
+              "artha": "self-controlled",
+              "hindi": "मन-इन्द्रियोंसहित_शरीर_को_वश_में_किये_हुए"
+            },
+            {
+              "pada": "दृढ-निश्चयः",
+              "artha": "with_determination",
+              "hindi": "मुझमें_दृढ़_निश्चयवाला"
+            },
+            {
+              "pada": "मयि",
+              "artha": "upon_Me",
+              "hindi": "मुझमें"
+            },
+            {
+              "pada": "अर्पित-मनः-बुद्धिः",
+              "artha": "engaged_mind_and_intelligence",
+              "hindi": "अर्पण_किये_हुए_मन-बुद्धिवाला"
+            },
+            {
+              "pada": "यः",
+              "artha": "one_who",
+              "hindi": "जो_(पुरुष)"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "artha": "My_devotee",
+              "hindi": "मेरा_भक्त"
+            },
+            {
+              "pada": "(च)",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "सः",
+              "artha": "he",
+              "hindi": "वह"
+            },
+            {
+              "pada": "मे",
+              "artha": "to_Me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अ-द्वेष्टा",
+              "morph": "न-द्वेष्टृ{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "अद्वेष्टा",
+              "samasa": "<न-द्वेष्टा>Tn"
+            },
+            {
+              "pada": "सर्व-भूतानाम्",
+              "morph": "सर्व-भूत{पुं}{6;बहु}",
+              "kaaraka": "षष्ठीसम्बन्धः,1",
+              "sandhi": "सर्वभूतानां",
+              "samasa": "<सर्व-भूतानां>K1"
+            },
+            {
+              "pada": "मैत्रः",
+              "morph": "मैत्र{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "मैत्रः",
+              "samasa": "-"
+            },
+            {
+              "pada": "करुणः",
+              "morph": "करुण{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "करुण",
+              "samasa": "-"
+            },
+            {
+              "pada": "एव",
+              "morph": "एव{अव्य}",
+              "kaaraka": "सम्बन्धः,4",
+              "sandhi": "एव",
+              "samasa": "-"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,5",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "निर्-ममः",
+              "morph": "निर्-मम{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "निर्ममो",
+              "samasa": "<निर्-ममः>Bvp"
+            },
+            {
+              "pada": "निर्-अहङ्कारः",
+              "morph": "निर्-अहङ्कार{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "निरहङ्कारः",
+              "samasa": "<निर्-अहङ्कारः>Bvp"
+            },
+            {
+              "pada": "सम-दुःख-सुखः",
+              "morph": "सम-दुःख-सुख{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "समदुःखसुखः",
+              "samasa": "<सम-<दुःख-सुखः>Di>Bs6"
+            },
+            {
+              "pada": "क्षमी",
+              "morph": "क्षमिन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "क्षमी",
+              "samasa": "-"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "morph": "सम्_तुष्1{कृत्_प्रत्ययः:क्त;वचँ;दीवादिः;पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "सन्तुष्टः",
+              "samasa": "-"
+            },
+            {
+              "pada": "सततम्",
+              "morph": "सततम्{अव्य}",
+              "kaaraka": "क्रियाविशेषणम्,11",
+              "sandhi": "सततं",
+              "samasa": "-"
+            },
+            {
+              "pada": "योगी",
+              "morph": "योगिन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "योगी",
+              "samasa": "-"
+            },
+            {
+              "pada": "यत्-आत्मा",
+              "morph": "यद्-आत्मन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "यतात्मा",
+              "samasa": "<यत-आत्मा>Bs6"
+            },
+            {
+              "pada": "दृढ-निश्चयः",
+              "morph": "दृढ-निश्चय{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "दृढनिश्चयः",
+              "samasa": "<दृढ-निश्चयः>Bs6"
+            },
+            {
+              "pada": "मयि",
+              "morph": "अस्मद्{7;एक}",
+              "kaaraka": "अधिकरणम्,17",
+              "sandhi": "मय्यर्पितमनोबुद्धिर्यो",
+              "samasa": "-"
+            },
+            {
+              "pada": "अर्पित-मनः-बुद्धिः",
+              "morph": "अर्पित-मनस्-बुद्धि{स्त्री}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,19",
+              "sandhi": "0",
+              "samasa": "<अर्पित-<मनः-बुद्धिः>Di>Bs3"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,19.2;नित्यसम्बन्धः,20",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "morph": "अस्मद्-भक्त{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,19.2",
+              "sandhi": "मद्भक्तः",
+              "samasa": "<अस्मत्-भक्तः>T6"
+            },
+            {
+              "pada": "(च)",
+              "morph": "च{अव्य}",
+              "kaaraka": "समुच्चयद्योतकः,19.2",
+              "sandhi": "(च)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,18;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "सः",
+              "morph": "तद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,22.1",
+              "sandhi": "स",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,22.1",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,22.1",
+              "sandhi": "प्रियः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,20;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "014",
+        "has_analysis": true,
+        "word_count": 25
+      },
+      "error": null
+    },
+    {
+      "id": "12-015",
+      "index": 15,
+      "text": "यस्मात् न उद्विजते लोकः लोकात् न उद्विजते च यः।\nहर्षअमर्षभयउद्वेगैः मुक्तः यः सः च मे प्रियः॥",
+      "audio": "audio/12-015.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.15",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "यस्मात् न उद्विजते लोकः लोकात् न उद्विजते च यः हर्ष-अ-मर्ष-भयः-उद्वेगैः मुक्तः यः (अस्ति) सः च मे प्रियः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "यस्मात्",
+              "artha": "from_whom",
+              "hindi": "जिससे"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "नहीं"
+            },
+            {
+              "pada": "उद्विजते",
+              "artha": "agitates",
+              "hindi": "उद्वेग_को_प्राप्त_होता"
+            },
+            {
+              "pada": "लोकः",
+              "artha": "persons",
+              "hindi": "कोई_भी_जीव"
+            },
+            {
+              "pada": "लोकात्",
+              "artha": "from_persons",
+              "hindi": "किसी_जीव_से"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "नहीं"
+            },
+            {
+              "pada": "उद्विजते",
+              "artha": "disturbed",
+              "hindi": "उद्वेग_को_प्राप्त_होता"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "और"
+            },
+            {
+              "pada": "यः",
+              "artha": "anyone",
+              "hindi": "जो"
+            },
+            {
+              "pada": "हर्ष-अ-मर्ष-भयः-उद्वेगैः",
+              "artha": "with_happiness_distress_fear_and_anxiety",
+              "hindi": "हर्ष_अमर्ष_भय_और_उद्वेगादि_से"
+            },
+            {
+              "pada": "मुक्तः",
+              "artha": "freed",
+              "hindi": "रहित"
+            },
+            {
+              "pada": "यः",
+              "artha": "who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "सः",
+              "artha": "anyone",
+              "hindi": "वह"
+            },
+            {
+              "pada": "च",
+              "artha": "also",
+              "hindi": "तथा"
+            },
+            {
+              "pada": "मे",
+              "artha": "Mine",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "very_dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "यस्मात्",
+              "morph": "यद्{पुं}{5;एक}",
+              "kaaraka": "अपादानम्,3;नित्यसम्बन्धः,13",
+              "sandhi": "यस्मान्नोद्विजते",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,3",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "उद्विजते",
+              "morph": "उद्_विज्2{कर्तरि;लट्;प्र;एक;आत्मनेपदी;उद्_ओँविजीँ;तुदादिः}",
+              "kaaraka": "अभिहिकर्ता,4;अकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "लोकः",
+              "morph": "लोक{पुं}{1;एक}",
+              "kaaraka": "कर्ता,3",
+              "sandhi": "लोको",
+              "samasa": "-"
+            },
+            {
+              "pada": "लोकात्",
+              "morph": "लोक{पुं}{5;एक}",
+              "kaaraka": "अपादानम्,7",
+              "sandhi": "लोकान्नोद्विजते",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,7",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "उद्विजते",
+              "morph": "उद्_विज्2{कर्तरि;लट्;प्र;एक;आत्मनेपदी;उद्_ओँविजीँ;तुदादिः}",
+              "kaaraka": "अभिहितकर्ता,9;अकर्मकः",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,7",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,7;नित्यसम्बन्धः,13",
+              "sandhi": "यः",
+              "samasa": "-"
+            },
+            {
+              "pada": "हर्ष-अ-मर्ष-भयः-उद्वेगैः",
+              "morph": "हर्ष-अमर्ष-भय-उद्वेग{पुं}{3;बहु}",
+              "kaaraka": "करणम्,11",
+              "sandhi": "हर्षामर्षभयोद्वेगैर्मुक्तो",
+              "samasa": "<हर्ष-<अ-मर्षः>Tn-भय-उद्वेगैः>Di"
+            },
+            {
+              "pada": "मुक्तः",
+              "morph": "मुच्1{कृत्_प्रत्ययः:क्त;मुचॢँ;तुदादिः;पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,12.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,11;नित्यसम्बन्धः,13",
+              "sandhi": "यः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,12;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "सः",
+              "morph": "तद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,16.1",
+              "sandhi": "स",
+              "samasa": "-"
+            },
+            {
+              "pada": "च",
+              "morph": "च{अव्य}",
+              "kaaraka": "सम्बन्धः,13",
+              "sandhi": "च",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,16",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,16.1",
+              "sandhi": "प्रियः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहिकर्ता,13;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "015",
+        "has_analysis": true,
+        "word_count": 18
+      },
+      "error": null
+    },
+    {
+      "id": "12-016",
+      "index": 16,
+      "text": "अनपेक्षः शुचिः दक्षः उदासीनः गतव्यथः।\nसर्वारम्भपरित्यागी यः मत्भक्तः सः मे प्रियः॥",
+      "audio": "audio/12-016.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.16",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "अन्-अपेक्षः शुचिः दक्षः उदासीनः गत-व्यथः सर्व-आरम्भ-परित्यागी यः मद्-भक्तः (अस्ति) सः मे प्रियः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अन्-अपेक्षः",
+              "artha": "neutral",
+              "hindi": "आकांक्षा_से_रहित"
+            },
+            {
+              "pada": "शुचिः",
+              "artha": "pure",
+              "hindi": "बाहर-भीतर_से_शुद्ध"
+            },
+            {
+              "pada": "दक्षः",
+              "artha": "expert",
+              "hindi": "चतुर"
+            },
+            {
+              "pada": "उदासीनः",
+              "artha": "free_from_care",
+              "hindi": "पक्षपात_से_रहित"
+            },
+            {
+              "pada": "गत-व्यथः",
+              "artha": "freed_from_all_distress",
+              "hindi": "दुःखों_से_छूटा_हुआ"
+            },
+            {
+              "pada": "सर्व-आरम्भ-परित्यागी",
+              "artha": "renouncer_of_all_endeavors",
+              "hindi": "सब_आरम्भों_का_त्यागी"
+            },
+            {
+              "pada": "यः",
+              "artha": "anyone",
+              "hindi": "जो_(पुरुष)"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "artha": "My_devotee",
+              "hindi": "मेरा_भक्त"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "सः",
+              "artha": "he",
+              "hindi": "वह"
+            },
+            {
+              "pada": "मे",
+              "artha": "me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "very_dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "अन्-अपेक्षः",
+              "morph": "न-अपेक्ष{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "अनपेक्षः",
+              "samasa": "<न-अपेक्षः>Bsmn"
+            },
+            {
+              "pada": "शुचिः",
+              "morph": "शुचि{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "शुचिर्दक्ष",
+              "samasa": "-"
+            },
+            {
+              "pada": "दक्षः",
+              "morph": "दक्ष{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "उदासीनः",
+              "morph": "उदासीन{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "उदासीनो",
+              "samasa": "-"
+            },
+            {
+              "pada": "गत-व्यथः",
+              "morph": "गत-व्यथ{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "गतव्यथः",
+              "samasa": "<गत-व्यथः>Bs5"
+            },
+            {
+              "pada": "सर्व-आरम्भ-परित्यागी",
+              "morph": "सर्व-आरम्भ-परित्यागिन्{पुं}{1;एक}",
+              "kaaraka": "सुप्_समुच्चितम्,8",
+              "sandhi": "सर्वारम्भपरित्यागी",
+              "samasa": "<<सर्व-आरम्भ>K1-परित्यागी>T6"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,8.1;नित्यसम्बन्धः,9",
+              "sandhi": "यो",
+              "samasa": "-"
+            },
+            {
+              "pada": "मद्-भक्तः",
+              "morph": "अस्मद्-भक्त{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,8.1",
+              "sandhi": "मद्भक्तः",
+              "samasa": "<अस्मत्-भक्तः>T6"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,7;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "सः",
+              "morph": "तद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,11.1",
+              "sandhi": "स",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,11",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,11.1",
+              "sandhi": "प्रियः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,9;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "016",
+        "has_analysis": true,
+        "word_count": 13
+      },
+      "error": null
+    },
+    {
+      "id": "12-017",
+      "index": 17,
+      "text": "यः न हृष्यति न द्वेष्टि न शोचति न काङ्क्षति।\nशुभअशुभपरित्यागी भक्तिमान् यः सः मे प्रियः॥",
+      "audio": "audio/12-017.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.17",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "यः न हृष्यति न द्वेष्टि न शोचति न काङ्क्षति शुभ-अ-शुभ-परित्यागी भक्तिमान् यः सः मे प्रियः (अस्ति) (अस्ति) (यः) (यः) (यः)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "यः",
+              "artha": "one_who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "न"
+            },
+            {
+              "pada": "हृष्यति",
+              "artha": "takes_pleasure",
+              "hindi": "हर्षित_होता_है"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "न"
+            },
+            {
+              "pada": "द्वेष्टि",
+              "artha": "grieves",
+              "hindi": "द्वेष_करता_है"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "न"
+            },
+            {
+              "pada": "शोचति",
+              "artha": "laments",
+              "hindi": "शोक_करता_है"
+            },
+            {
+              "pada": "न",
+              "artha": "never",
+              "hindi": "न"
+            },
+            {
+              "pada": "काङ्क्षति",
+              "artha": "desires",
+              "hindi": "कामना_करता_है"
+            },
+            {
+              "pada": "शुभ-अ-शुभ-परित्यागी",
+              "artha": "renouncer_of_auspicious_and_inauspicious",
+              "hindi": "शुभ_और_अशुभ_सम्पूर्ण_कर्मों_का_त्यागी"
+            },
+            {
+              "pada": "भक्तिमान्",
+              "artha": "devotee",
+              "hindi": "भक्तियुक्त_पुरुष"
+            },
+            {
+              "pada": "यः",
+              "artha": "one_who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "सः",
+              "artha": "he",
+              "hindi": "वह"
+            },
+            {
+              "pada": "मे",
+              "artha": "Mine",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            },
+            {
+              "pada": "(यः)",
+              "artha": "one_who",
+              "hindi": "(जो)"
+            },
+            {
+              "pada": "(यः)",
+              "artha": "one_who",
+              "hindi": "(जो)"
+            },
+            {
+              "pada": "(यः)",
+              "artha": "one_who",
+              "hindi": "(जो)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,3",
+              "sandhi": "यो",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,3",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "हृष्यति",
+              "morph": "हृष्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;हृषँ;दिवादिः}",
+              "kaaraka": "-",
+              "sandhi": "हृष्यति",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,5",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "द्वेष्टि",
+              "morph": "द्विष्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;द्विषँ;अदादिः}",
+              "kaaraka": "-",
+              "sandhi": "द्वेष्टि",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,7",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "शोचति",
+              "morph": "शुच्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;शुचँ;भ्वादिः}",
+              "kaaraka": "-",
+              "sandhi": "शोचति",
+              "samasa": "-"
+            },
+            {
+              "pada": "न",
+              "morph": "न{अव्य}",
+              "kaaraka": "प्रतिषेधः,9",
+              "sandhi": "न",
+              "samasa": "-"
+            },
+            {
+              "pada": "काङ्क्षति",
+              "morph": "काङ्क्ष्1{कर्तरि;लट्;प्र;एक;परस्मैपदी;काक्षिँ;भ्वादिः}",
+              "kaaraka": "-",
+              "sandhi": "काङ्क्षति",
+              "samasa": "-"
+            },
+            {
+              "pada": "शुभ-अ-शुभ-परित्यागी",
+              "morph": "शुभ-अशुभ-परित्यागिन्{पुं}{1;एक}",
+              "kaaraka": "-",
+              "sandhi": "शुभाशुभपरित्यागी",
+              "samasa": "<<शुभ-<न-शुभ>Tn>Di-परित्यागी>T6"
+            },
+            {
+              "pada": "भक्तिमान्",
+              "morph": "भक्तिमत्{पुं}{1;एक}",
+              "kaaraka": "-",
+              "sandhi": "भक्तिमान्यः",
+              "samasa": "-"
+            },
+            {
+              "pada": "यः",
+              "morph": "यद्{पुं}{1;एक}",
+              "kaaraka": "कर्ता,3",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "सः",
+              "morph": "तद्{पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "स",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,15",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,16",
+              "sandhi": "प्रियः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(यः)",
+              "morph": "(यद्{पुं}{1;एक})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(यः)",
+              "morph": "(यद्{पुं}{1;एक})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            },
+            {
+              "pada": "(यः)",
+              "morph": "(यद्{पुं}{1;एक})",
+              "kaaraka": "-",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "017",
+        "has_analysis": true,
+        "word_count": 20
+      },
+      "error": null
+    },
+    {
+      "id": "12-018",
+      "index": 18,
+      "text": "समः शत्रौ च मित्रे च तथा मानअपमानयोः।\nशीतउष्णसुखदुःखेषु समः सङ्गविवर्जितः॥",
+      "audio": "audio/12-018.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.18",
+      "annotations": [
+        {
+          "kind": "notes",
+          "title": "Notes",
+          "render": "prose",
+          "content": "Grammatical analysis not available for this verse in the SCL dataset.",
+          "meta": {}
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "018",
+        "has_analysis": false,
+        "word_count": 0
+      },
+      "error": null
+    },
+    {
+      "id": "12-019",
+      "index": 19,
+      "text": "तुल्यनिन्दा स्तुतिः मौनी सन्तुष्टः येन केनचित्।\nअनिकेतः स्थिरमतिः भक्तिमान् मे प्रियः नरः॥",
+      "audio": "audio/12-019.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.19",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "तुल्य-निन्दा-स्तुतिः मौनी सन्तुष्टः येन केनचित् अ-निकेतः स्थिर-मतिः भक्तिमान् मे प्रियः नरः (अस्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "तुल्य-निन्दा-स्तुतिः",
+              "artha": "equal_in_defamation_and_repute",
+              "hindi": "निन्दा-स्तुति_को_समान_समझनेवाला"
+            },
+            {
+              "pada": "मौनी",
+              "artha": "silent",
+              "hindi": "मननशील"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "artha": "satisfied",
+              "hindi": "सदा_ही_संतुष्ट"
+            },
+            {
+              "pada": "येन",
+              "artha": "somehow",
+              "hindi": "जिस"
+            },
+            {
+              "pada": "केनचित्",
+              "artha": "or_other_if",
+              "hindi": "किसी_प्रकार_से"
+            },
+            {
+              "pada": "अ-निकेतः",
+              "artha": "having_no_residence",
+              "hindi": "रहने_के_स्थान_में_ममता_और_आसक्ति_से_रहित"
+            },
+            {
+              "pada": "स्थिर-मतिः",
+              "artha": "fixed_determination",
+              "hindi": "स्थिरबुद्धि"
+            },
+            {
+              "pada": "भक्तिमान्",
+              "artha": "engaged_in_devotion",
+              "hindi": "भक्तिमान्"
+            },
+            {
+              "pada": "मे",
+              "artha": "my",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियः",
+              "artha": "dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "नरः",
+              "artha": "a_man",
+              "hindi": "पुरुष"
+            },
+            {
+              "pada": "(अस्ति)",
+              "artha": "is",
+              "hindi": "(है)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "तुल्य-निन्दा-स्तुतिः",
+              "morph": "तुल्य-निन्दा-स्तुति{स्त्री}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "तुल्यनिन्दास्तुतिर्मौनी",
+              "samasa": "<तुल्य-<निन्दा-स्तुतिः>Di>Bs6"
+            },
+            {
+              "pada": "मौनी",
+              "morph": "मौनिन्{पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "सन्तुष्टः",
+              "morph": "सम्_तुष्1{कृत्_प्रत्ययः:क्त;वचँ;दीवादिः;पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "सन्तुष्टो",
+              "samasa": "-"
+            },
+            {
+              "pada": "येन",
+              "morph": "यद्{पुं}{3;एक}",
+              "kaaraka": "विशेषणम्,5",
+              "sandhi": "येन",
+              "samasa": "-"
+            },
+            {
+              "pada": "केनचित्",
+              "morph": "किञ्चित्{पुं}{3;एक}",
+              "kaaraka": "हेतुः,3",
+              "sandhi": "केनचित्",
+              "samasa": "-"
+            },
+            {
+              "pada": "अ-निकेतः",
+              "morph": "अनिकेत{पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "अनिकेतः",
+              "samasa": "<न-निकेतः>Bsmn"
+            },
+            {
+              "pada": "स्थिर-मतिः",
+              "morph": "स्थिर-मति{स्त्री}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "स्थिरमतिर्भक्तिमान्मे",
+              "samasa": "<स्थिर-मतिः>Bs6"
+            },
+            {
+              "pada": "भक्तिमान्",
+              "morph": "भक्तिमत्{पुं}{1;एक}",
+              "kaaraka": "विशेषणम्,11",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,10",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियः",
+              "morph": "प्रिय{पुं}{1;एक}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,11.1",
+              "sandhi": "प्रियो",
+              "samasa": "-"
+            },
+            {
+              "pada": "नरः",
+              "morph": "नर{पुं}{1;एक}",
+              "kaaraka": "कर्ता,11.1",
+              "sandhi": "नरः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(अस्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;एक;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,11;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "019",
+        "has_analysis": true,
+        "word_count": 12
+      },
+      "error": null
+    },
+    {
+      "id": "12-020",
+      "index": 20,
+      "text": "ये तु धर्म्यअमृतम् इदं यथाउक्तम् पर्युपासते।\nश्रद्दधाना मत्परमाः भक्ताः ते अतीव मे प्रियाः॥",
+      "audio": "audio/12-020.wav",
+      "meter": "anuṣṭubh",
+      "source_ref": "12.20",
+      "annotations": [
+        {
+          "kind": "anvaya",
+          "title": "अन्वय · Anvaya",
+          "render": "prose",
+          "content": "ये तु धर्म्य-अमृतम् इदम् यथा उक्तम् पर्युपासते श्रद्दधानाः मत्-परमाः भक्ताः ते अतीव मे प्रियाः (सन्ति)",
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "pratipada",
+          "title": "प्रतिपदार्य · Word meanings",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "artha": "one_who",
+              "hindi": "जो"
+            },
+            {
+              "pada": "तु",
+              "artha": "but",
+              "hindi": "परंतु"
+            },
+            {
+              "pada": "धर्म्य-अमृतम्",
+              "artha": "of_religious_nectar",
+              "hindi": "धर्ममय_अमृत_का"
+            },
+            {
+              "pada": "इदम्",
+              "artha": "this",
+              "hindi": "इस"
+            },
+            {
+              "pada": "यथा",
+              "artha": "as",
+              "hindi": "जैसे"
+            },
+            {
+              "pada": "उक्तम्",
+              "artha": "said",
+              "hindi": "कहे_हुए"
+            },
+            {
+              "pada": "पर्युपासते",
+              "artha": "completely_engage",
+              "hindi": "उपासना_करते_हैं"
+            },
+            {
+              "pada": "श्रद्दधानाः",
+              "artha": "with_faith",
+              "hindi": "श्रद्धायुक्त_पुरुष"
+            },
+            {
+              "pada": "मत्-परमाः",
+              "artha": "taking_the_Supreme_Lord_as_everything",
+              "hindi": "मेरे_परायण_होकर"
+            },
+            {
+              "pada": "भक्ताः",
+              "artha": "devotees",
+              "hindi": "भक्त"
+            },
+            {
+              "pada": "ते",
+              "artha": "such_persons",
+              "hindi": "वे"
+            },
+            {
+              "pada": "अतीव",
+              "artha": "very,_very",
+              "hindi": "अतिशय"
+            },
+            {
+              "pada": "मे",
+              "artha": "me",
+              "hindi": "मुझको"
+            },
+            {
+              "pada": "प्रियाः",
+              "artha": "dear",
+              "hindi": "प्रिय"
+            },
+            {
+              "pada": "(सन्ति)",
+              "artha": "are",
+              "hindi": "(हैं)"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        },
+        {
+          "kind": "grammar",
+          "title": "व्याकरण · Grammatical analysis",
+          "render": "table",
+          "content": [
+            {
+              "pada": "ये",
+              "morph": "यद्{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,10;नित्यसम्बन्धः,11",
+              "sandhi": "ये",
+              "samasa": "-"
+            },
+            {
+              "pada": "तु",
+              "morph": "तु{अव्य}",
+              "kaaraka": "सम्बन्धः,7",
+              "sandhi": "तु",
+              "samasa": "-"
+            },
+            {
+              "pada": "धर्म्य-अमृतम्",
+              "morph": "धर्म्य-अमृत{नपुं}{2;एक}",
+              "kaaraka": "कर्म,7",
+              "sandhi": "धर्म्यामृतमिदं",
+              "samasa": "<धर्म्य-अमृतम्>K1"
+            },
+            {
+              "pada": "इदम्",
+              "morph": "इदम्{नपुं}{2;एक}",
+              "kaaraka": "विशेेषणम्,3",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "यथा",
+              "morph": "यथा{अव्य}",
+              "kaaraka": "क्रियाविशेषणम्,6",
+              "sandhi": "यथोक्तं",
+              "samasa": "-"
+            },
+            {
+              "pada": "उक्तम्",
+              "morph": "वच्1{कृत्_प्रत्ययः:क्त;वचँ;अदादिः;नपुं}{2;एक}",
+              "kaaraka": "विशेषणम्,3",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "पर्युपासते",
+              "morph": "परि_उप_आस्1{कर्तरि;लट्;प्र;बहु;आत्मनेपदी;परि_उप_आसँ;अदादिः}",
+              "kaaraka": "अभिहितकर्ता,10;सकर्मकः",
+              "sandhi": "पर्युपासते",
+              "samasa": "-"
+            },
+            {
+              "pada": "श्रद्दधानाः",
+              "morph": "श्रद्दधान{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,10",
+              "sandhi": "श्रद्दधाना",
+              "samasa": "-"
+            },
+            {
+              "pada": "मत्-परमाः",
+              "morph": "अस्मद्-परम{पुं}{1;बहु}",
+              "kaaraka": "विशेषणम्,10",
+              "sandhi": "मत्परमा",
+              "samasa": "<अस्मत्-परमाः>Bs6"
+            },
+            {
+              "pada": "भक्ताः",
+              "morph": "भक्त{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,7",
+              "sandhi": "भक्तास्तेऽतीव",
+              "samasa": "-"
+            },
+            {
+              "pada": "ते",
+              "morph": "तद्{पुं}{1;बहु}",
+              "kaaraka": "कर्ता,14.1",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "अतीव",
+              "morph": "अतीव{अव्य}",
+              "kaaraka": "तीर्वतादर्शी,14",
+              "sandhi": "0",
+              "samasa": "-"
+            },
+            {
+              "pada": "मे",
+              "morph": "अस्मद्{6;एक}",
+              "kaaraka": "षष्ठीसम्बन्धः,14",
+              "sandhi": "मे",
+              "samasa": "-"
+            },
+            {
+              "pada": "प्रियाः",
+              "morph": "प्रिय{पुं}{1;बहु}",
+              "kaaraka": "कर्तृसमानाधिकरणम्,14.1",
+              "sandhi": "प्रियाः",
+              "samasa": "-"
+            },
+            {
+              "pada": "(सन्ति)",
+              "morph": "(अस्2{कर्तरि;लट्;प्र;बहु;परस्मैपदी;असँ;अदादिः})",
+              "kaaraka": "अभिहितकर्ता,11;अकर्मकः",
+              "sandhi": "(0)",
+              "samasa": "-"
+            }
+          ],
+          "meta": {
+            "source": "samsaadhanii/scl"
+          }
+        }
+      ],
+      "meta": {
+        "chapter": "12",
+        "sloka": "020",
+        "has_analysis": true,
+        "word_count": 15
+      },
+      "error": null
+    }
+  ],
+  "schema_version": 1
+}
