@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T04:53:41.215599+00:00",
+  "generated_at": "2026-08-04T04:56:42.709260+00:00",
   "packs": [
     {
       "slug": "brahma-varga",
@@ -99,6 +99,15 @@
       "verse_count": 34,
       "audio_count": 34,
       "path": "gita-ch-09/"
+    },
+    {
+      "slug": "gita-ch-10",
+      "title": "भगवद्गीता · अध्यायः १०",
+      "subtitle": "Chapter 10 · Śrīmad Bhagavad Gītā",
+      "description": "Text & grammatical analysis from Samsaadhanii SCL (Śrīmad Bhagavad Gītā e-reader) — https://github.com/samsaadhanii/scl/tree/master/e-readers/SBG-NEW/sbg_ereader/assets/data",
+      "verse_count": 42,
+      "audio_count": 42,
+      "path": "gita-ch-10/"
     }
   ]
 }
